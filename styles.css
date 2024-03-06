@@ -1,0 +1,22 @@
+.shantell-sans-uniquifier {
+  font-family: "Shantell Sans", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings:
+    "BNCE" 0,
+    "INFM" 0,
+    "SPAC" 0;
+}
+
+body {
+    background-color: bisque;
+  }
+
+.gameCanvas {
+    font-family: "Shantell Sans";
+}
+
+p {
+    color: red;
+}
