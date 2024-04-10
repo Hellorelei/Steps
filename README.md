@@ -12,14 +12,16 @@ And so, **you**, our most valued employee, have just gotten a promotion. From st
 
 #### Ennemies
 
-* Microplastics
-* ?
-* (milu please fill in idk what ennemies we have)
+* Microplastics (Activated carbon 4)
+* Déchets pyhsiques (étape dégrillage 1)
+* Mud (étape décantation basique 2)
+* Organic mollecules (étape décantation avec bactéries aérobies 3)
 
 #### Towers
 
-* Grates
-* Bacteria?
-* (milu please,,)
+* Grates 1
+* Décantation 
+* Décantation aérobie
+* Activated carbon
 
 
