@@ -12,6 +12,9 @@ const k = kaplay({
 	stretch: true,
 })
 
+const canvas_width = k.width
+const canvas_height = k.height
+
 let start_menu;
 let window_dimensions = k.canvas
 
@@ -24,6 +27,7 @@ class GameRoutine {
 		console.log('GameRoutine.start() called: Starting game...')
 		AssetLoader.start()
 		StartMenu.setupStartMenu()
+		Credits.setupCreditsPage()
 		k.go("start_menu");
 	}
 }
@@ -40,7 +44,7 @@ class AssetLoader {
 	}
 	static getFont() {
 		/// Let's grab our main font :)
-		k.loadFont("Shantell Sans", "assets/fonts/Shantell_Sans/static/ShantellSans-Medium.ttf")
+		k.loadFont("Shantell Sans", "assets/fonts/Shantell_Sans/static/ShantellSans-Medium.ttf", {size:64})
 	}
 	static getAssets() {
 		/// Gets a list of sprites to load from sprite_list.json
@@ -72,18 +76,74 @@ class StartMenu {
 	constructor() {}
 
 	static setupStartMenu() {
-		start_menu = scene("start_menu", () => {
-			k.add([
-				pos(
-					100, 100,
+		const start_menu = scene("start_menu", () => {
+			console.log(start_menu)
+			this.setupStartMenuButtons()
+			this.setupStartMenuRiver()
+			k.onClick("start_button", (start_button) => k.go("game"))
+			k.onClick("credits_button", (start_button) => k.go("credits_page"))
+		})
+		k.go("start_menu");
+	}
+
+	static setupStartMenuButtons() {
+		const start_button = add([
+			"button",
+			"start_button",
+			pos(vec2(canvas_width()/2, 9*(canvas_height()/16))),
+			anchor('center'),
+			area({scale: vec2(1.6, 1.6)}),
+			rect(
+				canvas_width()/2,
+				canvas_height()/8,
 				),
-				text(
-					"Steps",
-					{
-						size: 48,
-						font: "Shantell Sans",
-						align: "center",
-					})
+			])
+		const credits_button = add([
+			"button",
+			"credits_button",
+			pos(vec2(canvas_width()/2, 12*(canvas_height()/16))),
+			anchor('center'),
+			area({scale: vec2(1.6, 1.6)}),
+			rect(
+				canvas_width()/2,
+				canvas_height()/8,
+				),
+			])
+
+	}
+
+	static setupStartMenuRiver() {
+		const river = add([
+			"river",
+			pos(vec2(0, canvas_height())),
+			anchor("botleft"),
+			area(),
+			color(0, 100, 255),
+			rect(
+				canvas_width(),
+				canvas_height()/16,
+			),
+		])
+	}
+}
+
+class Credits {
+	constructor() {}
+
+	static setupCreditsPage(){
+		const credits_page = scene("credits_page", () => {
+			k.onClick("back_button", (start_button) => k.go("start_menu"))
+			add([
+				"back_button",
+				"button",
+				pos(vec2(canvas_width()/16, 14*canvas_height()/16)),
+				anchor("left"),
+				area(),
+				color(100, 50, 100),
+				rect(
+					canvas_width()/8,
+					canvas_height()/16,
+				)
 			])
 		})
 	}
@@ -91,24 +151,15 @@ class StartMenu {
 
 GameRoutine.start()
 console.log(k.width() + ', ' + k.height())
-///k.loadSprite("bean", "sprites/bean.png")
-
-
-///k.add([
-///	k.pos(120, 80),
-///	k.sprite("bean"),
-///])
-
-k.onClick(() => k.addKaboom(k.mousePos()))
-k.onClick(
-	() => k.add([
-		k.pos(k.mousePos()),
-		k.sprite(
-			"starch",
-			{
-				anim: "idle",
-			})
-	])
-)
 
 k.onClick(() => console.log(k.mousePos()))
+
+k.onDraw(() => {
+	k.drawText({
+		text: "abcdefg\nhijklmn\nopqrstu\nvwxyz!",
+		size: 48,
+		font: "Shantell Sans",
+		pos: k.mousePos(),
+		width: 120
+	})
+})
