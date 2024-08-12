@@ -1,30 +1,71 @@
 import kaplay from "kaplay";
 import "kaplay/global";
 
-const k = kaplay()
+const k = kaplay({
+	/// We're setting some nice defaults, such as:
+	/// fixed width and height to 512 for x16 and x32 texture compat
+	/// letterbox to allow for letterboxing
+	/// and stretch so that the canvas fills as much space as available
+	width: 512,
+	height: 512,
+	letterbox: true,
+	stretch: true,
+})
 
 let start_menu;
 let window_dimensions = k.canvas
 
-
-class SpritesLoader {
+class GameRoutine {
+	/// Handles general game flow.
 	constructor() {
 	}
 
+	static start() {
+		console.log('GameRoutine.start() called: Starting game...')
+		AssetLoader.start()
+		StartMenu.setupStartMenu()
+		k.go("start_menu");
+	}
+}
+
+class AssetLoader {
+	/// This class handles the loading of assets.
+	constructor() {
+	}
+
+	static start() {
+		/// List of things to do when called:
+		AssetLoader.getFont()
+		AssetLoader.getAssets()
+	}
 	static getFont() {
+		/// Let's grab our main font :)
 		k.loadFont("Shantell Sans", "assets/fonts/Shantell_Sans/static/ShantellSans-Medium.ttf")
 	}
 	static getAssets() {
-		fetch("assets/sprites/sprite_list.json").then(res => res.json()).then(json => console.log(json));
+		/// Gets a list of sprites to load from sprite_list.json
+		fetch("assets/sprites/sprite_list.json").then(res => res.json()).then(json => AssetLoader.loadSprites(json));
 	}
 
-	static loadStarch() {
-		k.loadAseprite(
-			"starch",
-			"sprites/starch_1.png",
-			"sprites/starch_1.json"
-		)
-}
+	static loadSprites(sprite_list) {
+		/// Tries to load all sprites from the provided dictionary
+		///console.log(sprite_list)
+		console.log('Loading sprites...')
+		console.log(Object.keys(sprite_list).length + ' assets found.')
+		for (const [sprite_name, sprite_file] of Object.entries(sprite_list)) {
+			console.log(
+				'Loading sprite: ' + sprite_name
+			)
+			k.loadAseprite(
+				sprite_name,
+				'assets/sprites/' + sprite_file + '.png',
+				'assets/sprites/' + sprite_file + '.json'
+			)
+			console.log(
+				'    done!'
+			)
+		}
+	}
 }
 
 class StartMenu {
@@ -32,8 +73,6 @@ class StartMenu {
 
 	static setupStartMenu() {
 		start_menu = scene("start_menu", () => {
-			console.log(window_dimensions)
-			console.log(k.width)
 			k.add([
 				pos(
 					100, 100,
@@ -49,11 +88,9 @@ class StartMenu {
 		})
 	}
 }
-SpritesLoader.getFont()
-SpritesLoader.getAssets()
-StartMenu.setupStartMenu()
-k.go("start_menu");
 
+GameRoutine.start()
+console.log(k.width() + ', ' + k.height())
 ///k.loadSprite("bean", "sprites/bean.png")
 
 
