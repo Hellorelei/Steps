@@ -1,0 +1,26 @@
+{
+  "start_button": {
+    "tag": "start_button",
+    "pos_x": 32,
+    "pos_y": 32,
+    "anchor": "center",
+    "width": 8,
+    "height": 1
+  },
+  "credits_button": {
+    "tag": "credits_button",
+    "pos_x": 32,
+    "pos_y": 30,
+    "anchor": "center",
+    "width": 8,
+    "height": 1
+  },
+  "quit_button": {
+    "tag": "credits_button",
+    "pos_x": 32,
+    "pos_y": 30,
+    "anchor": "center",
+    "width": 8,
+    "height": 1
+  }
+}
