@@ -25,6 +25,7 @@ class GameRoutine {
 
 	static start() {
 		console.log('GameRoutine.start() called: Starting...')
+		/// Using promises to ensure correct order in loading processes.
 		k.load(new Promise ((resolve, reject) => {
 			console.log('    · loading assets...')
 			AssetLoader.loadAssets()
@@ -70,9 +71,14 @@ class AssetLoader {
 			///console.log(ui_list)
 			for (const entry of ui_list)  {
 				///console.log(entry)
-				let data = AssetLoader.getUIData(entry)
+				let data = await AssetLoader.getUIData(entry)
 				///console.log(data)
-				Object.assign(data, UIElements.UIFiles)
+				///console.log(entry)
+				///Object.assign(data, UIElements.UIFiles)
+				UIElements.UIFiles[entry] = data
+				console.log('assigned data to uifiles:')
+				///console.log(data)
+				console.log(UIElements.UIFiles)
 			}
 			console.log('        -> done')
 			resolve()
@@ -133,17 +139,18 @@ class UIElements {
 		...
 	 */
 	static UIFiles = {}
+	static ui_magic = 8
 
-	static createUIElement(type, entry) {
+	static createUIElement(type) {
 		console.log('constructor called!')
+		console.log(`    building buttons:${type}`)
+		let obj = UIElements.UIFiles[type]
 		try {
-			let args = UIElements.UIFiles[entry]
-			console.log('with args: ')
-			console.log(args)
-			switch (type) {
-			case 'start_menu_big':
-				return UIElements.makeMainMenuButton(args);
-		}
+			for (let variable in obj) {
+				console.log(`    using these args:`)
+				console.log(obj[variable])
+				UIElements.makeMainMenuButton(obj[variable]);
+			}
 		}
 		catch(e) {
 			console.error(e)
@@ -151,16 +158,18 @@ class UIElements {
 	}
 
 	static makeMainMenuButton(args) {
+		/// Generic button builder.
+		console.log(args["width"])
 		return add([
 			"button",
 			args['tag'],
 			outline(0, WHITE),
 			anchor(args['anchor']),
-			pos(vec2(args['pos_x'], args['pos_y']),),
+			pos(vec2(args['pos_x']*this.ui_magic, args['pos_y']*this.ui_magic),),
 			area(),
 			rect(
-				args["width"],
-				args["height"],
+				args["width"]*this.ui_magic,
+				args["height"]*this.ui_magic,
 			),
 		])
 	}
@@ -173,7 +182,8 @@ class StartMenu {
 	static setupStartMenu() {
 		const start_menu = scene("start_menu", () => {
 			console.log(start_menu)
-			this.setupStartMenuButtons()
+			///this.setupStartMenuButtons()
+			UIElements.createUIElement('main_menu')
 			this.setupStartMenuRiver()
 			k.onClick("start_button", (start_button) => k.go("game"))
 			k.onClick("credits_button", (credits_button) => k.go("credits_page"))
@@ -184,48 +194,6 @@ class StartMenu {
 		})
 		k.go("start_menu");
 		return true
-	}
-
-	static setupStartMenuButtons() {
-		const start_button = UIElements.createUIElement('main_menu', 'start_menu_big', 'start_button')
-		/*const start_button = add([
-			"button",
-			"start_button",
-			outline(0, WHITE),
-			pos(vec2(canvas_width()/2, 9*(canvas_height()/16))),
-			anchor('center'),
-			area({scale: vec2(1.1, 1)}),
-			rect(
-				canvas_width()/2,
-				canvas_height()/8,
-				),
-			])*/
-		const credits_button = add([
-			"button",
-			"credits_button",
-			outline(0, WHITE),
-			pos(vec2(canvas_width()/2, 12*(canvas_height()/16))),
-			anchor('center'),
-			area({scale: vec2(1.1, 1)}),
-			rect(
-				canvas_width()/2,
-				canvas_height()/8,
-				),
-			])
-
-		const quit_button = add([
-				"quit_button",
-				"button",
-				outline(0, WHITE),
-				pos(vec2(canvas_width()-canvas_width()/16, 14*canvas_height()/16)),
-				anchor("right"),
-				area(),
-				color(100, 10, 10),
-				rect(
-					canvas_width()/8,
-					canvas_height()/16,
-				)
-			])
 	}
 
 	static setupStartMenuRiver() {

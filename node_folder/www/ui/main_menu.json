@@ -1,26 +1,29 @@
 {
   "start_button": {
     "tag": "start_button",
+    "text": "Start",
     "pos_x": 32,
-    "pos_y": 32,
+    "pos_y": 30,
     "anchor": "center",
-    "width": 8,
-    "height": 1
+    "width": 32,
+    "height": 8
   },
   "credits_button": {
     "tag": "credits_button",
+    "text": "Credits",
     "pos_x": 32,
-    "pos_y": 30,
+    "pos_y": 40,
     "anchor": "center",
-    "width": 8,
-    "height": 1
+    "width": 32,
+    "height": 8
   },
   "quit_button": {
-    "tag": "credits_button",
+    "tag": "quit_button",
+    "text": "Quit",
     "pos_x": 32,
-    "pos_y": 30,
+    "pos_y": 50,
     "anchor": "center",
-    "width": 8,
-    "height": 1
+    "width": 32,
+    "height": 8
   }
 }
