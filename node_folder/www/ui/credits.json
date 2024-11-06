@@ -1,0 +1,11 @@
+{
+  "back_button": {
+    "tag": "back_button",
+    "text": "Back",
+    "pos_x": 10,
+    "pos_y": 60,
+    "anchor": "center",
+    "width": 32,
+    "height": 8
+  }
+}

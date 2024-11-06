@@ -149,7 +149,7 @@ class UIElements {
 			for (let variable in obj) {
 				console.log(`    using these args:`)
 				console.log(obj[variable])
-				UIElements.makeMainMenuButton(obj[variable]);
+				UIElements.addButtonFromObject(obj[variable]);
 			}
 		}
 		catch(e) {
@@ -157,21 +157,29 @@ class UIElements {
 		}
 	}
 
-	static makeMainMenuButton(args) {
+	static addButtonFromObject(args) {
 		/// Generic button builder.
-		console.log(args["width"])
-		return add([
+		let button = add([
 			"button",
 			args['tag'],
 			outline(0, WHITE),
 			anchor(args['anchor']),
-			pos(vec2(args['pos_x']*this.ui_magic, args['pos_y']*this.ui_magic),),
+			pos(vec2(args['pos_x'] * this.ui_magic, args['pos_y'] * this.ui_magic),),
 			area(),
 			rect(
-				args["width"]*this.ui_magic,
-				args["height"]*this.ui_magic,
+				args["width"] * this.ui_magic,
+				args["height"] * this.ui_magic,
 			),
 		])
+		if (args["text"]) {
+			console.log(args["text"])
+		button.add([
+			text(args["text"]),
+			anchor(args["anchor"]),
+			color(0, 100, 255),
+		])
+		}
+		return button
 	}
 }
 
@@ -182,13 +190,12 @@ class StartMenu {
 	static setupStartMenu() {
 		const start_menu = scene("start_menu", () => {
 			console.log(start_menu)
-			///this.setupStartMenuButtons()
 			UIElements.createUIElement('main_menu')
 			this.setupStartMenuRiver()
 			k.onClick("start_button", (start_button) => k.go("game"))
 			k.onClick("credits_button", (credits_button) => k.go("credits_page"))
 			k.onClick("quit_button", (quit_button) => k.quit())
-			k.onHover("button", (button) => button.use(outline(1, BLACK)))
+			k.onHover("button", (button) => button.use(outline(2, BLACK)))
 			k.onHoverEnd("button", (button) => button.use(outline(0, WHITE)))
 			k.onHover("button", (button) => console.log('hover' + button))
 		})
@@ -216,22 +223,10 @@ class Credits {
 
 	static setupCreditsPage(){
 		const credits_page = scene("credits_page", () => {
-			k.onHover("button", (button) => button.use(outline(1, BLACK)))
+			k.onHover("button", (button) => button.use(outline(2, BLACK)))
 			k.onHoverEnd("button", (button) => button.use(outline(0, WHITE)))
 			k.onClick("back_button", (start_button) => k.go("start_menu"))
-			add([
-				"back_button",
-				"button",
-				outline(0, WHITE),
-				pos(vec2(canvas_width()/16, 14*canvas_height()/16)),
-				anchor("left"),
-				area(),
-				color(100, 50, 100),
-				rect(
-					canvas_width()/8,
-					canvas_height()/16,
-				)
-			])
+			UIElements.createUIElement('credits')
 		})
 	}
 }
