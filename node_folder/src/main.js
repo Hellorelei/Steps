@@ -30,7 +30,7 @@ class GameRoutine {
 			console.log('    · loading assets...')
 			AssetLoader.loadAssets()
 				.then((ui_loaded) => StartMenu.setupStartMenu())
-				.then((start_menu_ready) => Credits.setupCreditsPage())
+				.then((start_menu_ready) => StartMenu.setupCreditsPage())
 				.then(() => console.log('all loaded.'))
 				.then(() => resolve())
 		}))
@@ -241,10 +241,6 @@ class StartMenu {
 			GameRoutine.addHover()
 		})
 	}
-}
-
-class Credits {
-	constructor() {}
 
 	static setupCreditsPage(){
 		const credits_page = scene("credits_page", () => {
@@ -254,6 +250,8 @@ class Credits {
 		})
 	}
 }
+
+
 
 GameRoutine.start()
 
