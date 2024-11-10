@@ -34,7 +34,7 @@ class GameRoutine {
 				.then(() => console.log('all loaded.'))
 				.then(() => resolve())
 		}))
-			.then(() => k.go("start_menu"))
+			.then(() => k.go("main_menu"))
 	}
 
 	static addHover() {
@@ -42,6 +42,23 @@ class GameRoutine {
 		k.onHover("button", (button) => button.use(outline(2, BLACK)))
 		k.onHoverEnd("button", (button) => button.use(outline(0, WHITE)))
 		k.onHover("button", (button) => console.log('hover' + button))
+	}
+
+	static addDestination(menu) {
+		/// Add relevant destinations to buttons according to .json files.
+		console.log(`Adding destinations to buttons in ${menu}.`)
+		let obj = UIElements.UIFiles[menu]
+		for (let button in obj) {
+			console.log(`  -> Adding destinations for ${button}.`)
+			button = obj[button]
+			/// console.log(button)
+			if ("tag" in button && "destination" in button) {
+				k.onClick(button["tag"], () => k.go(button["destination"]))
+				console.log(`    ${button["tag"]} --> ${button["destination"]}.`)
+			} else {
+				console.log("    no automatic destinations.")
+			}
+		}
 	}
 }
 
@@ -190,16 +207,16 @@ class StartMenu {
 	constructor() {}
 
 	static setupStartMenu() {
-		const start_menu = scene("start_menu", () => {
+		const start_menu = scene("main_menu", () => {
 			console.log(start_menu)
 			UIElements.createUIElement('main_menu')
 			this.setupStartMenuRiver()
 			GameRoutine.addHover()
-			k.onClick("start_button", (start_button) => k.go("level_menu"))
-			k.onClick("credits_button", (credits_button) => k.go("credits_page"))
+			GameRoutine.addDestination("main_menu")
+			///k.onClick("start_button", (start_button) => k.go("level_menu"))
+			///k.onClick("credits_button", (credits_button) => k.go("credits_page"))
 			k.onClick("quit_button", (quit_button) => k.quit())
 		})
-		k.go("start_menu");
 		this.levelMenu()
 		return true
 	}
@@ -222,6 +239,7 @@ class StartMenu {
 		const level_menu = scene("level_menu", () => {
 			console.log(level_menu)
 			UIElements.createUIElement('level_menu')
+			GameRoutine.addDestination("level_menu")
 			GameRoutine.addHover()
 		})
 	}
@@ -233,7 +251,7 @@ class Credits {
 	static setupCreditsPage(){
 		const credits_page = scene("credits_page", () => {
 			GameRoutine.addHover()
-			k.onClick("back_button", (start_button) => k.go("start_menu"))
+			GameRoutine.addDestination("credits")
 			UIElements.createUIElement('credits')
 		})
 	}

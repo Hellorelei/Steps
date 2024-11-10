@@ -6,7 +6,8 @@
     "pos_y": 30,
     "anchor": "center",
     "width": 32,
-    "height": 8
+    "height": 8,
+    "destination": "level_menu"
   },
   "credits_button": {
     "tag": "credits_button",
@@ -15,7 +16,8 @@
     "pos_y": 40,
     "anchor": "center",
     "width": 32,
-    "height": 8
+    "height": 8,
+    "destination": "credits_page"
   },
   "quit_button": {
     "tag": "quit_button",
