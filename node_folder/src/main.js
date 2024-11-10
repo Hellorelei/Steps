@@ -213,8 +213,6 @@ class StartMenu {
 			this.setupStartMenuRiver()
 			GameRoutine.addHover()
 			GameRoutine.addDestination("main_menu")
-			///k.onClick("start_button", (start_button) => k.go("level_menu"))
-			///k.onClick("credits_button", (credits_button) => k.go("credits_page"))
 			k.onClick("quit_button", (quit_button) => k.quit())
 		})
 		this.levelMenu()
