@@ -3,9 +3,9 @@
     "tag": "back_button",
     "text": "Back",
     "pos_x": 10,
-    "pos_y": 60,
+    "pos_y": 58,
     "anchor": "center",
-    "width": 32,
+    "width": 16,
     "height": 8
   }
 }

@@ -29,13 +29,19 @@ class GameRoutine {
 		k.load(new Promise ((resolve, reject) => {
 			console.log('    · loading assets...')
 			AssetLoader.loadAssets()
-				///.then(() => console.log('did we skip?'))
 				.then((ui_loaded) => StartMenu.setupStartMenu())
 				.then((start_menu_ready) => Credits.setupCreditsPage())
 				.then(() => console.log('all loaded.'))
 				.then(() => resolve())
 		}))
 			.then(() => k.go("start_menu"))
+	}
+
+	static addHover() {
+		/// Add hover effects to all game objects with tag "button" in scene. Called whenever needed.
+		k.onHover("button", (button) => button.use(outline(2, BLACK)))
+		k.onHoverEnd("button", (button) => button.use(outline(0, WHITE)))
+		k.onHover("button", (button) => console.log('hover' + button))
 	}
 }
 
@@ -68,16 +74,9 @@ class AssetLoader {
 		return new Promise(async function (resolve, reject) {
 			console.log('        · loading UI...')
 			let ui_list = await AssetLoader.getUI()
-			///console.log(ui_list)
 			for (const entry of ui_list)  {
-				///console.log(entry)
-				let data = await AssetLoader.getUIData(entry)
-				///console.log(data)
-				///console.log(entry)
-				///Object.assign(data, UIElements.UIFiles)
-				UIElements.UIFiles[entry] = data
+				UIElements.UIFiles[entry] = await AssetLoader.getUIData(entry)
 				console.log('assigned data to uifiles:')
-				///console.log(data)
 				console.log(UIElements.UIFiles)
 			}
 			console.log('        -> done')
@@ -86,7 +85,6 @@ class AssetLoader {
 	}
 
 	static async loadSprites() {
-		///console.log(sprite_list)
 		console.log('        · loading sprites...')
 		let sprite_list = await AssetLoader.getSprites()
 		console.log('            ' + Object.keys(sprite_list).length + ' sprites found.')
@@ -174,7 +172,11 @@ class UIElements {
 		if (args["text"]) {
 			console.log(args["text"])
 		button.add([
-			text(args["text"]),
+			text(args["text"], {
+				size: 34,
+				///font: "Shantell Sans",
+			///font: "monospace",
+			}),
 			anchor(args["anchor"]),
 			color(0, 100, 255),
 		])
@@ -192,14 +194,13 @@ class StartMenu {
 			console.log(start_menu)
 			UIElements.createUIElement('main_menu')
 			this.setupStartMenuRiver()
-			k.onClick("start_button", (start_button) => k.go("game"))
+			GameRoutine.addHover()
+			k.onClick("start_button", (start_button) => k.go("level_menu"))
 			k.onClick("credits_button", (credits_button) => k.go("credits_page"))
 			k.onClick("quit_button", (quit_button) => k.quit())
-			k.onHover("button", (button) => button.use(outline(2, BLACK)))
-			k.onHoverEnd("button", (button) => button.use(outline(0, WHITE)))
-			k.onHover("button", (button) => console.log('hover' + button))
 		})
 		k.go("start_menu");
+		this.levelMenu()
 		return true
 	}
 
@@ -216,6 +217,14 @@ class StartMenu {
 			),
 		])
 	}
+
+	static levelMenu() {
+		const level_menu = scene("level_menu", () => {
+			console.log(level_menu)
+			UIElements.createUIElement('level_menu')
+			GameRoutine.addHover()
+		})
+	}
 }
 
 class Credits {
@@ -223,8 +232,7 @@ class Credits {
 
 	static setupCreditsPage(){
 		const credits_page = scene("credits_page", () => {
-			k.onHover("button", (button) => button.use(outline(2, BLACK)))
-			k.onHoverEnd("button", (button) => button.use(outline(0, WHITE)))
+			GameRoutine.addHover()
 			k.onClick("back_button", (start_button) => k.go("start_menu"))
 			UIElements.createUIElement('credits')
 		})
