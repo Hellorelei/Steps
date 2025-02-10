@@ -25,3 +25,23 @@ And so, **you**, our most valued employee, have just gotten a promotion. From st
 * Activated carbon
 
 https://simcardlocked.itch.io/steps
+
+## Project structure
+
+### Files
+
+Steps /             Project folder.
+  assets /          Assets ready to be used by game code.
+    ... /           Asset categories (font, map, etc.).
+      ...
+  base_assets /     Assets as made by artist.
+    ... /           Asset categories (font, map, etc.).
+      ...
+  index.html        Web page. Imports kaplay.
+  main.js           Game code.
+  README.MD         This README.
+  sprites /         Default kaplay folder. TODO: delete when finishing game.
+    ...
+  todo.md           TODO list.
+  ui /              Game UI definitions as .json files.       
+    ...
