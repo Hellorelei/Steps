@@ -6,7 +6,8 @@
     "pos_y": 20,
     "anchor": "center",
     "width": 16,
-    "height": 16
+    "height": 16,
+    "destination": "level_1"
   },
   "level_two_button": {
     "tag": "level_two",

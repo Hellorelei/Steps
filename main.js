@@ -251,6 +251,12 @@ class StartMenu {
 	}
 }
 
+const level_1 = scene("level_1", () => {
+	UIElements.createUIElement('level_1')
+	GameRoutine.addHover()
+	GameRoutine.addDestination("level_1")
+});
+
 
 
 GameRoutine.start()
