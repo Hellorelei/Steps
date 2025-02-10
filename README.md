@@ -29,7 +29,7 @@ https://simcardlocked.itch.io/steps
 ## Project structure
 
 ### Files
-
+```
 Steps /             Project folder.
   assets /          Assets ready to be used by game code.
     ... /           Asset categories (font, map, etc.).
@@ -45,3 +45,4 @@ Steps /             Project folder.
   todo.md           TODO list.
   ui /              Game UI definitions as .json files.       
     ...
+```
