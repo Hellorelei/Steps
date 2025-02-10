@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="52e6389d-6fcb-4f44-b713-e7e0bd33ec26" name="tiny-sprite" url="http://172.22.22.61:8081">
+        <fileTransfer rootFolder="/home/docker-user/utils/kaplay" accessType="SFTP" host="172.22.22.61" port="22" sshConfigId="d61397e5-13e6-412f-9c73-6708813656e4" sshConfig="docker-user@172.22.22.61:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
