@@ -202,7 +202,6 @@ class UIElements {
 	}
 }
 
-
 class StartMenu {
 	constructor() {}
 
@@ -255,9 +254,25 @@ const level_1 = scene("level_1", () => {
 	UIElements.createUIElement('level_1')
 	GameRoutine.addHover()
 	GameRoutine.addDestination("level_1")
+})
+
+const level_2 = scene("level_2", () => {
+	UIElements.createUIElement('level_2')
+	GameRoutine.addHover()
+	GameRoutine.addDestination("level_2")
+})
+
+const level_3 = scene("level_3", () => {
+	UIElements.createUIElement('level_3')
+	GameRoutine.addHover()
+	GameRoutine.addDestination("level_3")
+})
+
+const level_4 = scene("level_4", () => {
+	UIElements.createUIElement('level_4')
+	GameRoutine.addHover()
+	GameRoutine.addDestination("level_4")
 });
-
-
 
 GameRoutine.start()
 

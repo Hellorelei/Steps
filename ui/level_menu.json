@@ -16,7 +16,8 @@
     "pos_y": 20,
     "anchor": "center",
     "width": 16,
-    "height": 16
+    "height": 16,
+    "destination": "level_2"
   },
   "level_three_button": {
     "tag": "level_three",
@@ -25,7 +26,8 @@
     "pos_y": 40,
     "anchor": "center",
     "width": 16,
-    "height": 16
+    "height": 16,
+    "destination": "level_3"
   },
   "level_four_button": {
     "tag": "level_four",
@@ -34,7 +36,8 @@
     "pos_y": 40,
     "anchor": "center",
     "width": 16,
-    "height": 16
+    "height": 16,
+    "destination": "level_4"
   },
   "back_button": {
     "tag": "back_button",
