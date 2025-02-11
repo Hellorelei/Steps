@@ -254,20 +254,35 @@ const level_1 = scene("level_1", () => {
 	k.loadSprite("map1", "base_assets/maps/level_1.png")
 	const map1 = k.add([
 		sprite("map1"),
-		pos(0, 0),
-		scale(1.6),
-	])
+		pos(48, 0),
+		scale(1.3),
+	]);
+
 	UIElements.createUIElement('level_1')
 	GameRoutine.addHover()
-	GameRoutine.addDestination("level_1")
+	GameRoutine.addDestination("level_1");
+
+	loadSprite("can1", "assets/sprites/can_1.png", {
+		sliceX: 2,
+		sliceY: 1,
+		anims: {
+			moove: { from: 0, to: 1, loop: true },
+		},
+	});
+	const can1 = k.add([
+		sprite("can1", {
+			anim: "moove",
+		}),
+		pos(48, 96)
+	]);
 })
 
 const level_2 = scene("level_2", () => {
 	k.loadSprite("map2", "base_assets/maps/level_2.png")
 	const map2 = k.add([
 		sprite("map2"),
-		pos(0, 0),
-		scale(1.6),
+		pos(48, 0),
+		scale(1.3),
 	])
 	UIElements.createUIElement('level_2')
 	GameRoutine.addHover()
@@ -278,8 +293,8 @@ const level_3 = scene("level_3", () => {
 	k.loadSprite("map3", "base_assets/maps/level_3.png")
 	const map3 = k.add([
 		sprite("map3"),
-		pos(0, 0),
-		scale(1.6),
+		pos(48, 0),
+		scale(1.3),
 	])
 	UIElements.createUIElement('level_3')
 	GameRoutine.addHover()
@@ -290,8 +305,8 @@ const level_4 = scene("level_4", () => {
 	k.loadSprite("map4", "base_assets/maps/level_4.png")
 	const map4 = k.add([
 		sprite("map4"),
-		pos(0, 0),
-		scale(1.6),
+		pos(48, 0),
+		scale(1.3),
 	])
 	UIElements.createUIElement('level_4')
 	GameRoutine.addHover()
