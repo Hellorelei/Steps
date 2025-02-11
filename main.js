@@ -269,6 +269,7 @@ const level_1 = scene("level_1", () => {
 			crounch: { from: 0, to: 1, loop: true },
 		},
 	});
+
 	const can1 = k.add([
 		sprite("can1", {
 			anim: "crounch",

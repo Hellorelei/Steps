@@ -5,6 +5,7 @@
 1. Create sprites
 2. Create basic game loop in Kaboom.js
 3. Interface
+4. Add tower onClick
 
 ### Sprites
 #### Towers
