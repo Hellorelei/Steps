@@ -266,14 +266,14 @@ const level_1 = scene("level_1", () => {
 		sliceX: 2,
 		sliceY: 1,
 		anims: {
-			moove: { from: 0, to: 1, loop: true },
+			crounch: { from: 0, to: 1, loop: true },
 		},
 	});
 	const can1 = k.add([
 		sprite("can1", {
-			anim: "moove",
+			anim: "crounch",
 		}),
-		pos(48, 96)
+		pos(48, 96),
 	]);
 })
 
