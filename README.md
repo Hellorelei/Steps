@@ -29,6 +29,7 @@ https://simcardlocked.itch.io/steps
 ## Project structure
 
 ### Files
+### TODO: UPDATE FOR GODOT
 ```
 Steps /             Project folder.
   assets /          Assets ready to be used by game code.
