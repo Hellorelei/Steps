@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://gpjw4du0mlmq"]
+
+[ext_resource type="Script" uid="uid://ckbsgqiuiiu7t" path="res://ui_menu.gd" id="1_gww7l"]
+
+[node name="UIMenu" type="CanvasLayer"]
+script = ExtResource("1_gww7l")
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.304688
+anchor_top = 0.451172
+anchor_right = 0.695312
+anchor_bottom = 0.548828
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[node name="CreditsButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.304688
+anchor_top = 0.587891
+anchor_right = 0.695312
+anchor_bottom = 0.685547
+grow_horizontal = 2
+grow_vertical = 0
+text = "Credits"
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.304688
+anchor_top = 0.724609
+anchor_right = 0.695312
+anchor_bottom = 0.822266
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

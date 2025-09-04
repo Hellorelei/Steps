@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8h8dw4nsn6xl"]
+
+[ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="1_i5r8b"]
+[ext_resource type="Script" uid="uid://dvgpwncugp2jh" path="res://sprites.gd" id="1_ljbtc"]
+[ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="2_inbnb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_inbnb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i5r8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_inbnb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inbnb"]
+size = Vector2(105, 135)
+
+[node name="Sprites" type="Area2D"]
+position = Vector2(255, 234)
+script = ExtResource("1_ljbtc")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_inbnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_inbnb")
