@@ -15,7 +15,7 @@ func _ready() -> void:
 	turret_selected = "empty"
 	turret_buttons = [
 		$AddTurret1Button1, $AddTurret1Button2, $AddTurret1Button3,
-		$AddTurret1Button4, $AddTurret1Button5, $AddTurret1Button6
+		$AddTurret1Button4
 		]
 	delete_button = [
 		$DeleteTurretButton

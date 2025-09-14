@@ -41,10 +41,10 @@ offset_right = 12.0
 offset_bottom = 12.0
 
 [node name="AddTurret1Button1" type="Button" parent="."]
-offset_left = -12.0
-offset_top = -44.0
-offset_right = 12.0
-offset_bottom = -20.0
+offset_left = 20.0
+offset_top = -28.0
+offset_right = 44.0
+offset_bottom = -4.0
 
 [node name="Label" type="Label" parent="AddTurret1Button1"]
 layout_mode = 0
@@ -52,47 +52,11 @@ offset_right = 24.0
 offset_bottom = 24.0
 text = "t1"
 
-[node name="AddTurret1Button2" type="Button" parent="."]
-offset_left = 20.0
-offset_top = -28.0
-offset_right = 44.0
-offset_bottom = -4.0
-
-[node name="Label" type="Label" parent="AddTurret1Button2"]
-layout_mode = 0
-offset_right = 24.0
-offset_bottom = 24.0
-text = "t2"
-
-[node name="AddTurret1Button6" type="Button" parent="."]
-offset_left = -44.0
-offset_top = -28.0
-offset_right = -20.0
-offset_bottom = -4.0
-
-[node name="Label" type="Label" parent="AddTurret1Button6"]
-layout_mode = 0
-offset_right = 24.0
-offset_bottom = 24.0
-text = "t6"
-
-[node name="AddTurret1Button5" type="Button" parent="."]
-offset_left = -44.0
-offset_top = 4.0
-offset_right = -20.0
-offset_bottom = 28.0
-
-[node name="Label" type="Label" parent="AddTurret1Button5"]
-layout_mode = 0
-offset_right = 24.0
-offset_bottom = 24.0
-text = "t5"
-
 [node name="AddTurret1Button4" type="Button" parent="."]
-offset_left = -12.0
-offset_top = 20.0
-offset_right = 12.0
-offset_bottom = 44.0
+offset_left = -44.0
+offset_top = -28.0
+offset_right = -20.0
+offset_bottom = -4.0
 
 [node name="Label" type="Label" parent="AddTurret1Button4"]
 layout_mode = 0
@@ -101,9 +65,9 @@ offset_bottom = 24.0
 text = "t4"
 
 [node name="AddTurret1Button3" type="Button" parent="."]
-offset_left = 20.0
+offset_left = -44.0
 offset_top = 4.0
-offset_right = 44.0
+offset_right = -20.0
 offset_bottom = 28.0
 
 [node name="Label" type="Label" parent="AddTurret1Button3"]
@@ -111,6 +75,18 @@ layout_mode = 0
 offset_right = 24.0
 offset_bottom = 24.0
 text = "t3"
+
+[node name="AddTurret1Button2" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 28.0
+
+[node name="Label" type="Label" parent="AddTurret1Button2"]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+text = "t2"
 
 [node name="DeleteTurretButton" type="Button" parent="."]
 offset_left = 20.0
@@ -122,7 +98,7 @@ offset_bottom = -4.0
 layout_mode = 0
 offset_right = 24.0
 offset_bottom = 24.0
-text = "t3"
+text = " X"
 
 [connection signal="button_down" from="BaseButton" to="." method="_on_base_button_button_down"]
 [connection signal="button_down" from="AddTurret1Button1" to="." method="_on_add_turret_1_button_1_button_down"]

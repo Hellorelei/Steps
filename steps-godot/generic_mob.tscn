@@ -32,14 +32,20 @@ _data = {
 }
 point_count = 5
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RigidBody2D" type="RigidBody2D" groups=["enemy_group"]]
 gravity_scale = 0.0
+max_contacts_reported = 30
 script = ExtResource("1_ikgdm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_oskjb")
 animation = &"live"
+
+[node name="HitCanvasModulate" type="CanvasModulate" parent="AnimatedSprite2D"]
+visible = false
+scale = Vector2(10, 10)
+color = Color(1, 0.141176, 0.141176, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4vlnc")

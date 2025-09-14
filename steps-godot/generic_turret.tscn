@@ -73,3 +73,4 @@ color = Color(0, 1, 0, 0.235294)
 polygon = PackedVector2Array(0, -64, 48, -48, 64, 0, 48, 48, 0, 64, -48, 48, -64, 0, -48, -48)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

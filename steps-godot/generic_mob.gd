@@ -25,21 +25,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	#print(progress)
 	var target_mob_location = $Path2D/PathFollow2D
 	target_mob_location.progress_ratio = progress
-	#print("pos" + str(mob_location.position))
-	#print("pro" + str(mob_location.progress_ratio))
-	
-	## position = mob_location.position
 	
 	var dir_vector = target_mob_location.position - position
-	#var dir_vector_x = target_mob_location.position.x - position.x
-	#var dir_vector_y = target_mob_location.position.y - position.y
-	#print("gpos: " + str(global_position))
-	#print("cpos: " + str(captor_position))
 	var dir_captor = captor_position - global_position
-	#var dir_vector = Vector2(dir_vector_x, dir_vector_y)
 	
 	if not is_caught:
 		apply_central_force(dir_vector)
@@ -49,34 +39,41 @@ func _process(delta: float) -> void:
 		apply_central_force(
 			dir_captor.normalized() * clamp(time_spent_in, 0, 100)
 			)
-		# hp = hp - 1
-	if hp < 0:
-		pass
-		# queue_free()
 	
 	$DebugLine2D.points = PackedVector2Array([Vector2(0, 0), linear_velocity])
-	#print(dir_vector_x)
-	#print(dir_vector_y)
 	
-	#print(progress)
 	pass
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
 
-func hit(dmg) -> void:
-	pass
-	# hp = hp - dmg
-	# if hp <= 0:
-	#	queue_free()
-	#	print("pop!")
+func hit(dmg: int = 1, dot: bool = false) -> void:
+	hp = hp - dmg
+	# Flashes the sprite red to indicate damage was taken
+	$AnimatedSprite2D.self_modulate = Color(1, 0.2, 0.2, 1)
+	await get_tree().create_timer(0.2).timeout
+	$AnimatedSprite2D.self_modulate = Color(1, 1, 1, 1)
+	print("bonk!")
+	
+	if hp <= 0:
+		queue_free()
+		print("pop!")
+		
+	# Re-applies damage if it is damage over time
+	if dot:
+		await get_tree().create_timer(1).timeout
+		if is_caught:
+			hit(dmg, true)
 
-func caught(in_captor_position: Vector2) -> void:
+func caught(in_captor_position: Vector2, captor_type: String) -> void:
 	is_caught = true
 	print("——————————caught!")
 	captor_position = in_captor_position
-	#add_constant_central_force(captor_position)
+	print(captor_type)
+	if captor_type == "generic":
+		await get_tree().create_timer(1).timeout
+		hit(2, true)
 
 func release() -> void:
 	is_caught = false

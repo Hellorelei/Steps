@@ -25,6 +25,11 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/tileset_collision_generator_free_version/plugin.cfg")
 
+[global_group]
+
+turret_base_group="Contains all turret bases throughout the levels to autopopulate at _ready()"
+enemy_group=""
+
 [gui]
 
 theme/custom_font="uid://ce3h47fqe3q7d"
