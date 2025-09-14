@@ -23,8 +23,18 @@ var total_waves: int
 var check_victory: bool
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	#Zones d'ajout des tours
+	for base in get_tree().get_nodes_in_group("turret_base_group"):
+		print(base)
+		var turret_base = turret_handler.instantiate()
+		turret_base.position = base.position
+		add_child(turret_base)
+		
+	total_waves = len(enemy_waves)
+	gametime = 0
+	game_started = 0
+	check_victory = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

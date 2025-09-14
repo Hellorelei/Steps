@@ -310,10 +310,10 @@ position = Vector2(320, 48)
 position = Vector2(184, 419)
 shape = SubResource("RectangleShape2D_v5uil")
 
-[node name="Turret2Marker2D" type="Marker2D" parent="."]
+[node name="Turret2Marker2D" type="Marker2D" parent="." groups=["turret_base_group"]]
 position = Vector2(192, 304)
 
-[node name="Turret2Marker2D2" type="Marker2D" parent="."]
+[node name="Turret2Marker2D2" type="Marker2D" parent="." groups=["turret_base_group"]]
 position = Vector2(368, 224)
 
 [connection signal="pressed" from="BButton2" to="." method="_on_b_button_2_pressed"]
