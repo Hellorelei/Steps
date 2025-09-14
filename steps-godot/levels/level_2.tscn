@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://oos4ladkiqbn"]
+[gd_scene load_steps=13 format=4 uid="uid://oos4ladkiqbn"]
 
 [ext_resource type="Script" uid="uid://bdxn4ca01ftp4" path="res://levels/level_2.gd" id="1_jg0dc"]
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="2_1y8me"]
@@ -238,6 +238,15 @@ texture = ExtResource("3_n7ypv")
 [sub_resource type="TileSet" id="TileSet_n7ypv"]
 sources/0 = SubResource("TileSetAtlasSource_1y8me")
 
+[sub_resource type="Curve2D" id="Curve2D_v5uil"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 391, 137.646, 0, 0, 0, 0, 391, 137.646, 0, 0, 0, 0, 374, 172.057, 0, 0, 0, 0, 391, 223.675, 0, 0, 0, 0, 408, 275.292, 0, 0, 0, 0, 391, 326.909, 0, 0, 0, 0, 374, 378.526, 0, 0, 0, 0, 323, 438.746, 0, 0, 0, 0, 221, 481.761, 0, 0, 0, 0, 102, 498.967, 0, 0, 0, 0, 51, 602.201, 0, 0, 0, 0, 799, 602.201, 0, 0, 0, 0, 799, 120.44, 0, 0, 0, 0, 663, 120.44, 0, 0, 0, 0, 493, 120.44, 0, 0, 0, 0, 391, 137.646)
+}
+point_count = 16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5uil"]
+size = Vector2(128, 74)
+
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_jg0dc")
 
@@ -250,10 +259,61 @@ tile_map_data = PackedByteArray("AAAGABgAAAABAAEAAAAHABgAAAABAAEAAAAGAAUAAAABAAE
 tile_set = SubResource("TileSet_n7ypv")
 
 [node name="BButton2" type="Button" parent="."]
-offset_left = 48.0
+offset_left = 8.0
+offset_top = 472.0
+offset_right = 104.0
+offset_bottom = 504.0
+text = "< BACK
+"
+
+[node name="StartButton2" type="Button" parent="."]
+offset_left = 8.0
 offset_top = 432.0
-offset_right = 144.0
-offset_bottom = 480.0
-text = "Back"
+offset_right = 104.0
+offset_bottom = 464.0
+text = "START!"
+
+[node name="PauseButton2" type="CheckButton" parent="."]
+offset_left = 400.0
+offset_right = 510.0
+offset_bottom = 31.0
+text = "Pause"
+
+[node name="Wave2" type="RichTextLabel" parent="."]
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 64.0
+text = "Wave:
+"
+
+[node name="Time2" type="RichTextLabel" parent="."]
+offset_left = 8.0
+offset_right = 128.0
+offset_bottom = 32.0
+text = "Time:"
+
+[node name="Mob2Path2D" type="Path2D" parent="."]
+position = Vector2(136, -80)
+scale = Vector2(0.470588, 0.929922)
+curve = SubResource("Curve2D_v5uil")
+
+[node name="Mob2PathFollow2D" type="PathFollow2D" parent="Mob2Path2D"]
+position = Vector2(391.046, 137.554)
+
+[node name="Mob2SpawnMarker2D" type="Marker2D" parent="."]
+position = Vector2(320, 48)
+
+[node name="Failure2Area2D" type="Area2D" parent="."]
+
+[node name="Failure2CollisionShape2D" type="CollisionShape2D" parent="Failure2Area2D"]
+position = Vector2(184, 419)
+shape = SubResource("RectangleShape2D_v5uil")
+
+[node name="Turret2Marker2D" type="Marker2D" parent="."]
+position = Vector2(192, 304)
+
+[node name="Turret2Marker2D2" type="Marker2D" parent="."]
+position = Vector2(368, 224)
 
 [connection signal="pressed" from="BButton2" to="." method="_on_b_button_2_pressed"]

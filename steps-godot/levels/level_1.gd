@@ -94,7 +94,6 @@ func _on_button_button_down() -> void:
 	if not game_started:
 		start_game()
 		$StartButton.disabled = true
-	pass # Replace with function body.
 
 
 func _on_failure_area_2d_body_entered(body: Node2D) -> void:
