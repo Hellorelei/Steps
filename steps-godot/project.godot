@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="STEPS"
+run/main_scene="uid://gpjw4du0mlmq"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,4 +19,12 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=512
 window/size/viewport_height=512
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/tileset_collision_generator_free_version/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://ce3h47fqe3q7d"

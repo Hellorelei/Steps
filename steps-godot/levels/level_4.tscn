@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://jqwrhvbktnjc"]
 
-[ext_resource type="Script" uid="uid://h0s5hu8y1a13" path="res://level_4.gd" id="1_5pu08"]
+[ext_resource type="Script" uid="uid://h0s5hu8y1a13" path="res://levels/level_4.gd" id="1_5pu08"]
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="2_xcfcc"]
 [ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="3_48hld"]
 

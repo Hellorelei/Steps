@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://cakg5gvavrl7u"]
+
+[ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="1_4vlnc"]
+[ext_resource type="Script" uid="uid://bo3adggxxtfpa" path="res://generic_mob.gd" id="1_ikgdm"]
+[ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="2_ikgdm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oskjb"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"boom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4vlnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ikgdm")
+}],
+"loop": true,
+"name": &"live",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vlnc"]
+height = 26.0
+
+[sub_resource type="Curve2D" id="Curve2D_ikgdm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 64, 64, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="RigidBody2D" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_ikgdm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_oskjb")
+animation = &"live"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4vlnc")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ikgdm")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+[node name="DebugLine2D" type="Line2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

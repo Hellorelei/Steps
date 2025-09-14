@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b2dqpd512mjo0"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="SCORE" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LEVELNAME" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
