@@ -1,17 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0aavxc6dihwd"]
+[gd_scene load_steps=7 format=3 uid="uid://cmlmegbwm60me"]
 
-[ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="1_ur14j"]
-[ext_resource type="Script" path="res://can_mob.gd" id="1_xvby3"]
-[ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="2_xvby3"]
+[ext_resource type="Script" uid="uid://cwpq0ujlg0if6" path="res://can_mob.gd" id="1_cqp6r"]
+[ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="2_cjjwh"]
+[ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="3_8044g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fsb22"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ur14j")
+"texture": ExtResource("2_cjjwh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_xvby3")
+"texture": ExtResource("3_8044g")
 }],
 "loop": true,
 "name": &"live",
@@ -29,7 +29,7 @@ point_count = 5
 
 [node name="RigidBody2D" type="RigidBody2D" groups=["enemy_group"]]
 gravity_scale = 0.0
-script = ExtResource("1_xvby3")
+script = ExtResource("1_cqp6r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
