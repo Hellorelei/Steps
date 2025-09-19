@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://jqw64s5jbh35"]
+
+[ext_resource type="Script" uid="uid://bclm067e3v0wi" path="res://mobs/micropolluant.gd" id="1_arghr"]
+[ext_resource type="Texture2D" uid="uid://dxq5mmsk5vgsa" path="res://sprites/DMicropolluant1.svg" id="2_arghr"]
+[ext_resource type="Texture2D" uid="uid://b3wg6kjduvb8s" path="res://sprites/DMicropolluant2.svg" id="3_i5prq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsb22"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_arghr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i5prq")
+}],
+"loop": true,
+"name": &"live",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur14j"]
+height = 28.0
+
+[sub_resource type="Curve2D" id="Curve2D_ur14j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 64, 64, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["enemy_group"]]
+gravity_scale = 0.0
+script = ExtResource("1_arghr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_fsb22")
+animation = &"live"
+
+[node name="HitCanvasModulate" type="CanvasModulate" parent="AnimatedSprite2D"]
+visible = false
+scale = Vector2(10, 10)
+color = Color(1, 0.141176, 0.141176, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ur14j")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="DebugLine2D" type="Line2D" parent="Node"]
+
+[node name="Path2D" type="Path2D" parent="Node"]
+curve = SubResource("Curve2D_ur14j")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Node/Path2D"]
+
+[node name="TargetPolygon2D" type="Polygon2D" parent="."]
+position = Vector2(-3, 3)
+scale = Vector2(0.753825, 0.751711)
+color = Color(0.176471, 1, 1, 0.470588)
+polygon = PackedVector2Array(0, -8, 8, -8, 8, 0, 0, 0)
