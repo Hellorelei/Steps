@@ -1,17 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmlmegbwm60me"]
+[gd_scene load_steps=7 format=3 uid="uid://glwrei8tbh4b"]
 
-[ext_resource type="Script" uid="uid://c1p5my6cep1bw" path="res://mobs/mud_mob.gd" id="1_cfd1b"]
-[ext_resource type="Texture2D" uid="uid://dv1tgj3bddxgr" path="res://sprites/BMud1.svg" id="2_cfd1b"]
-[ext_resource type="Texture2D" uid="uid://d4lhfpwrl4pd5" path="res://sprites/BMud2.svg" id="3_cs0co"]
+[ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="1_ur14j"]
+[ext_resource type="Script" uid="uid://cwpq0ujlg0if6" path="res://mobs/Acan_mob.gd" id="1_xvby3"]
+[ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="2_xvby3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fsb22"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_cfd1b")
+"texture": ExtResource("1_ur14j")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_cs0co")
+"texture": ExtResource("2_xvby3")
 }],
 "loop": true,
 "name": &"live",
@@ -19,8 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ur14j"]
-radius = 11.0
-height = 26.0
+height = 28.0
 
 [sub_resource type="Curve2D" id="Curve2D_ur14j"]
 _data = {
@@ -30,13 +29,12 @@ point_count = 5
 
 [node name="RigidBody2D" type="RigidBody2D" groups=["enemy_group"]]
 gravity_scale = 0.0
-script = ExtResource("1_cfd1b")
+script = ExtResource("1_xvby3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_fsb22")
 animation = &"live"
-frame_progress = 0.0966857
 
 [node name="HitCanvasModulate" type="CanvasModulate" parent="AnimatedSprite2D"]
 visible = false

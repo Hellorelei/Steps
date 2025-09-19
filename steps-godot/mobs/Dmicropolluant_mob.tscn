@@ -1,17 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://glwrei8tbh4b"]
+[gd_scene load_steps=7 format=3 uid="uid://jqw64s5jbh35"]
 
-[ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="1_ur14j"]
-[ext_resource type="Script" uid="uid://cwpq0ujlg0if6" path="res://mobs/can_mob.gd" id="1_xvby3"]
-[ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="2_xvby3"]
+[ext_resource type="Script" uid="uid://bclm067e3v0wi" path="res://mobs/Dmicropolluant_mob.gd" id="1_arghr"]
+[ext_resource type="Texture2D" uid="uid://dxq5mmsk5vgsa" path="res://sprites/DMicropolluant1.svg" id="2_arghr"]
+[ext_resource type="Texture2D" uid="uid://b3wg6kjduvb8s" path="res://sprites/DMicropolluant2.svg" id="3_i5prq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fsb22"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ur14j")
+"texture": ExtResource("2_arghr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_xvby3")
+"texture": ExtResource("3_i5prq")
 }],
 "loop": true,
 "name": &"live",
@@ -29,7 +29,7 @@ point_count = 5
 
 [node name="RigidBody2D" type="RigidBody2D" groups=["enemy_group"]]
 gravity_scale = 0.0
-script = ExtResource("1_xvby3")
+script = ExtResource("1_arghr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
