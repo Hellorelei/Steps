@@ -52,11 +52,17 @@ shape = SubResource("CapsuleShape2D_4vlnc")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Node" type="Node" parent="."]
+
+[node name="DebugLine2D" type="Line2D" parent="Node"]
+
+[node name="Path2D" type="Path2D" parent="Node"]
 curve = SubResource("Curve2D_ikgdm")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Node/Path2D"]
 
-[node name="DebugLine2D" type="Line2D" parent="."]
+[node name="TargetPolygon2D" type="Polygon2D" parent="."]
+color = Color(0.176471, 1, 1, 0.470588)
+polygon = PackedVector2Array(-3, -3, 3, -3, 3, 3, -3, 3)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

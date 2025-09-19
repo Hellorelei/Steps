@@ -1,5 +1,6 @@
 extends Node2D
 
+# 
 @export var generic_mob: PackedScene
 @export var turret_handler: PackedScene
 @export var enemy_waves: Array = [
@@ -48,6 +49,8 @@ func _process(delta: float) -> void:
 			print("yay!")
 			# add victory function here :)
 			$CheckButton.button_pressed = true
+
+
 
 func _on_b_button_1_pressed():
 	get_tree().paused = false
