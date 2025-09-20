@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var generic_turret: PackedScene
+@export var grate_turret: PackedScene
 
 var turret_buttons: Array
 var delete_button: Array
@@ -65,7 +66,7 @@ func _on_delete_turret_button_button_down() -> void:
 func set_turret(turret:String):
 	turret_selected = turret
 	if turret == "1":
-		built_turret = generic_turret.instantiate()
+		built_turret = grate_turret.instantiate()
 		# A 0, 0 vector puts the turret right atop the button.
 		built_turret.position = Vector2(0, 0)
 		print($BaseButton.position)

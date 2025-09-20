@@ -18,11 +18,12 @@ var check_victory: bool
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Adding a test mob!
-	#var mob = generic_mob.instantiate()
-	#mob.position = $MobSpawnMarker2D.position
+	var mob = generic_mob.instantiate()
+	mob.position = $MobSpawnMarker2D.position
 	#mob.self_curve = $MobPath.curve
-	#mob.rotation = randf()
-	#add_child(mob)
+	mob.rotation = randf()
+	mob.mass = 0.6
+	add_child(mob)
 	
 	for base in get_tree().get_nodes_in_group("turret_base_group"):
 		print(base)
@@ -73,8 +74,8 @@ func enemy_wave(index:int):
 func add_enemy(enemy:String):
 	var mob = generic_mob.instantiate()
 	mob.position = $MobSpawnMarker2D.position
-	mob.self_curve = $MobPath.curve
 	mob.rotation = randf()
+	mob.set_collision_layer_value(13, true)
 	add_child(mob)
 
 func start_game():

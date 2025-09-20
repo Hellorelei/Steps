@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cakg5gvavrl7u"]
+[gd_scene load_steps=6 format=3 uid="uid://cakg5gvavrl7u"]
 
 [ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="1_4vlnc"]
 [ext_resource type="Script" uid="uid://bo3adggxxtfpa" path="res://generic_mob.gd" id="1_ikgdm"]
@@ -26,14 +26,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vlnc"]
 height = 26.0
 
-[sub_resource type="Curve2D" id="Curve2D_ikgdm"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 64, 64, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0)
-}
-point_count = 5
-
 [node name="RigidBody2D" type="RigidBody2D" groups=["enemy_group"]]
-gravity_scale = 0.0
 max_contacts_reported = 30
 script = ExtResource("1_ikgdm")
 
@@ -55,14 +48,6 @@ shape = SubResource("CapsuleShape2D_4vlnc")
 [node name="Node" type="Node" parent="."]
 
 [node name="DebugLine2D" type="Line2D" parent="Node"]
-
-[node name="Path2D" type="Path2D" parent="Node"]
-curve = SubResource("Curve2D_ikgdm")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Node/Path2D"]
-
-[node name="TargetPolygon2D" type="Polygon2D" parent="."]
-color = Color(0.176471, 1, 1, 0.470588)
-polygon = PackedVector2Array(-3, -3, 3, -3, 3, 3, -3, 3)
+default_color = Color(1, 0.47451, 0, 0.501961)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

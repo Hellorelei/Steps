@@ -1,33 +1,33 @@
-[gd_scene load_steps=12 format=3 uid="uid://02wpfqfbw2y1"]
+[gd_scene load_steps=12 format=3 uid="uid://ilx302yyga22"]
 
-[ext_resource type="Texture2D" uid="uid://mh5v2hj72jpu" path="res://sprites/grid.png" id="1_boeh4"]
-[ext_resource type="Script" uid="uid://bst2uquqsdogb" path="res://generic_turret.gd" id="1_cfr18"]
+[ext_resource type="Script" uid="uid://ur4kp1vvwtoa" path="res://turrets/grate_turret.gd" id="1_yssuk"]
+[ext_resource type="Texture2D" uid="uid://mh5v2hj72jpu" path="res://sprites/grid.png" id="2_w54vj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cfr18"]
 radius = 64.4981
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cfr18"]
-atlas = ExtResource("1_boeh4")
+atlas = ExtResource("2_w54vj")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f76v7"]
-atlas = ExtResource("1_boeh4")
+atlas = ExtResource("2_w54vj")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m84is"]
-atlas = ExtResource("1_boeh4")
+atlas = ExtResource("2_w54vj")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f02gx"]
-atlas = ExtResource("1_boeh4")
+atlas = ExtResource("2_w54vj")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_goott"]
-atlas = ExtResource("1_boeh4")
+atlas = ExtResource("2_w54vj")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjh8q"]
-atlas = ExtResource("1_boeh4")
+atlas = ExtResource("2_w54vj")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l4qv0"]
@@ -65,7 +65,7 @@ gravity_point = true
 gravity = 60.0
 linear_damp_space_override = 3
 linear_damp = 1.0
-script = ExtResource("1_cfr18")
+script = ExtResource("1_yssuk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 process_mode = 4
