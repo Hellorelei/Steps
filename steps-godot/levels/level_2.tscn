@@ -349,7 +349,7 @@ position = Vector2(-136, 0)
 shape = SubResource("CircleShape2D_v5uil")
 
 [node name="1GravityArea2D" type="Area2D" parent="Gravity"]
-position = Vector2(176, 128)
+position = Vector2(176, 144)
 gravity_space_override = 3
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
@@ -360,10 +360,10 @@ linear_damp = 0.5
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/1GravityArea2D"]
-polygon = PackedVector2Array(16, -8, -168, -16, -168, 24, -8, 32)
+polygon = PackedVector2Array(16, -24, -168, -32, -168, 8, -8, 16)
 
 [node name="2GravityArea2D" type="Area2D" parent="Gravity"]
-position = Vector2(232, 192)
+position = Vector2(208, 184)
 gravity_space_override = 3
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
@@ -374,10 +374,10 @@ linear_damp = 1.0
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/2GravityArea2D"]
-polygon = PackedVector2Array(0, -16, -32, -72, -64, -24, -48, 0)
+polygon = PackedVector2Array(24, 0, -16, -64, -40, -24, -24, 16)
 
 [node name="3GravityArea2D" type="Area2D" parent="Gravity"]
-position = Vector2(232, 256)
+position = Vector2(232, 272)
 gravity_space_override = 3
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
@@ -388,10 +388,10 @@ linear_damp = 1.0
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/3GravityArea2D"]
-polygon = PackedVector2Array(0, 40, 0, -72, -48, -56, -48, 24)
+polygon = PackedVector2Array(0, 24, 0, -88, -48, -72, -48, 8)
 
 [node name="4GravityArea2D" type="Area2D" parent="Gravity"]
-position = Vector2(360, 264)
+position = Vector2(272, 312)
 gravity_space_override = 3
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
@@ -402,10 +402,10 @@ linear_damp = 1.0
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/4GravityArea2D"]
-polygon = PackedVector2Array(-24, 24, -120, -8, -120, 32, -48, 64)
+polygon = PackedVector2Array(56, -32, -40, -56, -40, -16, 40, 24)
 
 [node name="5GravityArea2D" type="Area2D" parent="Gravity"]
-position = Vector2(312, 334)
+position = Vector2(280, 352)
 gravity_space_override = 3
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
@@ -416,10 +416,10 @@ linear_damp = 1.0
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/5GravityArea2D"]
-polygon = PackedVector2Array(0, 2, -56, -22, -56, 50, -16, 50)
+polygon = PackedVector2Array(32, -16, -16, -40, -24, 32, 16, 32)
 
 [node name="6GravityArea2D" type="Area2D" parent="Gravity"]
-position = Vector2(176, 352)
+position = Vector2(208, 368)
 gravity_space_override = 3
 gravity_point = true
 gravity_point_center = Vector2(0, 0)
@@ -432,7 +432,7 @@ metadata/_edit_group_ = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/6GravityArea2D"]
 position = Vector2(36.8333, 0)
 scale = Vector2(0.520833, 1)
-polygon = PackedVector2Array(21.44, -16, 80, -16, 80, 32, 21.44, 32)
+polygon = PackedVector2Array(-39.9999, -32, 36.8001, -32, 21.4401, 16, -55.36, 16)
 
 [node name="7GravityArea2D2" type="Area2D" parent="Gravity"]
 position = Vector2(224, 504)
@@ -477,7 +477,7 @@ gravity = 60.0
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/3RepelGravityArea2D"]
-polygon = PackedVector2Array(0, 40, -8, -48, -32, -88, -24, -120, 32, -64, 32, 48)
+polygon = PackedVector2Array(0, 40, -8, -48, -40, -96, -24, -128, 32, -64, 32, 48)
 
 [connection signal="pressed" from="BackButton" to="." method="_on_b_button_2_pressed"]
 [connection signal="body_entered" from="FailureArea2D" to="." method="_on_failure_area_2d_body_entered"]
