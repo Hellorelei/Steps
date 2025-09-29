@@ -71,12 +71,11 @@ func enemy_wave(index:int):
 	else:
 		check_victory = true
 
-@warning_ignore("unused_parameter")
 func add_enemy(enemy:String):
 	var mob = generic_mob.instantiate()
 	mob.position = $MobSpawnMarker2D.position
-	mob.self_curve = $MobPath.curve
 	mob.rotation = randf()
+	mob.set_collision_layer_value(13, true)
 	add_child(mob)
 
 func start_game():
