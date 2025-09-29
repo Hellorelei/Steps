@@ -402,7 +402,7 @@ linear_damp = 1.0
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/4GravityArea2D"]
-polygon = PackedVector2Array(-56, 16, -120, -8, -120, 32, -48, 64)
+polygon = PackedVector2Array(-24, 24, -120, -8, -120, 32, -48, 64)
 
 [node name="5GravityArea2D" type="Area2D" parent="Gravity"]
 position = Vector2(312, 334)
@@ -456,6 +456,28 @@ metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/1RepelGravityArea2D"]
 polygon = PackedVector2Array(0, 0, -192, -8, -192, -48, 8, -24)
+
+[node name="2RepelGravityArea2D" type="Area2D" parent="Gravity"]
+position = Vector2(160, 168)
+gravity_space_override = 2
+gravity_point_center = Vector2(1, -1)
+gravity_direction = Vector2(1, -1)
+gravity = 60.0
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/2RepelGravityArea2D"]
+polygon = PackedVector2Array(0, 0, -168, -8, -144, 32, 16, 64)
+
+[node name="3RepelGravityArea2D" type="Area2D" parent="Gravity"]
+position = Vector2(240, 208)
+gravity_space_override = 2
+gravity_point_center = Vector2(-1, 0)
+gravity_direction = Vector2(-1, 0)
+gravity = 60.0
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/3RepelGravityArea2D"]
+polygon = PackedVector2Array(0, 40, -8, -48, -32, -88, -24, -120, 32, -64, 32, 48)
 
 [connection signal="pressed" from="BackButton" to="." method="_on_b_button_2_pressed"]
 [connection signal="body_entered" from="FailureArea2D" to="." method="_on_failure_area_2d_body_entered"]
