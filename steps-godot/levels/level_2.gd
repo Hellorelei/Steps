@@ -18,11 +18,12 @@ var check_victory: bool
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Adding a test mob!
-	#var mob = generic_mob.instantiate()
-	#mob.position = $MobSpawnMarker2D.position
+	var mob = generic_mob.instantiate()
+	mob.position = $MobSpawnMarker2D.position
 	#mob.self_curve = $MobPath.curve
-	#mob.rotation = randf()
-	#add_child(mob)
+	mob.rotation = randf()
+	mob.mass = 0.6
+	add_child(mob)
 	
 	for base in get_tree().get_nodes_in_group("turret_base_group"):
 		print(base)
@@ -70,6 +71,7 @@ func enemy_wave(index:int):
 	else:
 		check_victory = true
 
+@warning_ignore("unused_parameter")
 func add_enemy(enemy:String):
 	var mob = generic_mob.instantiate()
 	mob.position = $MobSpawnMarker2D.position
@@ -92,12 +94,10 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 		#modulate = Color(1, 1, 1, 1)
 		$GamePausedLabel.visible = false
 		
-
 func _on_start_button_button_down() -> void:
-		if not game_started:
+	if not game_started:
 		start_game()
 		$StartButton.disabled = true
-		
 
 func _on_failure_area_2d_body_entered(body: Node2D) -> void:
 	if body is RigidBody2D:
