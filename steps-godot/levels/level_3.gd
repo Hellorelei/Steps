@@ -38,3 +38,67 @@ func _ready():
 	gametime = 0
 	game_started = 0
 	check_victory = false
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	gametime += delta
+	$Time.text = "Time: " + str(int(floor(gametime)))
+	$Wave.text = "Wave: " + str(current_wave) + "/" + str(total_waves)
+	if check_victory:
+		if not get_tree().get_nodes_in_group("enemy_group"):
+			print("yay!")
+			# add victory function here :)
+			$CheckButton.button_pressed = true
+			
+
+func _on_back_button_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://ui_level.tscn")
+	
+func enemy_wave(index:int):
+	print("wave in:" + str(index))
+	current_wave = index + 1
+	for enemy in enemy_waves[index]:
+		add_enemy(enemy)
+		await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(10).timeout
+	print(len(enemy_waves))
+	if (index + 1) < len(enemy_waves):
+		print(str(index + 1) + ":" + str(len(enemy_waves)))
+		enemy_wave(index + 1)
+	else:
+		check_victory = true
+
+func add_enemy(enemy:String):
+	var mob = generic_mob.instantiate()
+	mob.position = $MobSpawnMarker2D.position
+	mob.rotation = randf()
+	mob.set_collision_layer_value(13, true)
+	add_child(mob)
+
+func start_game():
+	enemy_wave(0)
+	
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		get_tree().paused = true
+		$PauseOverlayPolygon2D.visible = true
+		#modulate = Color(0.3, 0.3, 0.3, 1)
+		$GamePausedLabel.visible = true
+	else:
+		get_tree().paused = false
+		$PauseOverlayPolygon2D.visible = false
+		#modulate = Color(1, 1, 1, 1)
+		$GamePausedLabel.visible = false
+
+func _on_start_button_button_down() -> void:
+	if not game_started:
+		start_game()
+		$StartButton.disabled = true
+
+func _on_failure_area_2d_body_entered(body: Node2D) -> void:
+	if body is RigidBody2D:
+		print("game over!")
+		# TODO: move to game over scene
+		# The function will take a level in to have a restart
+		# level option; we'll do that later.
