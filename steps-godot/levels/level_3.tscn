@@ -155,4 +155,30 @@ offset_bottom = 32.0
 text = "Time:
 "
 
+[node name="TurretMarker2D" type="Marker2D" parent="." groups=["turret_base_group"]]
+position = Vector2(176, 192)
+
+[node name="TurretMarker2D2" type="Marker2D" parent="." groups=["turret_base_group"]]
+position = Vector2(336, 176)
+
+[node name="TurretMarker2D3" type="Marker2D" parent="." groups=["turret_base_group"]]
+position = Vector2(352, 320)
+
+[node name="GamePausedLabel" type="Label" parent="."]
+visible = false
+z_index = 11
+offset_left = 216.0
+offset_top = 232.0
+offset_right = 300.0
+offset_bottom = 281.0
+text = "GAME
+PAUSED"
+horizontal_alignment = 1
+
+[node name="PauseOverlayPolygon2D" type="Polygon2D" parent="."]
+visible = false
+z_index = 10
+color = Color(0, 0, 0, 0.501961)
+polygon = PackedVector2Array(-24, -24, 536, -24, 536, 536, -24, 536)
+
 [connection signal="pressed" from="BackButton" to="." method="_on_b_button_3_pressed"]
