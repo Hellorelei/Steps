@@ -206,7 +206,7 @@ position = Vector2(-128, 184)
 position = Vector2(248, 504)
 
 [node name="FailureCollisionShape2D" type="CollisionShape2D" parent="FailureArea2D"]
-position = Vector2(56, 51)
+position = Vector2(56, 48)
 shape = SubResource("RectangleShape2D_rka8t")
 
 [node name="CheckButton" type="CheckButton" parent="."]
