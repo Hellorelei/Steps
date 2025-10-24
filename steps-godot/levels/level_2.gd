@@ -17,6 +17,7 @@ var check_victory: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	############################################################################
 	# Adding a test mob!
 	var mob = generic_mob.instantiate()
 	mob.position = $MobSpawnMarker2D.position
@@ -24,6 +25,7 @@ func _ready():
 	mob.rotation = randf()
 	mob.mass = 0.6
 	add_child(mob)
+	############################################################################
 	
 	for base in get_tree().get_nodes_in_group("turret_base_group"):
 		print(base)
