@@ -47,14 +47,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	## TODO: adapt these changes to ui_game_hud
 	gametime += delta
 	$Time.text = "Time: " + str(int(floor(gametime)))
 	$Wave.text = "Wave: " + str(current_wave) + "/" + str(total_waves)
 	if check_victory:
+		## TODO: investigate and fix.
 		if not get_tree().get_nodes_in_group("enemy_group"):
 			print("████████ Vérifier victoire: aucun ennemi restant. Bravo!")
 			# add victory function here :)
-			$CheckButton.button_pressed = true
+			#$CheckButton.button_pressed = true
 
 func enemy_wave(index:int):
 	print("████████ level_1 > enemy_wave(" + str(index) + ")")

@@ -191,16 +191,6 @@ tile_map_data = PackedByteArray("AAAGAAAAAAABAAEAAAAHAAAAAAABAAEAAAAIAAAAAAABAAE
 tile_set = ExtResource("8_l53as")
 metadata/_edit_lock_ = true
 
-[node name="BackButton" type="Button" parent="."]
-process_mode = 3
-visible = false
-z_index = 100
-offset_left = 8.0
-offset_top = 472.0
-offset_right = 104.0
-offset_bottom = 504.0
-text = "< BACK"
-
 [node name="MobSpawnMarker2D" type="Marker2D" parent="."]
 position = Vector2(-128, 184)
 
@@ -227,23 +217,6 @@ offset_left = 8.0
 offset_right = 128.0
 offset_bottom = 32.0
 text = "Time: "
-
-[node name="GamePausedLabel" type="Label" parent="."]
-visible = false
-z_index = 100
-offset_left = 216.0
-offset_top = 232.0
-offset_right = 300.0
-offset_bottom = 281.0
-text = "GAME
-PAUSED"
-horizontal_alignment = 1
-
-[node name="PauseOverlayPolygon2D" type="Polygon2D" parent="."]
-visible = false
-z_index = 90
-color = Color(0, 0, 0, 0.501961)
-polygon = PackedVector2Array(535, -23, 535, 535, -24, 534, -21, -21)
 
 [node name="Gravity" type="Node" parent="."]
 
@@ -423,5 +396,4 @@ script = ExtResource("10_08mmt")
 cannette = 5.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
-[connection signal="pressed" from="BackButton" to="." method="_on_b_button_1_pressed"]
 [connection signal="body_entered" from="FailureArea2D" to="." method="_on_failure_area_2d_body_entered"]
