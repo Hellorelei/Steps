@@ -29,6 +29,7 @@ enabled=PackedStringArray("res://addons/tileset_collision_generator_free_version
 
 turret_base_group="Contains all turret bases throughout the levels to autopopulate at _ready()"
 enemy_group=""
+enemy_spawner=""
 
 [gui]
 

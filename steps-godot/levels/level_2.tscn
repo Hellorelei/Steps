@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bdxn4ca01ftp4" path="res://levels/level_2.gd" id="1_jg0dc"]
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="2_1y8me"]
-[ext_resource type="PackedScene" uid="uid://cakg5gvavrl7u" path="res://generic_mob.tscn" id="2_ilhis"]
-[ext_resource type="PackedScene" uid="uid://b0fryxewavd7p" path="res://turret_handler.tscn" id="3_ep78u"]
+[ext_resource type="PackedScene" uid="uid://cakg5gvavrl7u" path="res://mobs/generic_mob.tscn" id="2_ilhis"]
+[ext_resource type="PackedScene" uid="uid://b0fryxewavd7p" path="res://turrets/turret_handler.tscn" id="3_ep78u"]
 [ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="3_n7ypv"]
 [ext_resource type="Texture2D" uid="uid://b8eshxv8slfhv" path="res://Tilesheet/Hills.png" id="4_0s5r2"]
 [ext_resource type="TileSet" uid="uid://bom58sxpv6mxi" path="res://Tilesheet/tileset.tres" id="7_ep78u"]

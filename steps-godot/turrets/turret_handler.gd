@@ -12,6 +12,7 @@ var built_turret: Object
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("▎ turret handler called!")
 	game_time = 0
 	turret_selected = "empty"
 	turret_buttons = [
@@ -45,6 +46,7 @@ func button_toggle(buttons: Array, value: bool) -> void:
 		button.visible = value
 
 func _on_base_button_button_down() -> void:
+	print("▎ turret handler button down called!")
 	last_base_press = game_time
 	if turret_selected == "empty":
 		button_flyout(turret_buttons)

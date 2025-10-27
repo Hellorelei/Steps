@@ -2,9 +2,15 @@
 
 [ext_resource type="Script" uid="uid://byxogwv5i3qjf" path="res://levels/level_3.gd" id="1_ayd5w"]
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="2_16pka"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://cakg5gvavrl7u" path="res://generic_mob.tscn" id="2_20opy"]
 [ext_resource type="PackedScene" uid="uid://b0fryxewavd7p" path="res://turret_handler.tscn" id="3_8l0e1"]
 [ext_resource type="TileSet" uid="uid://bom58sxpv6mxi" path="res://Tilesheet/tileset.tres" id="5_20opy"]
+=======
+[ext_resource type="PackedScene" uid="uid://cakg5gvavrl7u" path="res://mobs/generic_mob.tscn" id="2_20opy"]
+[ext_resource type="PackedScene" uid="uid://b0fryxewavd7p" path="res://turrets/turret_handler.tscn" id="3_8l0e1"]
+[ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="3_j8bo8"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1jdk1"]
 texture = ExtResource("2_16pka")

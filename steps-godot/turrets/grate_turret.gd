@@ -1,4 +1,7 @@
 extends Area2D
+
+var effect_ripple: PackedScene = preload("res://turrets/effects/effect_ripple.tscn")
+
 var turret_type: String
 var caught_list: Array
 var aoe_radius: int
@@ -15,16 +18,21 @@ func _ready() -> void:
 	caught_list = []
 	aoe_radius = 0
 	aoe_alpha = 0
-	zone_ripples = [
-		[0, 0],
-		[0, 0],
-		[0, 0]
-	]
 	
 	$DamageArea2D/DamageCollisionShape2D.shape.set_radius(aoe_radius)
 	aoe()
-	#zone_ripple()
 
+func aoe():
+	# instanciate ripple, then:
+	await get_tree().create_timer(0.8, false).timeout
+	#print("ripple!")
+	var ripple = effect_ripple.instantiate()
+	ripple.max_radius = 64
+	ripple.expand_speed = 32
+	ripple.inverted = true
+	add_child(ripple)
+	aoe()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -56,24 +64,24 @@ func make_zone_ripple(ripple):
 		await get_tree().create_timer(.04).timeout
 		
 
-func aoe():
-	for i in range(64):
-		aoe_radius = i
-		aoe_alpha = (clamp(i-8, 1, 8) * 0.1)
-		$DamageArea2D/DamageCollisionShape2D.shape.set_radius(aoe_radius)
-		queue_redraw()
-		await get_tree().create_timer(.02).timeout
-	
-	# On désactive et réactive le monitoring pour reprendre en compte
-	# les ennemis qui entreraient dans la zone à nouveau.
-	monitoring = false 
-	monitoring = true
-	
-	for i in range(6):
-		aoe_alpha = (6-i) * 0.1
-		queue_redraw()
-		await get_tree().create_timer(.1).timeout
-	aoe()
+#func aoe():
+#	for i in range(64):
+#		aoe_radius = i
+#		aoe_alpha = (clamp(i-8, 1, 8) * 0.1)
+#		$DamageArea2D/DamageCollisionShape2D.shape.set_radius(aoe_radius)
+#		queue_redraw()
+#		await get_tree().create_timer(.02).timeout
+#	
+#	# On désactive et réactive le monitoring pour reprendre en compte
+#	# les ennemis qui entreraient dans la zone à nouveau.
+#	monitoring = false 
+#	monitoring = true
+#	
+#	for i in range(6):
+#		aoe_alpha = (6-i) * 0.1
+#		queue_redraw()
+#		await get_tree().create_timer(.1).timeout
+#	aoe()
 
 ## Applique une pseudo-gravité au corps body passé en argument, en direction de la tourelle.
 ## La force est appliquée toute les .01 secondes tant que le corps reste dans la zone.
@@ -112,10 +120,11 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _on_damage_area_2d_body_entered(body: Node2D) -> void:
-	if body is RigidBody2D:
-		print("body entered aoe: bang!")
-		if body.mass >= 1:
-			body.hit(2)
+	pass
+	#if body is RigidBody2D:
+		#print("body entered aoe: bang!")
+		#if body.mass >= 1:
+		#	body.hit(2)
 		#else:
 		#	while body in caught_list: # Repousse le corps de la zone :)
 		#		body.apply_central_impulse(global_position.direction_to(body.global_position).normalized() * 0.3)

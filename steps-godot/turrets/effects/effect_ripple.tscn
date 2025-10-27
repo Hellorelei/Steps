@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqk8lyt74kb0m"]
+
+[ext_resource type="Script" uid="uid://cf45nwysafxar" path="res://turrets/effects/effect_ripple.gd" id="1_51jh3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gu1r5"]
+radius = 64.0
+
+[node name="EffectRipple" type="Node2D"]
+script = ExtResource("1_51jh3")
+
+[node name="DamageArea2D" type="Area2D" parent="."]
+
+[node name="DamageCollisionShape2D" type="CollisionShape2D" parent="DamageArea2D"]
+shape = SubResource("CircleShape2D_gu1r5")
+debug_color = Color(0.97877, 0.0442085, 0.357028, 0.42)
+
+[connection signal="body_entered" from="DamageArea2D" to="." method="_on_damage_area_2d_body_entered"]

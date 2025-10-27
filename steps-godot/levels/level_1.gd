@@ -1,41 +1,46 @@
 extends Node2D
 
 # 
-@export var generic_mob: PackedScene
-@export var turret_handler: PackedScene
-@export var enemy_waves: Array = [
-		["can"],
-		["can", "can", "can"],
-		["can", "can", "can", "can", "can", "can", "can"]
-	]
+@export var ui_game_hud: PackedScene = preload("res://ui_game_hud.tscn")
 
 var current_wave:int
 var gametime:float
 var game_started:bool
 var total_waves: int
 var check_victory: bool
+var wave_spawners: Array
+var waves: Array
+var ui: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Adding a test mob!
-	var mob = generic_mob.instantiate()
-	mob.position = $MobSpawnMarker2D.position
-	#mob.self_curve = $MobPath.curve
-	mob.rotation = randf()
-	mob.mass = 0.6
-	add_child(mob)
+	print("████████ level_1 > _ready()")
+	print("█ Préparation de l'interface: · · ·")
+	ui = ui_game_hud.instantiate()
+	add_child(ui)
+	get_node("UiGameHud/StartButton").button_down.connect(_on_button_button_down)
+	print("█ Récupération des spawners: · · ·")
+	for wave_spawner in get_tree().get_nodes_in_group("enemy_waves_spawner"):
+		wave_spawners.append(wave_spawner)
+		waves.append(wave_spawner.waves)
+		print("█        vagues —> " + str(wave_spawner.waves))
+	print("█      spawners —> " + str(wave_spawners))
 	
-	for base in get_tree().get_nodes_in_group("turret_base_group"):
-		print(base)
-		var turret_base = turret_handler.instantiate()
-		turret_base.position = base.position
-		add_child(turret_base)
-		
-	#var turret_base = turret_handler.instantiate()
-	#turret_base.position = $TurretMarker2D.position
-	#add_child(turret_base)
+	print("█ Calcul des vagues: · · ·")
+	if len(wave_spawners) > 0:
+		var temp_waves: Array
+		for wave_spawner in wave_spawners:
+			temp_waves.append(len(wave_spawner.waves))
+		print("█  len() vagues —> " + str(temp_waves))
+		total_waves = temp_waves.max()
+		print("█  max() vagues —> " + str(total_waves))
+	else:
+		print("█        Erreur: Aucune vague trouvée.")
+		get_tree().quit()
+
+	print("████████ · · · · · · · ·\n")
 	
-	total_waves = len(enemy_waves)
+	total_waves = len(wave_spawners)
 	gametime = 0
 	game_started = 0
 	check_victory = false
@@ -47,58 +52,39 @@ func _process(delta: float) -> void:
 	$Wave.text = "Wave: " + str(current_wave) + "/" + str(total_waves)
 	if check_victory:
 		if not get_tree().get_nodes_in_group("enemy_group"):
-			print("yay!")
+			print("████████ Vérifier victoire: aucun ennemi restant. Bravo!")
 			# add victory function here :)
 			$CheckButton.button_pressed = true
 
-
-
-func _on_b_button_1_pressed():
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://ui_level.tscn")
-
 func enemy_wave(index:int):
-	print("wave in:" + str(index))
+	print("████████ level_1 > enemy_wave(" + str(index) + ")")
 	current_wave = index + 1
-	for enemy in enemy_waves[index]:
-		add_enemy(enemy)
-		await get_tree().create_timer(1).timeout
-	await get_tree().create_timer(10).timeout
-	print(len(enemy_waves))
-	if (index + 1) < len(enemy_waves):
-		print(str(index + 1) + ":" + str(len(enemy_waves)))
+	print("█ Vague: " + str(current_wave) + "/" + str(total_waves))
+	print("█ Appel aux spawners: · · ·")
+	for wave_spawner in wave_spawners:
+		print("█  wave_spawner.spawn_wave() —> " + str(wave_spawner) + str(index))
+		wave_spawner.spawn_wave(index)
+	print("█ Timer: · · ·")
+	await get_tree().create_timer(10, false).timeout
+	print("█ Timer: Terminé.")
+	
+	print("█ Vérification de la progression: · · ·")
+	print("█  Est-ce que " + str(current_wave) + " < " + str(total_waves) + " ?")
+	if current_wave < total_waves:
+		print("█  Oui! On lance la vague suivante: · · ·")
 		enemy_wave(index + 1)
 	else:
+		print("█  Non! On change le drapeau de vérification des victoires: · · ·")
 		check_victory = true
-
-func add_enemy(enemy:String):
-	var mob = generic_mob.instantiate()
-	mob.position = $MobSpawnMarker2D.position
-	mob.rotation = randf()
-	mob.set_collision_layer_value(13, true)
-	add_child(mob)
 
 func start_game():
 	enemy_wave(0)
 
-func _on_check_button_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		get_tree().paused = true
-		$PauseOverlayPolygon2D.visible = true
-		#modulate = Color(0.3, 0.3, 0.3, 1)
-		$GamePausedLabel.visible = true
-	else:
-		get_tree().paused = false
-		$PauseOverlayPolygon2D.visible = false
-		#modulate = Color(1, 1, 1, 1)
-		$GamePausedLabel.visible = false
-
-
+## TODO: move to ui_game_hud?
 func _on_button_button_down() -> void:
 	if not game_started:
 		start_game()
-		$StartButton.disabled = true
-
+		get_node("UiGameHud/StartButton").disabled = true
 
 func _on_failure_area_2d_body_entered(body: Node2D) -> void:
 	if body is RigidBody2D:

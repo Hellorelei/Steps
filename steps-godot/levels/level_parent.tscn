@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://bmbp62nuji0q8"]
 
 [ext_resource type="Script" uid="uid://divc4b4fyafu2" path="res://levels/level_1.gd" id="1_ubrto"]
-[ext_resource type="PackedScene" uid="uid://cakg5gvavrl7u" path="res://generic_mob.tscn" id="2_2v1d4"]
+[ext_resource type="PackedScene" uid="uid://cakg5gvavrl7u" path="res://mobs/generic_mob.tscn" id="2_2v1d4"]
 [ext_resource type="PackedScene" uid="uid://c8h8dw4nsn6xl" path="res://sprites.tscn" id="3_gyjix"]
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="4_bdtre"]
 [ext_resource type="Texture2D" uid="uid://b8eshxv8slfhv" path="res://Tilesheet/Hills.png" id="5_fvn8c"]

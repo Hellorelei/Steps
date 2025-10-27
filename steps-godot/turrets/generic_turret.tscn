@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://02wpfqfbw2y1"]
 
 [ext_resource type="Texture2D" uid="uid://mh5v2hj72jpu" path="res://sprites/grid.png" id="1_boeh4"]
-[ext_resource type="Script" uid="uid://bst2uquqsdogb" path="res://generic_turret.gd" id="1_cfr18"]
+[ext_resource type="Script" uid="uid://bst2uquqsdogb" path="res://turrets/generic_turret.gd" id="1_cfr18"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cfr18"]
 radius = 64.4981
@@ -60,6 +60,7 @@ animations = [{
 radius = 64.0
 
 [node name="Area2D" type="Area2D"]
+process_mode = 1
 priority = 1
 gravity_point = true
 gravity = 60.0

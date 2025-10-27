@@ -38,23 +38,7 @@ func _draw():
 
 ## Efface la tourelle.
 func delete() -> void:
-	queue_free()
-
-func zone_ripple():
-	for i in range(3):
-		make_zone_ripple(i)
-		await get_tree().create_timer(1.2).timeout
-	zone_ripple()
-
-func make_zone_ripple(ripple):
-	for i in range(64):
-		# Calcul barbare pour déterminer l'opacité de la vaguelette: le but
-		# est qu'elle soit faible au début et à la fin, donc on fait du
-		# (-0.001)(x^2) + 1
-		zone_ripples[ripple] = [64-i, clamp((((-0.001) * ((i-32)*(i-32))) + 1), 0, 0.6)]
-		queue_redraw()
-		await get_tree().create_timer(.04).timeout
-		
+	queue_free()		
 
 func aoe():
 	for i in range(64):

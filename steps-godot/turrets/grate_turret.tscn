@@ -60,6 +60,7 @@ animations = [{
 radius = 64.0
 
 [node name="Area2D" type="Area2D"]
+process_mode = 1
 priority = 1
 gravity_point = true
 gravity = 60.0
