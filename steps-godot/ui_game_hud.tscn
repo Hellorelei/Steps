@@ -62,5 +62,14 @@ z_index = 90
 color = Color(0, 0, 0, 0.501961)
 polygon = PackedVector2Array(535, -23, 535, 535, -24, 534, -21, -21)
 
+[node name="DebugCheckButton" type="CheckButton" parent="."]
+z_index = 100
+offset_left = 400.0
+offset_top = 25.0
+offset_right = 510.0
+offset_bottom = 56.0
+text = "Debug"
+
 [connection signal="button_down" from="BackButton" to="." method="_on_back_button_button_down"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="DebugCheckButton" to="." method="_on_debug_check_button_toggled"]

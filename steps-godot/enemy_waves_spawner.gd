@@ -18,10 +18,14 @@ func _ready() -> void:
 	var spawner = load("res://lone_scripts/spawn_mob.gd")
 	print("█           Test SpawnMob: " + SpawnMob.hello_world())
 	all_waves_spawned = false
+	# On enregistre le spawner dans le gestionnaire de spawners.
+	await _register_spawner()
 	print("█ Récupération des vagues: · · ·")
 	get_children_waves()
 	print("█               —> vagues: " + str(len(waves)))
 	print("████████ · · · · · · · ·\n")
+
+	Global.send_wave.connect(_on_send_wave)
 
 func get_children_waves() -> void:
 	for child in self.get_children():
@@ -36,6 +40,17 @@ func spawn_wave(index: int = 0) -> void:
 			SpawnMob.spawn(entry, self)
 			await get_tree().create_timer(1, false).timeout
 	return
+
+func _on_send_wave():
+	print("ayo!")
+	spawn_wave()
+	pass
+
+func _register_spawner() -> void:
+	if get_parent() is EnemyWavesHolder:
+		get_parent().register_spawner(self)
+	else:
+		print("Error registering spawner.")
 
 func enemy_wave(index:int):
 	print("wave in:" + str(index))

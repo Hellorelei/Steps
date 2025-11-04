@@ -1,5 +1,7 @@
 extends Node2D
 
+## TODO: Cleanup button auto hide by having a better timer and/or hover detection.
+
 @export var generic_turret: PackedScene
 @export var grate_turret: PackedScene
 

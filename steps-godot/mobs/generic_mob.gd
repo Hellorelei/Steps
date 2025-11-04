@@ -32,6 +32,15 @@ func _process(delta: float) -> void:
 	# DEBUG: Affiche une ligne orange équivalente aux forces appliquées au monstre
 	$Node/DebugLine2D.points = PackedVector2Array([global_position, global_position + linear_velocity])
 	
+	if Global.debug:
+		$Node/DebugLine2D.visible = true
+		#$TargetPolygon2D.visible = true
+		#print("trubug")
+	else:
+		$Node/DebugLine2D.visible = false
+		#$TargetPolygon2D.visible = false
+		#print("falbug")
+	
 	# Affiche la cible actuelle du mob
 	# $TargetPolygon2D.global_position = target_mob_location.global_position
 
