@@ -28,21 +28,6 @@ func _process(delta: float) -> void:
 	
 	# On soustrait le temps passé chaque frame au compteur, tout en l'empêchant d'aller < 0.
 	invincibility_frame_counter = clampf(invincibility_frame_counter - delta, 0, 1000000000)
-	
-	# DEBUG: Affiche une ligne orange équivalente aux forces appliquées au monstre
-	$Node/DebugLine2D.points = PackedVector2Array([global_position, global_position + linear_velocity])
-	
-	if Global.debug:
-		$Node/DebugLine2D.visible = true
-		#$TargetPolygon2D.visible = true
-		#print("trubug")
-	else:
-		$Node/DebugLine2D.visible = false
-		#$TargetPolygon2D.visible = false
-		#print("falbug")
-	
-	# Affiche la cible actuelle du mob
-	# $TargetPolygon2D.global_position = target_mob_location.global_position
 
 ## Delete le monstre si il sort de l'écran (pas sûre que ça marche en l'état)
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

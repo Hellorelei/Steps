@@ -9,10 +9,12 @@ func _ready() -> void:
 	Global.emit_spawners_ready()
 	_fill_Global()
 
+## Appelé par un spawner pour s'enregistrer auprès de cette node.
 func register_spawner(spawner: Object) -> void:
 	registered_spawners.append(spawner)
 	print("spawner registered.")
 
+## Transmet le total de vagues au Global.
 func _fill_Global() -> void:
 	var tempwaves: Array
 	for spawner in registered_spawners:
