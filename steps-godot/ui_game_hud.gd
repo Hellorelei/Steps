@@ -7,6 +7,7 @@ var wave: Object
 var current_time: String
 var current_wave: String
 var total_waves: String
+var victory_label: Object
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +15,9 @@ func _ready() -> void:
 	game_paused_label = $GamePausedLabel
 	time = $Time
 	wave = $Wave
+	victory_label = $VictoryRichTextLabel
 	update_texts()
+	victory_label.visible = false
 	## On se connecte aux signaux de Global: rafraichissement à 1Hz.
 	Global.pulse.connect(update_texts)
 	## Mais aussi quand une nouvelle vague est lancée!
@@ -54,3 +57,6 @@ func pause(status: bool) -> void:
 func _on_back_button_button_down() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://ui_level.tscn")
+
+func show_victory() -> void:
+	victory_label.visible = true

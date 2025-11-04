@@ -33,11 +33,17 @@ func _send_wave() -> void:
 ## Chaque seconde, on vérifie la présence d'ennemis.
 func _on_pulse() -> void:
 	#print(game_started)
-	print(Global.debug)
+	#print(Global.debug)
+	## Si le jeu a commencé et qu'il n'y a plus d'ennemis…
 	if game_started and (check_for_enemies() < 1):
-		print("[ " + str(Global.get_current_wave()))
+		#print("[ " + str(Global.get_current_wave()))
+		## …et si il reste des vagues à envoyer…
 		if Global.get_current_wave() < Global.get_total_waves():
+			## On envoie une vague.
 			_send_wave()
+		## …sinon, victoire!
+		else:
+			victory()
 
 ## Configure l'interface user (instancie une node ui_game_hud).
 func _setup_ui() -> void:
@@ -53,7 +59,13 @@ func _on_button_down() -> void:
 		game_started = true
 		start_button.disabled = true
 
+## Réinitialise les propriétés de Global losrqu'on commence un niveau.
 func _reset_level() -> void:
 	game_started = false
 	start_button.disabled = false
 	Global.reset_time_and_waves()
+
+## Appelé lors d'une victoire.
+func victory() -> void:
+	print("well played!")
+	ui.show_victory()
