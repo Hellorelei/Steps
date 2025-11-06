@@ -83,5 +83,7 @@ func set_turret(turret:String):
 			built_turret.delete()
 		"1":
 			built_turret = grate_turret.instantiate()
+		#"2":
+		#	built_turret = generic_turret_oxy.instantiate()
 	built_turret.position = Vector2(0, 0)
 	add_child(built_turret)

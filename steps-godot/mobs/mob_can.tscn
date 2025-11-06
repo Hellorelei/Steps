@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://q3i8q8y3wv27"]
+
+[ext_resource type="Script" uid="uid://dw5o6ippordx5" path="res://mobs/mob.gd" id="1_wrhub"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wrhub"]
+height = 28.0
+
+[node name="MobCan" type="RigidBody2D"]
+script = ExtResource("1_wrhub")
+metadata/_custom_type_script = "uid://dw5o6ippordx5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_wrhub")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

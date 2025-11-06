@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbjq2mhf64un1"]
+
+[ext_resource type="Script" uid="uid://nwp1pb74xoju" path="res://turrets/turret.gd" id="1_5x63j"]
+[ext_resource type="Script" uid="uid://dcqx1q055qoka" path="res://turrets/turret_target_module.gd" id="2_31ajc"]
+[ext_resource type="Script" uid="uid://cm4a7a1pghirg" path="res://turrets/turret_area.gd" id="3_iwrxf"]
+[ext_resource type="Script" uid="uid://brp4cdrn2t7ua" path="res://turrets/turret_area_effect.gd" id="4_7ptli"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_31ajc"]
+
+[node name="TestGrateTurret" type="Node2D"]
+script = ExtResource("1_5x63j")
+metadata/_custom_type_script = "uid://nwp1pb74xoju"
+
+[node name="TargetModule" type="Node" parent="."]
+script = ExtResource("2_31ajc")
+metadata/_custom_type_script = "uid://dcqx1q055qoka"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+
+[node name="TurretArea2D" type="Area2D" parent="."]
+script = ExtResource("3_iwrxf")
+metadata/_custom_type_script = "uid://cm4a7a1pghirg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretArea2D"]
+shape = SubResource("CircleShape2D_31ajc")
+
+[node name="TurretAreaEffect" type="Node" parent="."]
+script = ExtResource("4_7ptli")
+metadata/_custom_type_script = "uid://brp4cdrn2t7ua"

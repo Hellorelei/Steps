@@ -10,6 +10,6 @@ offset_left = 48.0
 offset_top = 432.0
 offset_right = 144.0
 offset_bottom = 480.0
-text = "Back"
+text = "Retour"
 
 [connection signal="pressed" from="BackButtonC" to="." method="_on_back_button_c_pressed"]

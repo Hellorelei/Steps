@@ -1,7 +1,4 @@
 extends Area2D
-
-var effect_ripple: PackedScene = preload("res://turrets/effects/effect_ripple.tscn")
-
 var turret_type: String
 var caught_list: Array
 var aoe_radius: int
@@ -18,21 +15,16 @@ func _ready() -> void:
 	caught_list = []
 	aoe_radius = 0
 	aoe_alpha = 0
+	zone_ripples = [
+		[0, 0],
+		[0, 0],
+		[0, 0]
+	]
 	
 	$DamageArea2D/DamageCollisionShape2D.shape.set_radius(aoe_radius)
 	aoe()
+	#zone_ripple()
 
-func aoe():
-	# instanciate ripple, then:
-	await get_tree().create_timer(0.8, false).timeout
-	#print("ripple!")
-	var ripple = effect_ripple.instantiate()
-	ripple.max_radius = 64
-	ripple.expand_speed = 32
-	ripple.inverted = true
-	add_child(ripple)
-	aoe()
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -40,25 +32,33 @@ func _process(delta: float) -> void:
 func _draw():
 	draw_circle(position, aoe_radius,
 			Color(0.4, 0.6, 0.8, aoe_alpha), false, 1, true)
+	#for ripple in zone_ripples:
+	#	draw_circle(position, ripple[0], 
+	#		Color(0.4, 0.6, 0.8, ripple[1]), true, 1, true)
 
 ## Efface la tourelle.
 func delete() -> void:
-	queue_free()
+	queue_free()		
 
-func zone_ripple():
-	for i in range(3):
-		make_zone_ripple(i)
-		await get_tree().create_timer(1.2).timeout
-	zone_ripple()
-
-func make_zone_ripple(ripple):
+func aoe():
+	return
 	for i in range(64):
-		# Calcul barbare pour déterminer l'opacité de la vaguelette: le but
-		# est qu'elle soit faible au début et à la fin, donc on fait du
-		# (-0.001)(x^2) + 1
-		zone_ripples[ripple] = [64-i, clamp((((-0.001) * ((i-32)*(i-32))) + 1), 0, 0.6)]
+		aoe_radius = i
+		aoe_alpha = (clamp(i-8, 1, 8) * 0.1)
+		$DamageArea2D/DamageCollisionShape2D.shape.set_radius(aoe_radius)
 		queue_redraw()
-		await get_tree().create_timer(.04).timeout
+		await get_tree().create_timer(.02).timeout
+	
+	# On désactive et réactive le monitoring pour reprendre en compte
+	# les ennemis qui entreraient dans la zone à nouveau.
+	monitoring = false 
+	monitoring = true
+	
+	for i in range(6):
+		aoe_alpha = (6-i) * 0.1
+		queue_redraw()
+		await get_tree().create_timer(.1).timeout
+	aoe()
 
 ## Applique une pseudo-gravité au corps body passé en argument, en direction de la tourelle.
 ## La force est appliquée toute les .01 secondes tant que le corps reste dans la zone.
@@ -97,11 +97,10 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _on_damage_area_2d_body_entered(body: Node2D) -> void:
-	pass
-	#if body is RigidBody2D:
-		#print("body entered aoe: bang!")
-		#if body.mass >= 1:
-		#	body.hit(2)
+	if body is RigidBody2D:
+		print("body entered aoe: bang!")
+		if body.mass >= 1:
+			body.hit(2)
 		#else:
 		#	while body in caught_list: # Repousse le corps de la zone :)
 		#		body.apply_central_impulse(global_position.direction_to(body.global_position).normalized() * 0.3)

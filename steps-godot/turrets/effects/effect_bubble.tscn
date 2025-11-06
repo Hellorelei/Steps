@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8sp2fxw85h4"]
+
+[ext_resource type="Script" uid="uid://brtbthdih0ld" path="res://turrets/effects/effect_bubble.gd" id="1_ibveb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibveb"]
+radius = 8.0
+
+[node name="EffectBubble" type="Node2D"]
+script = ExtResource("1_ibveb")
+
+[node name="DamageArea2D" type="Area2D" parent="."]
+
+[node name="DamageCollisionShape2D" type="CollisionShape2D" parent="DamageArea2D"]
+shape = SubResource("CircleShape2D_ibveb")
+debug_color = Color(0.97877, 0.0442085, 0.357028, 0.42)
