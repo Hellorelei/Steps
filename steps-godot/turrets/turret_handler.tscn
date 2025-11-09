@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0fryxewavd7p"]
+[gd_scene load_steps=6 format=3 uid="uid://b0fryxewavd7p"]
 
 [ext_resource type="Script" uid="uid://b4v7c6i8mewmp" path="res://turrets/turret_handler.gd" id="1_wediq"]
 [ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="2_metqw"]
 [ext_resource type="PackedScene" uid="uid://02wpfqfbw2y1" path="res://turrets/generic_turret.tscn" id="2_qrji6"]
-[ext_resource type="PackedScene" uid="uid://ilx302yyga22" path="res://turrets/grate_turret.tscn" id="3_b230t"]
 [ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="3_qrji6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m84is"]
@@ -28,7 +27,6 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wediq")
 generic_turret = ExtResource("2_qrji6")
-grate_turret = ExtResource("3_b230t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false

@@ -3,7 +3,8 @@ extends Node2D
 ## TODO: Cleanup button auto hide by having a better timer and/or hover detection.
 
 @export var generic_turret: PackedScene
-@export var grate_turret: PackedScene
+#@export var grate_turret: PackedScene
+@export var _test_grate_turret: PackedScene = load("res://turrets/_test_grate_turret.tscn")
 
 # Liste des boutons pour ajouter une tourelle.
 var turret_buttons: Array
@@ -82,7 +83,7 @@ func set_turret(turret:String):
 		"empty":
 			built_turret.delete()
 		"1":
-			built_turret = grate_turret.instantiate()
+			built_turret = _test_grate_turret.instantiate()
 		#"2":
 		#	built_turret = generic_turret_oxy.instantiate()
 	built_turret.position = Vector2(0, 0)

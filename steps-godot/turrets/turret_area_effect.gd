@@ -20,30 +20,34 @@ var parent_turret: Turret
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	enabled_targets = _setup_targets()
+	
 	if get_parent() is Turret:
 		parent_turret = get_parent()
 		parent_turret.body_in.connect(_on_body_in)
 		parent_turret.body_out.connect(_on_body_out)
+		if dampening:
+			parent_turret.area2d_enable_dampening()
 	else:
 		print("Erreur: La node parent doit être de type Turret.")
 
 ## Lorsqu'un ennemi rentre, on le rend immunisé à la gravité générale et on lui applique une fausse
 ## gravité. 
 func _on_body_in(body: Mob) -> void:
-	if artificial_gravity:
-		body.gravity_scale_float(0)
+	if artificial_gravity and body.type in enabled_targets:
+		body.change_gravity_scale(0)
 		_apply_artificial_gravity(body)
 
 ## Lorsqu'un ennemi sort, on réinitialise sa gravity_scale pour lui rendre un comportement normal.
 func _on_body_out(body: Mob) -> void:
-	body.gravity_scale_reset()
+	body.reset_gravity_scale()
 
 ## Applique une pseudo-gravité de force x centrée sur la tourelle aux ennemis passés comme argument.
 ## Se réapplique tous les y.
 func _apply_artificial_gravity(body: Mob) -> void:
+	#print("grabbed: " + str(body))
 	var dir = body.global_position.direction_to(parent_turret.global_position).normalized()
 	# Application de la force au centre de body, multipliée
-	body.apply_central_force(dir * strength)
+	body.apply_central_force(dir * strength * 4)
 	# On attend .01 secondes avant de relancer…
 	await get_tree().create_timer(frequency).timeout
 	# …et on vérifie que le corps soit toujours capturé avant!

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="1_4vlnc"]
 [ext_resource type="Script" uid="uid://bo3adggxxtfpa" path="res://mobs/generic_mob.gd" id="1_ikgdm"]
 [ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="2_ikgdm"]
-[ext_resource type="Script" uid="uid://byakvqdfkjtai" path="res://mob_debug.gd" id="4_rqlxb"]
+[ext_resource type="Script" uid="uid://byakvqdfkjtai" path="res://mobs/mob_debug.gd" id="4_rqlxb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oskjb"]
 animations = [{

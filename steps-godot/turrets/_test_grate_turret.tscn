@@ -1,11 +1,63 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbjq2mhf64un1"]
+[gd_scene load_steps=14 format=3 uid="uid://bbjq2mhf64un1"]
 
 [ext_resource type="Script" uid="uid://nwp1pb74xoju" path="res://turrets/turret.gd" id="1_5x63j"]
 [ext_resource type="Script" uid="uid://dcqx1q055qoka" path="res://turrets/turret_target_module.gd" id="2_31ajc"]
 [ext_resource type="Script" uid="uid://cm4a7a1pghirg" path="res://turrets/turret_area.gd" id="3_iwrxf"]
+[ext_resource type="Texture2D" uid="uid://mh5v2hj72jpu" path="res://sprites/grid.png" id="3_luspi"]
 [ext_resource type="Script" uid="uid://brp4cdrn2t7ua" path="res://turrets/turret_area_effect.gd" id="4_7ptli"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1s4h"]
+atlas = ExtResource("3_luspi")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2083t"]
+atlas = ExtResource("3_luspi")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw604"]
+atlas = ExtResource("3_luspi")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gpag"]
+atlas = ExtResource("3_luspi")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7nhl"]
+atlas = ExtResource("3_luspi")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obocj"]
+atlas = ExtResource("3_luspi")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ja41r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1s4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2083t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw604")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gpag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7nhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obocj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_31ajc"]
+radius = 64.0
 
 [node name="TestGrateTurret" type="Node2D"]
 script = ExtResource("1_5x63j")
@@ -15,7 +67,9 @@ metadata/_custom_type_script = "uid://nwp1pb74xoju"
 script = ExtResource("2_31ajc")
 metadata/_custom_type_script = "uid://dcqx1q055qoka"
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ja41r")
+frame_progress = 0.990715
 
 [node name="TurretArea2D" type="Area2D" parent="."]
 script = ExtResource("3_iwrxf")
@@ -26,4 +80,7 @@ shape = SubResource("CircleShape2D_31ajc")
 
 [node name="TurretAreaEffect" type="Node" parent="."]
 script = ExtResource("4_7ptli")
+dampening = true
+artificial_gravity = true
+target_cannettes = true
 metadata/_custom_type_script = "uid://brp4cdrn2t7ua"

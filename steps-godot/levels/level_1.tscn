@@ -349,7 +349,7 @@ position = Vector2(0, 7)
 polygon = PackedVector2Array(108, -82, 103, 34, 70, 34, 65, -17, 29, -76, 26, -104, 76, -102)
 
 [node name="TurretMarker" type="Marker2D" parent="."]
-position = Vector2(248, 232)
+position = Vector2(227, 221)
 script = ExtResource("9_08mmt")
 metadata/_custom_type_script = "uid://ertdnvvm76ay"
 

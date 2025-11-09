@@ -1,7 +1,12 @@
 extends Area2D
 class_name TurretArea2D
 
+## Les nodes TurretArea2D servent uniquement à notifier la tourelle parente de l'entrée et sortie
+## des mobs dans la zone d'effet de la tourelle.
+
 var parent_turret: Turret
+
+var debug_area: CustomCircle
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,52 +14,48 @@ func _ready() -> void:
 	if get_parent() is Turret:
 		parent_turret = get_parent()
 		parent_turret.pulse.connect(_on_pulse)
+		parent_turret.enable_dampening.connect(_enable_dampening)
 	else:
 		print("Erreur: La node parent doit être de type Turret.")
+	
+	_setup_debug_area()
+	
+	## Connexiond des signaux.
+	self.connect("body_entered", _on_body_entered)
+	self.connect("body_exited", _on_body_exited)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-## Applique une pseudo-gravité au corps body passé en argument, en direction de la tourelle.
-## La force est appliquée toute les .01 secondes tant que le corps reste dans la zone.
-func art_grav(body):
-	# print("wooo")
-	# dir: vecteur entre body et la tourelle, normalisé
-	var dir = body.global_position.direction_to(global_position).normalized()
-	# Application de la force au centre de body, multipliée
-	body.apply_central_force(dir * 16)
-	# On attend .01 secondes avant de relancer…
-	await get_tree().create_timer(.01).timeout
-	# …et on vérifie que le corps soit toujours capturé avant!
-	if body in parent_turret.enemies_in_zone:
-		art_grav(body)
-
-## Activée lorsqu'une Node2D entre dans l'Area2D principale: cause l'aspiration vers la tourelle.
+## Activée lorsqu'une Node2D entre dans la TurretArea2D.
+## On vérifie alors qu'il s'agisse bien d'un mob avant d'en avertir la tourelle
+## parente.
 func _on_body_entered(body: Node2D) -> void:
-	#print("hit!")
-	if body is RigidBody2D:
+	print("turret_area: body entered: " + str(body))
+	if body is Mob:
 		parent_turret.add_enemy_in_zone(body)
-		# On ne cherche que les canettes: masse >= 1 (potentiellement, à changer avec le nom du mob, etc.)
-		if body.mass >= 1:
-			body.gravity_scale_float(0)
-			art_grav(body)
-			#print("graved")
 
+## Activée lorsqu'une Node2D sort de la TurretArea2D.
+## On vérifie alors qu'il s'agisse bien d'un mob avant d'en avertir la tourelle
+## parente.
 func _on_body_exited(body: Node2D) -> void:
-	print("body exited turret area: bye!")
-	#print(caught_list)
-	if body is RigidBody2D:
-		body.gravity_scale_reset()
+	print("turret_area: body exited: " + str(body))
+	if body is Mob:
 		if body in parent_turret.enemies_in_zone:
 			parent_turret.remove_enemy_in_zone(body)
 
-####
-#func _on_damage_area_2d_body_entered(body: Node2D) -> void:
-	#	print("body entered aoe: bang!")
-##	if body is RigidBody2D:
-	#	if body.mass >= 1:
-	#		body.hit(2)
-	#		
+## Chaque seconde, vérifie si la zone de débug devrait être affichée ou non.
 func _on_pulse() -> void:
-	pass
+	if Global.debug and debug_area.visible == false:
+		debug_area.visible = true
+	elif Global.debug == false and debug_area.visible:
+		debug_area.visible = false
+
+## Active le dampening linéaire si demandé par TurretAreaEffect.
+func _enable_dampening() -> void:
+	linear_damp_space_override = 3
+	linear_damp = 1.0
+	
+## Prépare un cercle visible affichant la zone d'effet de la tourelle à afficher si debug == true.
+func _setup_debug_area() -> void:
+	debug_area = CustomCircle.new()
+	debug_area.radius = get_child(0).get_shape().radius
+	add_child(debug_area)
+	

@@ -36,13 +36,13 @@ func spawn_wave(index: int = 0) -> void:
 	if index < len(waves): 
 		var wave = waves[index]
 		for entry in wave: 
-			print(entry)
+			#print(entry)
 			SpawnMob.spawn(entry, self)
 			await get_tree().create_timer(1, false).timeout
 	return
 
 func _on_send_wave():
-	print("ayo!")
+	#print("ayo!")
 	spawn_wave()
 	pass
 

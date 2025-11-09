@@ -7,7 +7,10 @@ var current_wave: int
 var total_waves: int
 var pulse_clock: Object
 var half_pulse_clock: Object
+
 @export var debug: bool = true
+@export_group("Global Mob Settings", "mob_")
+@export var mob_invincibility_duration: float = 0.6
 
 signal pulse
 signal half_pulse
@@ -87,3 +90,7 @@ func _setup_pulse():
 	pulse_clock.timeout.connect(_emit_pulse)
 	add_child(pulse_clock)
 	pulse_clock.start()
+
+## Fournit la durée d'invincibilité des mobs configurée via Global
+func get_invincibility_duration() -> float:
+	return mob_invincibility_duration

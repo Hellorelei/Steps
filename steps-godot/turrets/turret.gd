@@ -13,6 +13,9 @@ signal pulse
 signal body_in(body)
 signal body_out(body)
 
+## Signal pour indiquer à TurretArea2D d'activer le dampening.
+signal enable_dampening
+
 ## Horloge interne à 10Hz pour les modules enfants.
 var internal_clock: Timer
 
@@ -23,6 +26,9 @@ var enemies_in_zone: Array
 func _ready() -> void:
 	print("Hello world!")
 	_internal_clock() # Replace with function body.
+	if $AnimatedSprite2D:
+		$AnimatedSprite2D.animation = "default"
+		$AnimatedSprite2D.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -56,3 +62,6 @@ func remove_enemy_in_zone(enemy) -> void:
 
 func get_enemies_in_zone() -> Array:
 	return enemies_in_zone
+	
+func area2d_enable_dampening() -> void:
+	enable_dampening.emit()
