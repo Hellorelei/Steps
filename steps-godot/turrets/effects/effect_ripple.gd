@@ -44,10 +44,11 @@ func disappear() -> void:
 	
 ## Endommage tout objet touché de masse >= 1.
 func _on_damage_area_2d_body_entered(body: Node2D) -> void:
-	if body is RigidBody2D:
+	if body is Mob:
 		print("body entered aoe: bang!")
-		if body.mass >= 1:
-			body.hit(2)
+		get_parent().hit_target(body)
+		#if body.mass >= 1:
+		#	body.hit(2)
 		#else:
 		#	while body in caught_list: # Repousse le corps de la zone :)
 		#		body.apply_central_impulse(global_position.direction_to(body.global_position).normalized() * 0.3)

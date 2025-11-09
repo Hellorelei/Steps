@@ -5,7 +5,6 @@ class_name TurretArea2D
 ## des mobs dans la zone d'effet de la tourelle.
 
 var parent_turret: Turret
-
 var debug_area: CustomCircle
 
 # Called when the node enters the scene tree for the first time.

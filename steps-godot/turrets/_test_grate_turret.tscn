@@ -63,13 +63,16 @@ radius = 64.0
 script = ExtResource("1_5x63j")
 metadata/_custom_type_script = "uid://nwp1pb74xoju"
 
-[node name="TargetModule" type="Node" parent="."]
+[node name="TargetModule" type="Node2D" parent="."]
 script = ExtResource("2_31ajc")
+targeting_mode = "Zone"
+fire_rate = 2.0
+target_cannettes = true
 metadata/_custom_type_script = "uid://dcqx1q055qoka"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ja41r")
-frame_progress = 0.990715
+frame_progress = 0.996708
 
 [node name="TurretArea2D" type="Area2D" parent="."]
 script = ExtResource("3_iwrxf")
