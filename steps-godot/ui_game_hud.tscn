@@ -19,8 +19,9 @@ text = "< BACK"
 process_mode = 3
 z_index = 100
 offset_left = 400.0
+offset_top = 8.0
 offset_right = 510.0
-offset_bottom = 31.0
+offset_bottom = 39.0
 text = "Pause"
 
 [node name="StartButton" type="Button" parent="."]
@@ -34,16 +35,17 @@ text = "START!"
 [node name="Wave" type="RichTextLabel" parent="."]
 z_index = 100
 offset_left = 8.0
-offset_top = 32.0
+offset_top = 40.0
 offset_right = 128.0
-offset_bottom = 64.0
+offset_bottom = 72.0
 text = "Wave: "
 
 [node name="Time" type="RichTextLabel" parent="."]
 z_index = 100
 offset_left = 8.0
+offset_top = 8.0
 offset_right = 128.0
-offset_bottom = 32.0
+offset_bottom = 40.0
 text = "Time: "
 
 [node name="GamePausedLabel" type="Label" parent="."]
@@ -66,9 +68,9 @@ polygon = PackedVector2Array(535, -23, 535, 535, -24, 534, -21, -21)
 [node name="DebugCheckButton" type="CheckButton" parent="."]
 z_index = 100
 offset_left = 400.0
-offset_top = 25.0
+offset_top = 33.0
 offset_right = 510.0
-offset_bottom = 56.0
+offset_bottom = 64.0
 text = "Debug"
 
 [node name="VictoryRichTextLabel" type="RichTextLabel" parent="."]

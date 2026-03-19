@@ -1,7 +1,7 @@
 extends Marker2D
 class_name TurretMarker
 
-var turret_handler: PackedScene = preload("res://turrets/turret_handler.tscn")
+var turret_handler: PackedScene = preload("res://turrets/turret_parts/turret_handler.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

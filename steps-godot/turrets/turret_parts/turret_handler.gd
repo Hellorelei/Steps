@@ -5,6 +5,7 @@ extends Node2D
 @export var generic_turret: PackedScene
 #@export var grate_turret: PackedScene
 @export var _test_grate_turret: PackedScene = load("res://turrets/_test_grate_turret.tscn")
+@export var _test_oxygen_turret: PackedScene = load("res://turrets/_test_oxygen_turret.tscn")
 
 # Liste des boutons pour ajouter une tourelle.
 var turret_buttons: Array
@@ -69,7 +70,10 @@ func _on_base_button_button_down() -> void:
 func _on_add_turret_1_button_1_button_down() -> void:
 	set_turret("1")
 	button_toggle(turret_buttons, 0)
-	pass # Replace with function body.
+
+func _on_add_turret_1_button_2_button_down() -> void:
+	set_turret("2")
+	button_toggle(turret_buttons, 0)
 	
 func _on_delete_turret_button_button_down() -> void:
 	#built_turret.delete()
@@ -84,7 +88,7 @@ func set_turret(turret:String):
 			built_turret.delete()
 		"1":
 			built_turret = _test_grate_turret.instantiate()
-		#"2":
-		#	built_turret = generic_turret_oxy.instantiate()
+		"2":
+			built_turret = _test_oxygen_turret.instantiate()
 	built_turret.position = Vector2(0, 0)
 	add_child(built_turret)

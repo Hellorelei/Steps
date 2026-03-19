@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbjq2mhf64un1"]
+[gd_scene load_steps=15 format=3 uid="uid://bbjq2mhf64un1"]
 
-[ext_resource type="Script" uid="uid://nwp1pb74xoju" path="res://turrets/turret.gd" id="1_5x63j"]
-[ext_resource type="Script" uid="uid://dcqx1q055qoka" path="res://turrets/turret_target_module.gd" id="2_31ajc"]
-[ext_resource type="Script" uid="uid://cm4a7a1pghirg" path="res://turrets/turret_area.gd" id="3_iwrxf"]
+[ext_resource type="Script" uid="uid://nwp1pb74xoju" path="res://turrets/turret_parts/turret.gd" id="1_5x63j"]
+[ext_resource type="Script" uid="uid://dcqx1q055qoka" path="res://turrets/turret_parts/turret_target_module.gd" id="2_31ajc"]
+[ext_resource type="Script" uid="uid://cm4a7a1pghirg" path="res://turrets/turret_parts/turret_area.gd" id="3_iwrxf"]
 [ext_resource type="Texture2D" uid="uid://mh5v2hj72jpu" path="res://sprites/grid.png" id="3_luspi"]
-[ext_resource type="Script" uid="uid://brp4cdrn2t7ua" path="res://turrets/turret_area_effect.gd" id="4_7ptli"]
+[ext_resource type="Script" uid="uid://xjv5keo1nquy" path="res://turrets/turret_parts/turret_gun_ripple.gd" id="3_u1s4h"]
+[ext_resource type="Script" uid="uid://brp4cdrn2t7ua" path="res://turrets/turret_parts/turret_area_effect.gd" id="4_7ptli"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u1s4h"]
 atlas = ExtResource("3_luspi")
@@ -63,6 +64,10 @@ radius = 64.0
 script = ExtResource("1_5x63j")
 metadata/_custom_type_script = "uid://nwp1pb74xoju"
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ja41r")
+frame_progress = 0.569541
+
 [node name="TargetModule" type="Node2D" parent="."]
 script = ExtResource("2_31ajc")
 targeting_mode = "Zone"
@@ -70,9 +75,9 @@ fire_rate = 2.0
 target_cannettes = true
 metadata/_custom_type_script = "uid://dcqx1q055qoka"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ja41r")
-frame_progress = 0.996708
+[node name="TurretGunRipple" type="Node2D" parent="TargetModule"]
+script = ExtResource("3_u1s4h")
+metadata/_custom_type_script = "uid://xjv5keo1nquy"
 
 [node name="TurretArea2D" type="Area2D" parent="."]
 script = ExtResource("3_iwrxf")

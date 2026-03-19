@@ -14,16 +14,19 @@ class_name TurretTargetModule
 @export var target_micropolluants: bool = false
 @export var target_lipides: bool = false
 
-@export var effect_ripple: PackedScene = load("res://turrets/effects/effect_ripple.tscn")
-
 var enabled_targets: Array
 var fire_clock: Timer
+var parent_turret: Turret
+var current_target: Mob
+
+signal shoot_at(target: Mob)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	## On va chercher le signal chez le parent.
 	if get_parent() is Turret:
-		get_parent().pulse.connect(_on_pulse)
+		parent_turret = get_parent()
+		parent_turret.pulse.connect(_on_pulse)
 	else:
 		print("Erreur: La node parent doit être de type Turret.")
 		
@@ -32,25 +35,23 @@ func _ready() -> void:
 		
 	enabled_targets = _setup_targets()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _on_pulse() -> void:
 	match targeting_mode:
 		"Aléatoire":
 			pass
+			
 		#	print("hi")
 
+## Appelé à la fréquence de tir; tire. 
 func _on_fire_pulse() -> void:
 	match targeting_mode:
 		"Aléatoire":
-			pass
+			current_target = parent_turret.get_enemies_in_zone().pick_random()
 		"Suivi":
 			pass
 		"Zone":
-			_create_zone()
+			pass
+	shoot_at.emit(current_target)
 
 ## Initialize une liste de cibles acceptées à partir des réglages de l'éditeur.
 func _setup_targets() -> Array:
@@ -72,14 +73,17 @@ func _setup_fire_clock() -> void:
 	add_child(fire_clock)
 	fire_clock.start()
 
+## Crée une onde concentrique en direction de la tourelle qui fait des dégâts. 
 func _create_zone() -> void:
-	var ripple = effect_ripple.instantiate()
+	#var ripple = effect_ripple.instantiate()
 	#print("ripple out!")
-	ripple.max_radius = 64
-	ripple.expand_speed = 32
-	ripple.inverted = true
-	add_child(ripple)
+	#ripple.max_radius = 64
+	#ripple.expand_speed = 32
+	#ripple.inverted = true
+	#add_child(ripple)
+	pass
 
+## Fonction appelée lorsqu'un mob est touché par la tourelle.
 func hit_target(body: Mob) -> void:
 	print(body)
 	if body.type in enabled_targets:
@@ -87,3 +91,6 @@ func hit_target(body: Mob) -> void:
 		body.hit(target_damage)
 	else:
 		pass
+
+func _shoot_at(body: Mob) -> void:
+	pass

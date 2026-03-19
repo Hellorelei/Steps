@@ -27,6 +27,7 @@ func _ready() -> void:
 	print("Hello world!")
 	_internal_clock() # Replace with function body.
 	if $AnimatedSprite2D:
+		$AnimatedSprite2D.z_index = 100
 		$AnimatedSprite2D.animation = "default"
 		$AnimatedSprite2D.play()
 
