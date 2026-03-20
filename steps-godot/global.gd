@@ -5,6 +5,7 @@ signal send_wave
 var game_time: float
 var current_wave: int
 var total_waves: int
+var current_grade: int
 var pulse_clock: Object
 var half_pulse_clock: Object
 
@@ -21,6 +22,7 @@ func _ready() -> void:
 	game_time = 0.0
 	current_wave = 0
 	total_waves = 0
+	current_grade = 0
 	_setup_pulse()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,6 +35,10 @@ func reset_time_and_waves() -> void:
 	game_time = 0.0
 	current_wave = 0
 	total_waves = 0
+
+## Remet la note actuelle à zéro
+func reset_grade() -> void:
+	current_grade = 0
 
 ## Définit le temps actuel comme étant x.
 func set_time(time: float) -> void:
@@ -67,6 +73,9 @@ func set_total_waves(waves: int) -> void:
 func get_total_waves() -> int:
 	return total_waves
 
+func get_current_grade() -> int:
+	return current_grade
+
 ## Envoie le signal send_wave.
 func emit_send_wave():
 	send_wave.emit()
@@ -94,3 +103,7 @@ func _setup_pulse():
 ## Fournit la durée d'invincibilité des mobs configurée via Global
 func get_invincibility_duration() -> float:
 	return mob_invincibility_duration
+
+## Met à jour la note actuelle
+func set_grade(new_grade) -> void:
+	current_grade = new_grade

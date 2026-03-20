@@ -4,11 +4,11 @@ class_name GameLogic
 signal start_game
 
 @export var ui_game_hud: PackedScene = preload("res://ui_game_hud.tscn")
-
 var game_started: bool
 var check_victory: bool
 var ui: Node
 var start_button: Button
+var grade: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -64,8 +64,18 @@ func _reset_level() -> void:
 	game_started = false
 	start_button.disabled = false
 	Global.reset_time_and_waves()
+	Global.reset_grade()
 
 ## Appelé lors d'une victoire.
 func victory() -> void:
 	print("well played!")
 	ui.show_victory()
+	
+
+## Appelé lors d'une défaite
+func defeat() -> void:
+	print("defeat!")
+	ui.show_defeat()
+	
+## Calcul de la note, sur trois étoiles
+## ?

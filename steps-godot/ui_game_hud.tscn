@@ -90,6 +90,23 @@ text = "[b]Victoire![/b]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="DefeatRichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 198.5
+offset_top = 236.0
+offset_right = 313.5
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[b]Défaite![/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="button_down" from="BackButton" to="." method="_on_back_button_button_down"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="toggled" from="DebugCheckButton" to="." method="_on_debug_check_button_toggled"]
