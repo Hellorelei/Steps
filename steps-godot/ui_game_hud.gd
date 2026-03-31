@@ -27,7 +27,7 @@ func _ready() -> void:
 	## Mais aussi quand une nouvelle vague est lancée!
 	Global.send_wave.connect(update_texts)
 	$DebugCheckButton.button_pressed = Global.debug
-	pause_game(false)
+	unpause_game()
 
 ## Met à jour les éléments de texte (temps, vague) de l'interface.
 func update_texts() -> void:
@@ -54,12 +54,26 @@ func _on_debug_check_button_toggled(toggled_on: bool) -> void:
 
 ## Pause le jeu et affiche l'interface de pause.
 func pause(status: bool) -> void:
-	pause_game(status)
+	if status:
+		pause_game()
+	else:
+		unpause_game()
 	pause_overlay.visible = status
 	game_paused_label.visible = status
 
-func pause_game(status: bool) -> void:
-	get_tree().paused = status
+func show_pause_screen() -> void:
+	pause_overlay.visible = true
+	
+func hide_pause_screen() -> void:
+	pause_overlay.visible = false
+
+func pause_game(show_ui = true) -> void:
+	get_tree().paused = true
+	pause_overlay.visible = show_ui
+	
+func unpause_game() -> void:
+	get_tree().paused = false
+	pause_overlay.visible = false
 
 ## Appelé lorsque le bouton de retour au menu est activé.
 func _on_back_button_button_down() -> void:
@@ -71,7 +85,7 @@ func _fetch_victory_grade() -> void:
 
 func show_victory() -> void:
 	_fetch_victory_grade()
-	pause_game(true)
+	pause_game()
 	victory_label.text = victory_label.text
 	victory_label.visible = true
 	

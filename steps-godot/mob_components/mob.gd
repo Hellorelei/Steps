@@ -1,14 +1,25 @@
 extends RigidBody2D
+## Extension de RigidBody2D pour faire les mobs.
+##
+## Un mob est constitué des composants suivants: [br]
+## - Un AnimatedSprite2D pour lui donner une apparence; [br]
+## - Un VisibleOnScreenNotifier2D pour le faire disparaître à la sortie de l'écran; [br]
+## - Un CollisionShape2D pour lui donner une hitbox; [br]
+## - Un MobDebug pour pouvoir visualiser certaines variables lorsque nécessaire; [br]
+## - Un MobHealth qui gère sa vie, son invincibilité, etc. [br]
 class_name Mob
 
-## Type de mob.
+## Type de mob; affecte l'interaction avec les tours et projectiles.
 @export_enum("Cannette", "Amidons", "Micropolluants", "Lipides") var type: String = "Cannette"
+## Total de points de vie si le mob en a.
 @export_range(0, 64, 1.0) var health_points = 4
 
 var invincibility_duration: float = 1.0
 var is_invincible: bool = false
 var original_gravity_scale: float
 var hit_effect: CanvasModulate
+
+signal mob_hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,13 +48,17 @@ func _process(delta: float) -> void:
 
 ## Applique x dégâts au mob.
 func hit(damage: int) -> void:
+	mob_hit.emit(damage)
 	print("was hit!")
-	if not is_invincible:
-		invincible()
-		health_points = clampi(health_points - damage, 0, 1000000)
-		show_damage_taken(damage)
-		if health_points == 0:
-			self.destroy()
+	#if not is_invincible:
+	#	invincible()
+	#	health_points = clampi(health_points - damage, 0, 1000000)
+	#	show_damage_taken(damage)
+	#	if health_points == 0:
+	#		self.destroy()
+
+func apply_color_to_sprite(new_color: Color = Color(1, 1, 1, 1)) -> void:
+	$AnimatedSprite2D.self_modulate = new_color
 
 func change_gravity_scale(new_scale: float = 0) -> void:
 	gravity_scale = new_scale

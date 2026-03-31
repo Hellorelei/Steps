@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://q3i8q8y3wv27"]
+[gd_scene load_steps=9 format=3 uid="uid://q3i8q8y3wv27"]
 
-[ext_resource type="Script" uid="uid://dw5o6ippordx5" path="res://mobs/mob.gd" id="1_wrhub"]
+[ext_resource type="Script" uid="uid://dw5o6ippordx5" path="res://mob_components/mob.gd" id="1_wrhub"]
 [ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="2_x2dbj"]
 [ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="3_47whj"]
-[ext_resource type="Script" uid="uid://byakvqdfkjtai" path="res://mobs/mob_debug.gd" id="4_47whj"]
+[ext_resource type="Script" uid="uid://byakvqdfkjtai" path="res://mob_components/mob_debug.gd" id="4_47whj"]
+[ext_resource type="Script" uid="uid://dv1s83mjox34l" path="res://mob_components/mob_health.gd" id="5_uwgh0"]
+[ext_resource type="Script" uid="uid://c4okk3uvqup7r" path="res://general_components/custom_progress_bar.gd" id="6_s46lu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wrhub"]
 height = 28.0
@@ -37,3 +39,13 @@ sprite_frames = SubResource("SpriteFrames_uwgh0")
 [node name="MobDebug" type="Node" parent="."]
 script = ExtResource("4_47whj")
 metadata/_custom_type_script = "uid://byakvqdfkjtai"
+
+[node name="MobHealth" type="Node" parent="."]
+script = ExtResource("5_uwgh0")
+metadata/_custom_type_script = "uid://dv1s83mjox34l"
+
+[node name="CustomTextureProgressBar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_s46lu")
+metadata/_custom_type_script = "uid://c4okk3uvqup7r"

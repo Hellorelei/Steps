@@ -369,12 +369,11 @@ metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
 
 [node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner"]
 script = ExtResource("10_08mmt")
-cannette = 5.0
+cannette = 1.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesContent2" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner"]
 script = ExtResource("10_08mmt")
-cannette = 5.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesSpawner2" type="Marker2D" parent="EnemyWavesHolder"]
@@ -384,7 +383,7 @@ metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
 
 [node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner2"]
 script = ExtResource("10_08mmt")
-cannette = 5.0
+cannette = 1.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [connection signal="body_entered" from="FailureArea2D" to="." method="_on_failure_area_2d_body_entered"]

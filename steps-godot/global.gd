@@ -6,6 +6,7 @@ var game_time: float
 var current_wave: int
 var total_waves: int
 var current_grade: int
+## Émetteur du signal pulse une fois par seconde.
 var pulse_clock: Object
 var half_pulse_clock: Object
 
@@ -13,8 +14,11 @@ var half_pulse_clock: Object
 @export_group("Global Mob Settings", "mob_")
 @export var mob_invincibility_duration: float = 0.6
 
-signal pulse
+## Émis chaque seconde.
+signal pulse 
+## Émis chaque demi-seconde (non implémenté).
 signal half_pulse
+## Indique que les spawners sont prêts.
 signal spawners_ready
 
 # Appelé une seule fois lorsque Global est initialisé. Global est persistent. 
