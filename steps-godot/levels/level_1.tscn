@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="2_ihfcg"]
 [ext_resource type="Texture2D" uid="uid://b8eshxv8slfhv" path="res://Tilesheet/Hills.png" id="3_rka8t"]
 [ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="4_5hph3"]
-[ext_resource type="Script" uid="uid://bsycb1sdvkag4" path="res://enemy_waves_holder.gd" id="7_3sk1a"]
-[ext_resource type="Script" uid="uid://bfc7fcemgqb6f" path="res://enemy_waves_spawner.gd" id="8_3sk1a"]
+[ext_resource type="Script" uid="uid://bsycb1sdvkag4" path="res://level_components/enemy_waves_holder.gd" id="7_3sk1a"]
+[ext_resource type="Script" uid="uid://bfc7fcemgqb6f" path="res://level_components/enemy_waves_spawner.gd" id="8_3sk1a"]
 [ext_resource type="TileSet" uid="uid://bom58sxpv6mxi" path="res://Tilesheet/tileset.tres" id="8_l53as"]
-[ext_resource type="Script" uid="uid://ertdnvvm76ay" path="res://turrets/turret_parts/turret_marker.gd" id="9_08mmt"]
-[ext_resource type="Script" uid="uid://b277fyrvnuk1c" path="res://enemy_waves_content.gd" id="10_08mmt"]
+[ext_resource type="Script" uid="uid://ertdnvvm76ay" path="res://level_components/turret_marker.gd" id="9_08mmt"]
+[ext_resource type="Script" uid="uid://b277fyrvnuk1c" path="res://level_components/enemy_waves_content.gd" id="10_08mmt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7kpp"]
 resource_name = "Water"
@@ -195,9 +195,6 @@ tile_map_data = PackedByteArray("AAAGAAAAAAABAAEAAAAHAAAAAAABAAEAAAAIAAAAAAABAAE
 tile_set = ExtResource("8_l53as")
 metadata/_edit_lock_ = true
 
-[node name="MobSpawnMarker2D" type="Marker2D" parent="." unique_id=2088224820]
-position = Vector2(-128, 184)
-
 [node name="FailureArea2D" type="Area2D" parent="." unique_id=379012864]
 position = Vector2(248, 504)
 
@@ -349,7 +346,7 @@ position = Vector2(0, 7)
 polygon = PackedVector2Array(108, -82, 103, 34, 70, 34, 65, -17, 29, -76, 26, -104, 76, -102)
 
 [node name="TurretMarker" type="Marker2D" parent="." unique_id=1602051068]
-position = Vector2(233, 177)
+position = Vector2(352, 240)
 script = ExtResource("9_08mmt")
 metadata/_custom_type_script = "uid://ertdnvvm76ay"
 
