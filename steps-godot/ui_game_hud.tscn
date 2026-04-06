@@ -1,12 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://6r5u28rhrmfv"]
+[gd_scene format=3 uid="uid://6r5u28rhrmfv"]
 
 [ext_resource type="Script" uid="uid://niv6w48pn7vg" path="res://ui_game_hud.gd" id="1_fc217"]
 
-[node name="UiGameHud" type="Node2D"]
+[node name="UiGameHud" type="Node2D" unique_id=311240301]
 z_index = 400
 script = ExtResource("1_fc217")
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="." unique_id=652018581]
 process_mode = 3
 z_index = 100
 offset_left = 8.0
@@ -15,7 +15,7 @@ offset_right = 104.0
 offset_bottom = 504.0
 text = "< BACK"
 
-[node name="CheckButton" type="CheckButton" parent="."]
+[node name="CheckButton" type="CheckButton" parent="." unique_id=372469689]
 process_mode = 3
 z_index = 100
 offset_left = 400.0
@@ -24,7 +24,7 @@ offset_right = 510.0
 offset_bottom = 39.0
 text = "Pause"
 
-[node name="StartButton" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="." unique_id=1841079426]
 z_index = 100
 offset_left = 8.0
 offset_top = 432.0
@@ -32,7 +32,7 @@ offset_right = 104.0
 offset_bottom = 464.0
 text = "START!"
 
-[node name="Wave" type="RichTextLabel" parent="."]
+[node name="Wave" type="RichTextLabel" parent="." unique_id=2001962124]
 z_index = 100
 offset_left = 8.0
 offset_top = 40.0
@@ -40,7 +40,7 @@ offset_right = 128.0
 offset_bottom = 72.0
 text = "Wave: "
 
-[node name="Time" type="RichTextLabel" parent="."]
+[node name="Time" type="RichTextLabel" parent="." unique_id=502355669]
 z_index = 100
 offset_left = 8.0
 offset_top = 8.0
@@ -48,7 +48,7 @@ offset_right = 128.0
 offset_bottom = 40.0
 text = "Time: "
 
-[node name="GamePausedLabel" type="Label" parent="."]
+[node name="GamePausedLabel" type="Label" parent="." unique_id=826273104]
 visible = false
 z_index = 100
 offset_left = 216.0
@@ -59,13 +59,13 @@ text = "GAME
 PAUSED"
 horizontal_alignment = 1
 
-[node name="PauseOverlayPolygon2D" type="Polygon2D" parent="."]
+[node name="PauseOverlayPolygon2D" type="Polygon2D" parent="." unique_id=1297675486]
 visible = false
 z_index = 90
 color = Color(0, 0, 0, 0.501961)
 polygon = PackedVector2Array(535, -23, 535, 535, -24, 534, -21, -21)
 
-[node name="DebugCheckButton" type="CheckButton" parent="."]
+[node name="DebugCheckButton" type="CheckButton" parent="." unique_id=1762975943]
 z_index = 100
 offset_left = 400.0
 offset_top = 33.0
@@ -73,7 +73,7 @@ offset_right = 510.0
 offset_bottom = 64.0
 text = "Debug"
 
-[node name="VictoryRichTextLabel" type="RichTextLabel" parent="."]
+[node name="VictoryRichTextLabel" type="RichTextLabel" parent="." unique_id=833627293]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -90,7 +90,7 @@ text = "[b]Victoire![/b]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DefeatRichTextLabel" type="RichTextLabel" parent="."]
+[node name="DefeatRichTextLabel" type="RichTextLabel" parent="." unique_id=58131285]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
