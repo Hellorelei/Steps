@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://7l2k7okyml84"]
+
+[ext_resource type="Script" uid="uid://dw5o6ippordx5" path="res://mob_components/mob.gd" id="1_1g6oa"]
+[ext_resource type="Texture2D" uid="uid://cel7pjybkhylk" path="res://sprites/CStarch1.svg" id="2_1g6oa"]
+[ext_resource type="Texture2D" uid="uid://eepnvnj62kqg" path="res://sprites/CStarch2.svg" id="3_a0430"]
+[ext_resource type="Script" uid="uid://byakvqdfkjtai" path="res://mob_components/mob_debug.gd" id="4_v221w"]
+[ext_resource type="Script" uid="uid://dv1s83mjox34l" path="res://mob_components/mob_health.gd" id="5_qr7jy"]
+[ext_resource type="Script" uid="uid://c4okk3uvqup7r" path="res://general_components/health_bar.gd" id="6_5yulq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wrhub"]
+height = 28.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uwgh0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1g6oa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a0430")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s46lu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnd63"]
+
+[node name="MobStarch" type="RigidBody2D" unique_id=1425142732]
+script = ExtResource("1_1g6oa")
+type = "Amidons"
+metadata/_custom_type_script = "uid://dw5o6ippordx5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2147039101]
+shape = SubResource("CapsuleShape2D_wrhub")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=534082330]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1678515170]
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_uwgh0")
+
+[node name="MobDebug" type="Node" parent="." unique_id=1102437124]
+script = ExtResource("4_v221w")
+metadata/_custom_type_script = "uid://byakvqdfkjtai"
+
+[node name="MobHealth" type="Node2D" parent="." unique_id=1485828946]
+script = ExtResource("5_qr7jy")
+metadata/_custom_type_script = "uid://dv1s83mjox34l"
+
+[node name="HealthBar" type="ProgressBar" parent="MobHealth" unique_id=868008933]
+y_sort_enabled = true
+offset_left = -9.0
+offset_top = 15.0
+offset_right = 10.0
+offset_bottom = 19.0
+theme_override_styles/background = SubResource("StyleBoxFlat_s46lu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qnd63")
+show_percentage = false
+script = ExtResource("6_5yulq")
+metadata/_custom_type_script = "uid://c4okk3uvqup7r"

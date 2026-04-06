@@ -1,0 +1,83 @@
+[gd_scene load_steps=14 format=3 uid="uid://kjbd8f7vlmen"]
+
+[ext_resource type="Script" uid="uid://nwp1pb74xoju" path="res://turrets/turret_parts/turret.gd" id="1_qki3r"]
+[ext_resource type="Script" uid="uid://dcqx1q055qoka" path="res://turrets/turret_parts/turret_target_module.gd" id="2_btcah"]
+[ext_resource type="Texture2D" uid="uid://d3jgm46bt6ewy" path="res://sprites/COxygene.png" id="2_uxuih"]
+[ext_resource type="Script" uid="uid://cm4a7a1pghirg" path="res://turrets/turret_parts/turret_area.gd" id="3_mh5xm"]
+[ext_resource type="Script" uid="uid://brp4cdrn2t7ua" path="res://turrets/turret_parts/turret_area_effect.gd" id="4_mh5xm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tanam"]
+atlas = ExtResource("2_uxuih")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdsky"]
+atlas = ExtResource("2_uxuih")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j023c"]
+atlas = ExtResource("2_uxuih")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwqd7"]
+atlas = ExtResource("2_uxuih")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beu8g"]
+atlas = ExtResource("2_uxuih")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u40je"]
+atlas = ExtResource("2_uxuih")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2clv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tanam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdsky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j023c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwqd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beu8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u40je")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxuih"]
+radius = 64.0
+
+[node name="TestOxygenTurret" type="Node2D"]
+script = ExtResource("1_qki3r")
+metadata/_custom_type_script = "uid://nwp1pb74xoju"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y2clv")
+frame_progress = 0.69204
+
+[node name="TurretTargetModule" type="Node2D" parent="."]
+script = ExtResource("2_btcah")
+metadata/_custom_type_script = "uid://dcqx1q055qoka"
+
+[node name="TurretArea2D" type="Area2D" parent="."]
+script = ExtResource("3_mh5xm")
+metadata/_custom_type_script = "uid://cm4a7a1pghirg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretArea2D"]
+shape = SubResource("CircleShape2D_uxuih")
+
+[node name="TurretAreaEffect" type="Node" parent="."]
+script = ExtResource("4_mh5xm")
+metadata/_custom_type_script = "uid://brp4cdrn2t7ua"

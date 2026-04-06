@@ -13,10 +13,25 @@ var grade: int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_setup_ui()
+	_setup_failure_area()
 	Global.pulse.connect(_on_pulse)
 
 func _exit_tree() -> void:
 	_reset_level()
+
+func _setup_failure_area() -> void:
+	var failure_area: Area2D = get_node("../FailureArea2D")
+	if not failure_area:
+		print("FailureArea2D manquante.")
+	else:
+		failure_area.body_entered.connect(_check_for_defeat)
+
+## Appelé lorsqu'un corps rentre dans la FailureArea2D. On vérifie qu'il s'agisse bien d'un mob,
+## et si c'est le cas, on cause une défaite.
+func _check_for_defeat(mob) -> void:
+	print(mob)
+	if mob is Mob:
+		defeat()
 
 ## Vérifie la présence d'ennemis.
 func check_for_enemies() -> int:

@@ -1,0 +1,37 @@
+config_version=5
+
+[application]
+
+config/name="STEPS (4.4)"
+run/main_scene="uid://gpjw4du0mlmq"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Global.tscn"
+
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=512
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/tileset_collision_generator_free_version/plugin.cfg")
+
+[global_group]
+
+turret_base_group="Contains all turret bases throughout the levels to autopopulate at _ready()"
+enemy_group=""
+enemy_spawner=""
+
+[gui]
+
+theme/custom_font="uid://ce3h47fqe3q7d"
+
+[physics]
+
+2d/default_gravity=30.0
+2d/default_gravity_vector=Vector2(0, 0)
