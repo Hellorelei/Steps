@@ -1,9 +1,96 @@
-[gd_scene load_steps=7 format=3 uid="uid://cakg5gvavrl7u"]
+[gd_scene format=3 uid="uid://cw8mgevnx5jw6"]
 
 [ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="1_4vlnc"]
-[ext_resource type="Script" uid="uid://bo3adggxxtfpa" path="res://mobs/generic_mob.gd" id="1_ikgdm"]
 [ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="2_ikgdm"]
 [ext_resource type="Script" uid="uid://byakvqdfkjtai" path="res://mob_components/mob_debug.gd" id="4_rqlxb"]
+
+[sub_resource type="GDScript" id="GDScript_gc3e5"]
+script/source = "extends RigidBody2D
+
+############# PROPRIÉTÉS DU MOB ####################################################################
+## Points de vie du mob.
+@export var hp:int
+## Diamètre du mob (pour les filtres).
+@export var diameter:int
+## Compteur pour les frames d'invincibilité après un coup.
+var invincibility_frame_counter: int
+## Stocke la variable gravity_scale par défaut pour pouvoir la réinitialiser après changements.
+var stored_gravity_scale: float
+
+
+################ PROCESSUS DE BASE #################################################################
+
+## Appelé lors de l'instanciation du mob.
+func _ready():
+	$AnimatedSprite2D.animation = \"live\" # Sélectionne l'animation \"live\" (par défaut)
+	$AnimatedSprite2D.play() # Active l'animation sélectionnée
+	diameter = 10 # Son diamètre par défaut est de 10
+	hp = 10 # Ses points de vie par défaut sont de 10
+	can_sleep = false # Fait que la simulation physique reste active même si le mob ne bouge plus.
+	stored_gravity_scale = gravity_scale # Sauve la variable pour pouvoir la réinitialiser au besoin.
+
+
+## Appelé à chaque frame à partir du moment ou le mob est instancé et ajouté à la scène.
+func _process(delta: float) -> void:
+	
+	# On soustrait le temps passé chaque frame au compteur, tout en l'empêchant d'aller < 0.
+	invincibility_frame_counter = clampf(invincibility_frame_counter - delta, 0, 1000000000)
+
+## Delete le monstre si il sort de l'écran (pas sûre que ça marche en l'état)
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()
+	
+
+################ GESTION VIE ET DÉGATS #############################################################
+
+## Applique un filtre rouge pendant le temps time au sprite pour marquer des dégâts reçus.
+func hit_effect(time:float = 0.2):
+	$AnimatedSprite2D.self_modulate = Color(1, 0.2, 0.2, 1)
+	await get_tree().create_timer(time).timeout
+	$AnimatedSprite2D.self_modulate = Color(1, 1, 1, 1)
+
+## Applique les dégâts dmg au monstre, les répête si dot: true.
+## Vérifie d'abord que le monstre ne soit pas encore invulnérable du dernier
+## coup avant d'appliquer les dégâts.
+## Retire le monstre du jeu si les points de vie = 0.
+func hit(dmg: int = 1, dot: bool = false) -> void:
+	if dot == false && is_in_invincibility_frame(): # Vérifie l'invincibilité (ignoré si DOT)
+		return # Si oui: on arrête.
+	else:
+		if dot == false: # Ne s'applique pas aux DOT.
+			reset_invincibility_frame_counter() # Comme le monstre est frappé, reset du compteur.
+		hp = clamp(hp - dmg, 0, 1000000000) # Application des dégats avec minimum à 0.
+		hit_effect() # Applique l'effet visuel pour les dégats. 
+		if hp <= 0: # Retire le mob si hp =< 0.
+			queue_free()
+		
+		# Ré-applique les dégats si les dégats sont de type damage over time.
+		if dot:
+			await get_tree().create_timer(1.2).timeout
+			hit(dmg, dot)
+	
+## Est-ce que le mob est en frame d'invincibilité?
+func is_in_invincibility_frame() -> bool:
+	if invincibility_frame_counter > 0:
+		return true
+	else:
+		return false
+
+## Reset le compteur de frames d'invincibilité.
+func reset_invincibility_frame_counter() -> void:
+	invincibility_frame_counter = 1 # Temps d'invincibilité après un coup (s)
+
+####################################################################################################
+
+
+## Pour réinitialiser la gravity_scale du mob.
+func gravity_scale_reset():
+	gravity_scale = stored_gravity_scale
+
+## Marque la gravity_scale comme valeur scale reçue.
+func gravity_scale_float(scale):
+	gravity_scale = scale
+"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oskjb"]
 animations = [{
@@ -27,26 +114,26 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vlnc"]
 height = 26.0
 
-[node name="RigidBody2D" type="RigidBody2D" groups=["enemy_group"]]
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1788732511 groups=["enemy_group"]]
 max_contacts_reported = 30
-script = ExtResource("1_ikgdm")
+script = SubResource("GDScript_gc3e5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1183409910]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_oskjb")
 animation = &"live"
 
-[node name="HitCanvasModulate" type="CanvasModulate" parent="AnimatedSprite2D"]
+[node name="HitCanvasModulate" type="CanvasModulate" parent="AnimatedSprite2D" unique_id=811875856]
 visible = false
 scale = Vector2(10, 10)
 color = Color(1, 0.141176, 0.141176, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=302874267]
 shape = SubResource("CapsuleShape2D_4vlnc")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=944240672]
 
-[node name="MobDebug" type="Node" parent="."]
+[node name="MobDebug" type="Node" parent="." unique_id=1352121612]
 script = ExtResource("4_rqlxb")
 metadata/_custom_type_script = "uid://byakvqdfkjtai"
 
