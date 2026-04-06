@@ -199,7 +199,7 @@ metadata/_edit_lock_ = true
 position = Vector2(248, 504)
 
 [node name="FailureCollisionShape2D" type="CollisionShape2D" parent="FailureArea2D" unique_id=547737978]
-position = Vector2(56, 48)
+position = Vector2(56, 35)
 shape = SubResource("RectangleShape2D_rka8t")
 
 [node name="Gravity" type="Node" parent="." unique_id=538085872]
@@ -383,5 +383,3 @@ script = ExtResource("10_08mmt")
 cannette = 1.0
 amidon = 1.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
-
-[connection signal="body_entered" from="FailureArea2D" to="." method="_on_failure_area_2d_body_entered"]
