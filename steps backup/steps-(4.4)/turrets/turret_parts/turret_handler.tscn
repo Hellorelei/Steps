@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0fryxewavd7p"]
+
+[ext_resource type="Script" uid="uid://b4v7c6i8mewmp" path="res://turrets/turret_parts/turret_handler.gd" id="1_wediq"]
+[ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="2_metqw"]
+[ext_resource type="PackedScene" uid="uid://02wpfqfbw2y1" path="res://turrets/generic_turret.tscn" id="2_qrji6"]
+[ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="3_qrji6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m84is"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"boom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_metqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qrji6")
+}],
+"loop": true,
+"name": &"live",
+"speed": 3.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wediq")
+generic_turret = ExtResource("2_qrji6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 40
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_m84is")
+animation = &"live"
+
+[node name="BaseButton" type="Button" parent="."]
+z_index = 40
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+
+[node name="AddTurret1Button1" type="Button" parent="."]
+z_index = 40
+offset_left = 20.0
+offset_top = -28.0
+offset_right = 44.0
+offset_bottom = -4.0
+
+[node name="Label" type="Label" parent="AddTurret1Button1"]
+z_index = 40
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+text = "t1"
+
+[node name="AddTurret1Button4" type="Button" parent="."]
+z_index = 40
+offset_left = -44.0
+offset_top = -28.0
+offset_right = -20.0
+offset_bottom = -4.0
+
+[node name="Label" type="Label" parent="AddTurret1Button4"]
+z_index = 40
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+text = "t4"
+
+[node name="AddTurret1Button3" type="Button" parent="."]
+z_index = 40
+offset_left = -44.0
+offset_top = 4.0
+offset_right = -20.0
+offset_bottom = 28.0
+
+[node name="Label" type="Label" parent="AddTurret1Button3"]
+z_index = 40
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+text = "t3"
+
+[node name="AddTurret1Button2" type="Button" parent="."]
+z_index = 40
+offset_left = 20.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 28.0
+
+[node name="Label" type="Label" parent="AddTurret1Button2"]
+z_index = 40
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+text = "t2"
+
+[node name="DeleteTurretButton" type="Button" parent="."]
+z_index = 40
+offset_left = 20.0
+offset_top = -28.0
+offset_right = 44.0
+offset_bottom = -4.0
+
+[node name="Label" type="Label" parent="DeleteTurretButton"]
+z_index = 40
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+text = " X"
+
+[connection signal="button_down" from="BaseButton" to="." method="_on_base_button_button_down"]
+[connection signal="button_down" from="AddTurret1Button1" to="." method="_on_add_turret_1_button_1_button_down"]
+[connection signal="button_down" from="AddTurret1Button2" to="." method="_on_add_turret_1_button_2_button_down"]
+[connection signal="button_down" from="DeleteTurretButton" to="." method="_on_delete_turret_button_button_down"]

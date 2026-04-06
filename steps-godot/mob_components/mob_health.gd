@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 ## Composant de Mob gérant les points de vie du mob, les dégâts reçus et
 ## les frames d'invincibilité.
@@ -12,22 +12,20 @@ var health_bar: Object
 var is_in_iframe: bool
 
 ## Les points de vie du mob.
-## La variable est stockée en float pour avoir accès au slider dans l'interface:
-## la variable n'est réellement utilisée qu'en tant qu'int.
-@export_range(0, 64, 1.0) var base_health_points:float = 4.0
-
-## Le setter est modifié pour s'assurer de n'avoir que des valeurs entières et
-## supérieures à zéro.
-var current_health_points:float = 4.0:
-	get:
-		return int(current_health_points)
+@export_range(0, 64, 1, "prefer_slider") var base_health_points:int = 16
+var current_health_points:int :
 	set(value):
 		current_health_points = clampi(value, 0, base_health_points)
+		health_points_changed.emit(health_points_percent)
+		print("calling health points changed.")
 
+## Points de vie actuels en pourcents. 
 var health_points_percent:float:
 	get:
-		return (100 / base_health_points) * current_health_points
+		return (100.0 / base_health_points) * current_health_points
 
+## Signal émis lorsque les points de vie du mob changent.
+signal health_points_changed
 #var hit_effect: CanvasModulate
 
 # Called when the node enters the scene tree for the first time.
@@ -35,9 +33,9 @@ func _ready() -> void:
 	current_health_points = base_health_points
 	parent_mob = get_parent()
 	parent_mob.mob_hit.connect(_on_mob_hit)
-	health_bar = Line2D.new()
-	health_bar.default_color = Color(1, 0.1, 0.1, 0.6)
-	add_child(health_bar)
+	#health_bar = Line2D.new()
+	#health_bar.default_color = Color(1, 0.1, 0.1, 0.6)
+	#add_child(health_bar)
 	#hit_effect = CanvasModulate.new()
 	#hit_effect.color = Color(1.2, 1.2, 1.2, 1)
 	#add_sibling(hit_effect)
@@ -76,14 +74,15 @@ func _apply_damage_to_mob(damage:int) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	health_bar.points = PackedVector2Array(
-		[parent_mob.global_position, parent_mob.global_position + Vector2(health_points_percent,0)]
-		)
+	#health_bar.points = PackedVector2Array(
+	#	[parent_mob.global_position, parent_mob.global_position + Vector2(health_points_percent,0)]
+	#	)
 	
-	if Global.debug == true && health_bar.visible == false:
-		health_bar.visible = true
-	if Global.debug == false && health_bar.visible == true:
-		health_bar.visible = false
+	#if Global.debug == true && health_bar.visible == false:
+	#	health_bar.visible = true
+	#if Global.debug == false && health_bar.visible == true:
+	#	health_bar.visible = false
+	pass
 
 ## Remonte au mob parent l'instruction de se détruire.
 func _kill_parent_mob() -> void:

@@ -1,0 +1,108 @@
+extends Area2D
+
+var effect_ripple: PackedScene = preload("res://turrets/effects/effect_ripple.tscn")
+
+var turret_type: String
+var caught_list: Array
+var aoe_radius: int
+var aoe_alpha: float
+
+var zone_radius: int
+var zone_ripples: Array
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	turret_type = "generic"
+	$AnimatedSprite2D.animation = "default"
+	$AnimatedSprite2D.play()
+	caught_list = []
+	aoe_radius = 0
+	aoe_alpha = 0
+	
+	$DamageArea2D/DamageCollisionShape2D.shape.set_radius(aoe_radius)
+	aoe()
+
+func aoe():
+	# instanciate ripple, then:
+	await get_tree().create_timer(0.8, false).timeout
+	#print("ripple!")
+	var ripple = effect_ripple.instantiate()
+	ripple.max_radius = 64
+	ripple.expand_speed = 32
+	ripple.inverted = true
+	add_child(ripple)
+	aoe()
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _draw():
+	draw_circle(position, aoe_radius,
+			Color(0.4, 0.6, 0.8, aoe_alpha), false, 1, true)
+
+## Efface la tourelle.
+func delete() -> void:
+	queue_free()
+
+func zone_ripple():
+	for i in range(3):
+		make_zone_ripple(i)
+		await get_tree().create_timer(1.2).timeout
+	zone_ripple()
+
+func make_zone_ripple(ripple):
+	for i in range(64):
+		# Calcul barbare pour déterminer l'opacité de la vaguelette: le but
+		# est qu'elle soit faible au début et à la fin, donc on fait du
+		# (-0.001)(x^2) + 1
+		zone_ripples[ripple] = [64-i, clamp((((-0.001) * ((i-32)*(i-32))) + 1), 0, 0.6)]
+		queue_redraw()
+		await get_tree().create_timer(.04).timeout
+
+## Applique une pseudo-gravité au corps body passé en argument, en direction de la tourelle.
+## La force est appliquée toute les .01 secondes tant que le corps reste dans la zone.
+func art_grav(body):
+	# print("wooo")
+	# dir: vecteur entre body et la tourelle, normalisé
+	var dir = body.global_position.direction_to(global_position).normalized()
+	# Application de la force au centre de body, multipliée
+	body.apply_central_force(dir * 16)
+	# On attend .01 secondes avant de relancer…
+	await get_tree().create_timer(.01).timeout
+	# …et on vérifie que le corps soit toujours capturé avant!
+	if body in caught_list:
+		art_grav(body)
+
+## Activée lorsqu'une Node2D entre dans l'Area2D principale: cause l'aspiration vers la tourelle.
+func _on_body_entered(body: Node2D) -> void:
+	print("hit!")
+	if body is RigidBody2D:
+		caught_list.append(body)
+		# On ne cherche que les canettes: masse >= 1 (potentiellement, à changer avec le nom du mob, etc.)
+		if body.mass >= 1:
+			body.gravity_scale_float(0)
+			art_grav(body)
+			print("graved")
+
+func _on_body_exited(body: Node2D) -> void:
+	print("body exited turret area: bye!")
+	#print(caught_list)
+	if body is RigidBody2D:
+		body.gravity_scale_reset()
+		if body in caught_list:
+			caught_list.erase(body)
+			print("list without:")
+			print(caught_list)
+
+
+func _on_damage_area_2d_body_entered(body: Node2D) -> void:
+	pass
+	#if body is RigidBody2D:
+		#print("body entered aoe: bang!")
+		#if body.mass >= 1:
+		#	body.hit(2)
+		#else:
+		#	while body in caught_list: # Repousse le corps de la zone :)
+		#		body.apply_central_impulse(global_position.direction_to(body.global_position).normalized() * 0.3)
+		#		await get_tree().create_timer(.01).timeout
