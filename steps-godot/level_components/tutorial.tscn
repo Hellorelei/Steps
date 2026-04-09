@@ -149,7 +149,7 @@ animations = [{
 "texture": ExtResource("27_bxmcl")
 }],
 "loop": true,
-"name": &"Grid",
+"name": &"Grille",
 "speed": 5.0
 }, {
 "frames": [{
@@ -224,9 +224,7 @@ grow_vertical = 2
 position = Vector2(381, 115)
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_gd3ml")
-animation = &"Oxygene"
-frame = 4
-frame_progress = 0.6389604
+animation = &"Grille"
 
 [node name="ColorRect" type="ColorRect" parent="TutoTurretAnimatedSprite2D" unique_id=1481228638]
 z_index = -1
