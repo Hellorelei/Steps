@@ -177,6 +177,7 @@ animations = [{
 }]
 
 [node name="Tutorial" type="Node2D" unique_id=211060962]
+z_index = 600
 script = ExtResource("1_3ft5y")
 
 [node name="SkipButton" type="Button" parent="." unique_id=1799857393]
@@ -240,3 +241,11 @@ offset_right = 30.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TutoOverlayColorRect" type="ColorRect" parent="." unique_id=333479630]
+z_index = -2
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 520.0
+offset_bottom = 520.0
+color = Color(0, 0, 0, 0.45882353)
