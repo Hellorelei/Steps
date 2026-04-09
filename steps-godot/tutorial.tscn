@@ -9,11 +9,3 @@ offset_top = 432.0
 offset_right = 104.0
 offset_bottom = 464.0
 text = "SKIP"
-
-[node name="BackButton" type="Button" parent="." unique_id=314763745]
-z_index = 100
-offset_left = 8.0
-offset_top = 472.0
-offset_right = 104.0
-offset_bottom = 504.0
-text = "< BACK"

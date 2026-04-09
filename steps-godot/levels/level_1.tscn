@@ -355,7 +355,7 @@ script = ExtResource("7_3sk1a")
 metadata/_custom_type_script = "uid://bsycb1sdvkag4"
 
 [node name="EnemyWavesSpawner" type="Marker2D" parent="EnemyWavesHolder" unique_id=1504040584]
-position = Vector2(64, 184)
+position = Vector2(-25, 184)
 script = ExtResource("8_3sk1a")
 metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
 
