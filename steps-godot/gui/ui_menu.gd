@@ -11,11 +11,11 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://ui_level.tscn")
+	get_tree().change_scene_to_file("res://gui/ui_level.tscn")
 
 
 func _on_credits_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://credits.tscn")
+	get_tree().change_scene_to_file("res://gui/credits.tscn")
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccdlw3qu01cj1"]
+[gd_scene format=3 uid="uid://ccdlw3qu01cj1"]
 
-[ext_resource type="Script" uid="uid://crgp5ucfwqum1" path="res://ui_level.gd" id="1_dg5w1"]
+[ext_resource type="Script" uid="uid://crgp5ucfwqum1" path="res://gui/ui_level.gd" id="1_dg5w1"]
 
 [node name="UILevel" type="CanvasLayer"]
 script = ExtResource("1_dg5w1")

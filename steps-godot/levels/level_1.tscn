@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://pn2ede6ruk3r"]
 
-[ext_resource type="Script" uid="uid://b1uvg211fw5rg" path="res://game_logic.gd" id="2_3sk1a"]
+[ext_resource type="Script" uid="uid://b1uvg211fw5rg" path="res://level_components/game_logic.gd" id="2_3sk1a"]
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="2_ihfcg"]
 [ext_resource type="Texture2D" uid="uid://b8eshxv8slfhv" path="res://Tilesheet/Hills.png" id="3_rka8t"]
 [ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="4_5hph3"]
@@ -347,11 +347,6 @@ polygon = PackedVector2Array(108, -82, 103, 34, 70, 34, 65, -17, 29, -76, 26, -1
 
 [node name="TurretMarker" type="Marker2D" parent="." unique_id=1602051068]
 position = Vector2(352, 240)
-script = ExtResource("9_08mmt")
-metadata/_custom_type_script = "uid://ertdnvvm76ay"
-
-[node name="TurretMarker2" type="Marker2D" parent="." unique_id=728515207]
-position = Vector2(319, 259)
 script = ExtResource("9_08mmt")
 metadata/_custom_type_script = "uid://ertdnvvm76ay"
 

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dewjmn5euhwt1"]
+
+[ext_resource type="Script" uid="uid://b7hdct32t5bp3" path="res://gui/credits.gd" id="1_nm7lk"]
+
+[node name="Credits" type="CanvasLayer" unique_id=1019927468]
+script = ExtResource("1_nm7lk")
+
+[node name="BackButtonC" type="Button" parent="." unique_id=862611067]
+offset_left = 48.0
+offset_top = 432.0
+offset_right = 144.0
+offset_bottom = 480.0
+text = "Retour"
+
+[connection signal="pressed" from="BackButtonC" to="." method="_on_back_button_c_pressed"]

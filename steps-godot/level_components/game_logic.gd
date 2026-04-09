@@ -3,7 +3,7 @@ class_name GameLogic
 
 signal start_game
 
-@export var ui_game_hud: PackedScene = preload("res://ui_game_hud.tscn")
+@export var ui_game_hud: PackedScene = preload("res://gui/ui_game_hud.tscn")
 var game_started: bool
 var check_victory: bool
 var ui: Node
@@ -47,11 +47,8 @@ func _send_wave() -> void:
 
 ## Chaque seconde, on vérifie la présence d'ennemis.
 func _on_pulse() -> void:
-	#print(game_started)
-	#print(Global.debug)
 	## Si le jeu a commencé et qu'il n'y a plus d'ennemis…
 	if game_started and (check_for_enemies() < 1):
-		#print("[ " + str(Global.get_current_wave()))
 		## …et si il reste des vagues à envoyer…
 		if Global.get_current_wave() < Global.get_total_waves():
 			## On envoie une vague.
@@ -85,7 +82,6 @@ func _reset_level() -> void:
 func victory() -> void:
 	print("well played!")
 	ui.show_victory()
-	
 
 ## Appelé lors d'une défaite
 func defeat() -> void:

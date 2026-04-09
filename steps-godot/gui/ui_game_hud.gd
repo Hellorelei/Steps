@@ -1,5 +1,20 @@
 extends Node2D
-#onready var listener = #reference to your listener here 
+
+## Interface pendant les niveaux.
+## Le contenu de l'interface est rafraîchi à 1Hz, sauf cas échéant (vagues lors d'une nouvelle
+## vague, etc.).
+## La scène contient notamment :
+## - BackButton : retour au menu principal;
+## - CheckButton : toggle de pause;
+## - StartButton : lance la première vague;
+## - Wave : indique la vague actuelle / total des vagues;
+## - Time : indique le temps écoulé;
+## - GamePausedLabel : affiche Pause lorsque le jeu est en pause;
+## - PauseOverlayPolygon2D : rectangle gris semi transparent pour afficher la pause;
+## - DebugCheckButton : permet d'afficher / masquer le mode débug;
+## - VictoryRichTextLabel : message affiché lors de la victoire;
+## - DefeatRichTextLabel : message affiché lors d'une défaîte.
+
 var pause_overlay: Object
 var game_paused_label: Object
 var time: Object
@@ -13,6 +28,7 @@ var grade: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	## On récupère les différents éléments d'interface.
 	pause_overlay = $PauseOverlayPolygon2D
 	game_paused_label = $GamePausedLabel
 	time = $Time
@@ -61,16 +77,20 @@ func pause(status: bool) -> void:
 	pause_overlay.visible = status
 	game_paused_label.visible = status
 
+## Affiche l'interface de pause.
 func show_pause_screen() -> void:
 	pause_overlay.visible = true
-	
+
+## Cache l'interface de pause.
 func hide_pause_screen() -> void:
 	pause_overlay.visible = false
 
+## Pause le jeu.
 func pause_game(show_ui = true) -> void:
 	get_tree().paused = true
 	pause_overlay.visible = show_ui
-	
+
+## Dé-pause le jeu.
 func unpause_game() -> void:
 	get_tree().paused = false
 	pause_overlay.visible = false
@@ -78,16 +98,24 @@ func unpause_game() -> void:
 ## Appelé lorsque le bouton de retour au menu est activé.
 func _on_back_button_button_down() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://ui_level.tscn")
+	get_tree().change_scene_to_file("res://gui/ui_level.tscn")
+	
+## Appelé lorsque le bouton restart est appuyé → recharge la scène.
+func _on_restart_button_button_down() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
 
+## Récupère la note du niveau.
 func _fetch_victory_grade() -> void:
 	grade = Global.get_current_grade()
 
+## Affiche l'écran de victoire.
 func show_victory() -> void:
 	_fetch_victory_grade()
 	pause_game()
 	victory_label.text = victory_label.text
 	victory_label.visible = true
-	
+
+## Affiche l'écran de défaîte. 
 func show_defeat() -> void:
 	defeat_label.visible = true
