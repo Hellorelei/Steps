@@ -3,9 +3,15 @@ class_name TurretArea2D
 
 ## Les nodes TurretArea2D servent uniquement à notifier la tourelle parente de l'entrée et sortie
 ## des mobs dans la zone d'effet de la tourelle.
+## TODO: Retirer la dépendence à une tourelle parente du code.
 
 var parent_turret: Turret
 var debug_area: CustomCircle
+
+## Signal émis lorsqu'un mob est entré dans la zone d'effet de la tourelle.
+signal mob_entered_TurretArea2D(mob: Mob)
+## Signal émis lorsqu'un mob est sorti dans la zone d'effet de la tourelle.
+signal mob_exited_TurretArea2D(mob: Mob)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,9 +19,9 @@ func _ready() -> void:
 	if get_parent() is Turret:
 		parent_turret = get_parent()
 		parent_turret.pulse.connect(_on_pulse)
-		parent_turret.enable_dampening.connect(_enable_dampening)
+		#parent_turret.enable_dampening.connect(_enable_dampening)
 	else:
-		print("Erreur: La node parent doit être de type Turret.")
+		print("Erreur: La node parent de TurretArea2D doit être de type Turret.")
 	
 	_setup_debug_area()
 	
@@ -27,20 +33,22 @@ func _ready() -> void:
 ## On vérifie alors qu'il s'agisse bien d'un mob avant d'en avertir la tourelle
 ## parente.
 func _on_body_entered(body: Node2D) -> void:
-	print("turret_area: body entered: " + str(body))
+	#print("turret_area: body entered: " + str(body))
 	if body is Mob:
-		parent_turret.add_enemy_in_zone(body)
+		mob_entered_TurretArea2D.emit(body)
 
 ## Activée lorsqu'une Node2D sort de la TurretArea2D.
 ## On vérifie alors qu'il s'agisse bien d'un mob avant d'en avertir la tourelle
 ## parente.
 func _on_body_exited(body: Node2D) -> void:
-	print("turret_area: body exited: " + str(body))
+	#print("turret_area: body exited: " + str(body))
 	if body is Mob:
-		if body in parent_turret.enemies_in_zone:
-			parent_turret.remove_enemy_in_zone(body)
+		mob_exited_TurretArea2D.emit(body)
+		#if body in parent_turret.enemies_in_zone:
+		#	parent_turret.remove_enemy_in_zone(body)
 
 ## Chaque seconde, vérifie si la zone de débug devrait être affichée ou non.
+## TODO: Remplacer par un signal.
 func _on_pulse() -> void:
 	if Global.debug and debug_area.visible == false:
 		debug_area.visible = true

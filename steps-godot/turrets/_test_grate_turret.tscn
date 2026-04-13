@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bbjq2mhf64un1"]
+[gd_scene format=3 uid="uid://bbjq2mhf64un1"]
 
 [ext_resource type="Script" uid="uid://nwp1pb74xoju" path="res://turrets/turret_parts/turret.gd" id="1_5x63j"]
 [ext_resource type="Script" uid="uid://dcqx1q055qoka" path="res://turrets/turret_parts/turret_target_module.gd" id="2_31ajc"]
@@ -60,33 +60,33 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_31ajc"]
 radius = 64.0
 
-[node name="TestGrateTurret" type="Node2D"]
+[node name="TestGrateTurret" type="Node2D" unique_id=1350976895]
 script = ExtResource("1_5x63j")
 metadata/_custom_type_script = "uid://nwp1pb74xoju"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=990718095]
 sprite_frames = SubResource("SpriteFrames_ja41r")
 frame_progress = 0.569541
 
-[node name="TargetModule" type="Node2D" parent="."]
+[node name="TargetModule" type="Node2D" parent="." unique_id=1786964371]
 script = ExtResource("2_31ajc")
 targeting_mode = "Zone"
 fire_rate = 2.0
 target_cannettes = true
 metadata/_custom_type_script = "uid://dcqx1q055qoka"
 
-[node name="TurretGunRipple" type="Node2D" parent="TargetModule"]
+[node name="TurretGunRipple" type="Node2D" parent="TargetModule" unique_id=1279663347]
 script = ExtResource("3_u1s4h")
 metadata/_custom_type_script = "uid://xjv5keo1nquy"
 
-[node name="TurretArea2D" type="Area2D" parent="."]
+[node name="TurretArea2D" type="Area2D" parent="." unique_id=696339892]
 script = ExtResource("3_iwrxf")
 metadata/_custom_type_script = "uid://cm4a7a1pghirg"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretArea2D" unique_id=1520337129]
 shape = SubResource("CircleShape2D_31ajc")
 
-[node name="TurretAreaEffect" type="Node" parent="."]
+[node name="TurretAreaEffect" type="Node2D" parent="." unique_id=1303910666]
 script = ExtResource("4_7ptli")
 dampening = true
 artificial_gravity = true

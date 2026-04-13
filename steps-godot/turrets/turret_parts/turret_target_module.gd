@@ -87,7 +87,7 @@ func _create_zone() -> void:
 func hit_target(body: Mob) -> void:
 	print(body)
 	if body.type in enabled_targets:
-		print("hit " + str(body))
+		#print("hit " + str(body))
 		body.hit(target_damage)
 	else:
 		pass
