@@ -83,7 +83,7 @@ func pause(status: bool) -> void:
 	if status:
 		Global.pause_game()
 	else:
-		Global.unpause_game()
+		Global.resume_game()
 	# pause_overlay.visible = status
 	# game_paused_label.visible = status
 

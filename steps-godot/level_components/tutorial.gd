@@ -6,7 +6,6 @@ class_name Tutorial
 @export_enum("Charbon", "Decanteur", "Grille", "Oxygene") var TutoTurretAnimation: String = "Grille"
 # Called when the node enters the scene tree for the first time.
 
-signal skip_button_pressed
 
 func _ready() -> void:
 	$TutoRichTextLabel.text = TutoText
@@ -18,6 +17,7 @@ func _ready() -> void:
 	Global.pause_game()
 
 
+## Indique que le jeu peu commencer; fait disparaître le tutoriel.
 func _on_skip_button_button_down() -> void:
 	Global.tutorial_complete()
 	self.queue_free()
