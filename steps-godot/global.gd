@@ -9,6 +9,7 @@ var current_grade: int
 ## Émetteur du signal pulse une fois par seconde.
 var pulse_clock: Object
 var half_pulse_clock: Object
+var current_tutorial: Tutorial
 
 @export var debug: bool = true
 @export_group("Global Mob Settings", "mob_")
@@ -20,6 +21,12 @@ signal pulse
 signal half_pulse
 ## Indique que les spawners sont prêts.
 signal spawners_ready
+## Émis pour demander au jeu d'être mis en pause.
+signal pause_game_requested
+## Émis pour demander la reprise du jeu.
+signal resume_game_requested
+## Émis lorsque le tutoriel est terminé.
+signal tutorial_done
 
 # Appelé une seule fois lorsque Global est initialisé. Global est persistent. 
 func _ready() -> void:
@@ -29,9 +36,25 @@ func _ready() -> void:
 	current_grade = 0
 	_setup_pulse()
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	game_time = game_time + delta
+
+## Appelé lorsque la personne jouant a complété le tutoriel.
+func tutorial_complete() -> void:
+	tutorial_done.emit()
+
+
+## Propage un signal demandant la pause du jeu.
+func pause_game() -> void:
+	pause_game_requested.emit()
+
+
+## Propage un signal demandant la reprise du jeu.
+func resume_game() -> void:
+	resume_game_requested.emit()
+
 
 ## Réinitialise les compteurs de temps et vagues (utilisé lors d'un changement de niveau, retour
 ## au menu, etc.

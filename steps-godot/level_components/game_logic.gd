@@ -9,15 +9,26 @@ var check_victory: bool
 var ui: Node
 var start_button: Button
 var grade: int
+var tutorial: Tutorial
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_setup_ui()
 	_setup_failure_area()
 	Global.pulse.connect(_on_pulse)
+	Global.tutorial_done.connect(_tutorial_done)
+	Global.pause_game_requested.connect(_pause_game)
+	Global.resume_game_requested.connect(_resume_game)
+
+
+func _tutorial_done() -> void:
+	Global.resume_game()
+
 
 func _exit_tree() -> void:
 	_reset_level()
+
 
 func _setup_failure_area() -> void:
 	var failure_area: Area2D = get_node("../FailureArea2D")
@@ -26,12 +37,14 @@ func _setup_failure_area() -> void:
 	else:
 		failure_area.body_entered.connect(_check_for_defeat)
 
+
 ## Appelé lorsqu'un corps rentre dans la FailureArea2D. On vérifie qu'il s'agisse bien d'un mob,
 ## et si c'est le cas, on cause une défaite.
 func _check_for_defeat(mob) -> void:
 	print(mob)
 	if mob is Mob:
 		defeat()
+
 
 ## Vérifie la présence d'ennemis.
 func check_for_enemies() -> int:
@@ -40,10 +53,12 @@ func check_for_enemies() -> int:
 		print(spotted)
 	return spotted
 
+
 ## Envoie la vague suivante. 
 func _send_wave() -> void:
 	Global.emit_send_wave()
 	Global.current_wave = Global.current_wave + 1
+
 
 ## Chaque seconde, on vérifie la présence d'ennemis.
 func _on_pulse() -> void:
@@ -57,12 +72,14 @@ func _on_pulse() -> void:
 		else:
 			victory()
 
+
 ## Configure l'interface user (instancie une node ui_game_hud).
 func _setup_ui() -> void:
 	ui = ui_game_hud.instantiate()
 	add_child(ui)
 	start_button = get_node("UiGameHud/StartButton")
 	start_button.button_down.connect(_on_button_down)
+
 
 ## Appelé lorsque le bouton start est pesé.
 func _on_button_down() -> void:
@@ -71,6 +88,7 @@ func _on_button_down() -> void:
 		game_started = true
 		start_button.disabled = true
 
+
 ## Réinitialise les propriétés de Global losrqu'on commence un niveau.
 func _reset_level() -> void:
 	game_started = false
@@ -78,15 +96,25 @@ func _reset_level() -> void:
 	Global.reset_time_and_waves()
 	Global.reset_grade()
 
+
 ## Appelé lors d'une victoire.
 func victory() -> void:
 	print("well played!")
 	ui.show_victory()
 
+
 ## Appelé lors d'une défaite
 func defeat() -> void:
 	print("defeat!")
 	ui.show_defeat()
-	
+
+
+func _pause_game() -> void:
+	get_tree().paused = true
+
+
+func _resume_game() -> void:
+	get_tree().paused = false
+
 ## Calcul de la note, sur trois étoiles
 ## ?

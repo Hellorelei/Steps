@@ -42,8 +42,12 @@ func _ready() -> void:
 	Global.pulse.connect(update_texts)
 	## Mais aussi quand une nouvelle vague est lancée!
 	Global.send_wave.connect(update_texts)
+	#Global.game_paused.connect()
+	Global.resume_game_requested.connect(_on_game_resumed)
+	Global.pause_game_requested.connect(_on_game_paused)
 	$DebugCheckButton.button_pressed = Global.debug
-	unpause_game()
+	Global.resume_game()
+
 
 ## Met à jour les éléments de texte (temps, vague) de l'interface.
 func update_texts() -> void:
@@ -52,69 +56,82 @@ func update_texts() -> void:
 	wave.text = "🌊 " + current_wave + "/" + total_waves
 	time.text = "⏱️ " + current_time
 
+
 ## Va chercher les données de vague dans Global.
 func _fetch_wave_data() -> void:
 	current_wave = str(Global.get_current_wave())
 	total_waves = str(Global.get_total_waves())
 
+
 ## Va chercher les données de temps dans Global.
 func _fetch_time_data() -> void:
 	current_time = Global.get_display_time()
 
-## Appelé lorsque l'interrupteur de pause est allumé.
-func _on_check_button_toggled(toggled_on: bool) -> void:
-	pause(toggled_on)
 
-func _on_debug_check_button_toggled(toggled_on: bool) -> void:
-	Global.debug = toggled_on
+## Appelé lorsque l'interrupteur de pause est allumé.
+func _on_check_button_toggled(toggled_status: bool) -> void:
+	pause(toggled_status)
+
+
+## 
+func _on_debug_check_button_toggled(toggled_status: bool) -> void:
+	Global.debug = toggled_status
+
 
 ## Pause le jeu et affiche l'interface de pause.
 func pause(status: bool) -> void:
 	if status:
-		pause_game()
+		Global.pause_game()
 	else:
-		unpause_game()
-	pause_overlay.visible = status
-	game_paused_label.visible = status
+		Global.unpause_game()
+	# pause_overlay.visible = status
+	# game_paused_label.visible = status
+
+
+## Appelé lorsque le jeu est mis en pause.
+func _on_game_paused() -> void:
+	show_pause_screen()	
+
+
+## Appelé lorsque le jeu reprend.
+func _on_game_resumed() -> void:
+	hide_pause_screen()
+
 
 ## Affiche l'interface de pause.
 func show_pause_screen() -> void:
 	pause_overlay.visible = true
 
+
 ## Cache l'interface de pause.
 func hide_pause_screen() -> void:
 	pause_overlay.visible = false
 
-## Pause le jeu.
-func pause_game(show_ui = true) -> void:
-	get_tree().paused = true
-	pause_overlay.visible = show_ui
-
-## Dé-pause le jeu.
-func unpause_game() -> void:
-	get_tree().paused = false
-	pause_overlay.visible = false
 
 ## Appelé lorsque le bouton de retour au menu est activé.
 func _on_back_button_button_down() -> void:
-	get_tree().paused = false
+	Global.resume_game()
 	get_tree().change_scene_to_file("res://gui/ui_level.tscn")
-	
+
+
 ## Appelé lorsque le bouton restart est appuyé → recharge la scène.
 func _on_restart_button_button_down() -> void:
-	get_tree().paused = false
+	Global.resume_game()
 	get_tree().reload_current_scene()
+
 
 ## Récupère la note du niveau.
 func _fetch_victory_grade() -> void:
 	grade = Global.get_current_grade()
 
+
 ## Affiche l'écran de victoire.
 func show_victory() -> void:
 	_fetch_victory_grade()
-	pause_game()
+	Global.pause_game()
 	victory_label.text = victory_label.text
 	victory_label.visible = true
+
 
 ## Affiche l'écran de défaîte. 
 func show_defeat() -> void:
