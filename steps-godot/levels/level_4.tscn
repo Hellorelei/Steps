@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="2_xcfcc"]
 [ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="3_48hld"]
+[ext_resource type="PackedScene" uid="uid://mcx2frrhesqv" path="res://level_components/tutorial.tscn" id="3_s4mq8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l45re"]
 texture = ExtResource("2_xcfcc")
@@ -106,5 +107,8 @@ offset_top = 432.0
 offset_right = 144.0
 offset_bottom = 480.0
 text = "Back"
+
+[node name="Tutorial" parent="." unique_id=211060962 instance=ExtResource("3_s4mq8")]
+TutoText = "Les micropolluants sont les déchets les plus coriaces. Ils nécessitent un traitement spécial à base de charbon actif. "
 
 [connection signal="pressed" from="BButton4" to="." method="_on_b_button_4_pressed"]
