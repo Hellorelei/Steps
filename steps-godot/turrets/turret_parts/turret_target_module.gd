@@ -44,11 +44,20 @@ func _on_pulse() -> void:
 
 ## Appelé à la fréquence de tir; tire. 
 func _on_fire_pulse() -> void:
+	var potential_targets = parent_turret.get_mobs_in_zone()
 	match targeting_mode:
 		"Aléatoire":
-			current_target = parent_turret.get_enemies_in_zone().pick_random()
+			if potential_targets.is_empty():
+				return
+			else:
+				current_target = parent_turret.get_mobs_in_zone().pick_random()
+				print("_on_fire_pulse shooting @" + str(current_target))
 		"Suivi":
-			pass
+			if potential_targets.is_empty():
+				return
+			else:
+				if not current_target in parent_turret.get_mobs_in_zone():
+					current_target = parent_turret.get_mobs_in_zone().pick_random()
 		"Zone":
 			pass
 	shoot_at.emit(current_target)
@@ -87,10 +96,12 @@ func _create_zone() -> void:
 func hit_target(body: Mob) -> void:
 	print(body)
 	if body.type in enabled_targets:
-		#print("hit " + str(body))
+		print("hit " + str(body))
 		body.hit(target_damage)
 	else:
-		pass
+		if body is Mob:
+			body.hit(other_damage)
 
 func _shoot_at(body: Mob) -> void:
+	print("shooting @" + str(body))
 	pass

@@ -29,6 +29,7 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnd63"]
 
 [node name="MobStarch" type="RigidBody2D" unique_id=1425142732]
+collision_layer = 513
 script = ExtResource("1_1g6oa")
 type = "Amidons"
 metadata/_custom_type_script = "uid://dw5o6ippordx5"

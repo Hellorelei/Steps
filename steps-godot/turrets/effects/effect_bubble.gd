@@ -1,51 +1,45 @@
 extends Node2D
 """
-Créé une onde circulaire se propageant depuis le point d'instanciation jusqu'au
-périmètre max_radius donné, à la vitesse expand_speed. 
+Créé une bulle avec durée de vie prédéterminée.
 """
 
-## Rayon d'action de l'onde. 
-#@export var max_radius: float = 16
-## Vitesse d'expansion de l'onde'.
-#@export var expand_speed: float = 12
-## Est-ce que l'onde va de l'extérieur vers l'intérieur?
-#@export var inverted: bool = true
-# Usage interne: rayon actuel de l'onde.
+## Durée de vie de la bulle, en secondes.
+const LIFESPAN: float = 3
+
+var parent: TurretGunBubble
+
 var radius: float
 var bubble_placeholder: CustomCircle
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	parent = get_parent()
+	print(parent)
 	bubble_placeholder = CustomCircle.new()
 	bubble_placeholder.radius = get_child(0).get_shape().radius
 	add_child(bubble_placeholder)
+	_self_doom()
+	
 
 ## Dessine le cercle de l'onde.
 func _draw():
-	#draw_circle(position, radius, Color(0.4, 0.6, 0.8, 0.4), false, 1, true)
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	# Ajoute le temps écoulé * la vitesse de l'onde à son rayon.
-	#radius = clamp(radius + (delta * expand_speed), 0, max_radius)
-	#print(radius)
-	#if radius >= max_radius or radius <= 0:
-	#	disappear()
-	# Adapte la taille du cercle de collision au nouveau rayon.
-	#$DamageArea2D/DamageCollisionShape2D.shape.set_radius(radius)
-	# Demande de dessiner à nouveau le cercle visuel de la vaguelette. 
-	#queue_redraw()
-	pass
 
-## Fait disparaître l'onde.
+## Détruit automatiquement la bulle après un temps donné.
+func _self_doom() -> void:
+	await get_tree().create_timer(LIFESPAN).timeout
+	disappear()
+
+## Fait disparaître la bulle.
 func disappear() -> void:
-	#print("bye!")
 	queue_free()
-	
+
+
 ## Endommage tout objet touché de masse >= 1.
 func _on_damage_area_2d_body_entered(body: Node2D) -> void:
+	print("a")
 	if body is RigidBody2D:
-		print("body entered aoe: bang!")
-		if body.mass >= 1:
-			body.hit(2)
+		print("got you!")
+		parent._forward_target_hit(body)
+		disappear()

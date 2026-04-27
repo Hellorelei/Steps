@@ -45,6 +45,12 @@ enemy_spawner=""
 
 theme/custom_font="uid://ce3h47fqe3q7d"
 
+[layer_names]
+
+2d_physics/layer_2="WaterLayer"
+2d_physics/layer_5="TerrainCollisionLayer"
+2d_physics/layer_10="MobCollisionLayer"
+
 [physics]
 
 2d/default_gravity=30.0

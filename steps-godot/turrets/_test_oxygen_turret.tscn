@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://kjbd8f7vlmen"]
+[gd_scene format=3 uid="uid://kjbd8f7vlmen"]
 
 [ext_resource type="Script" uid="uid://nwp1pb74xoju" path="res://turrets/turret_parts/turret.gd" id="1_qki3r"]
 [ext_resource type="Script" uid="uid://dcqx1q055qoka" path="res://turrets/turret_parts/turret_target_module.gd" id="2_btcah"]
 [ext_resource type="Texture2D" uid="uid://d3jgm46bt6ewy" path="res://sprites/COxygene.png" id="2_uxuih"]
 [ext_resource type="Script" uid="uid://cm4a7a1pghirg" path="res://turrets/turret_parts/turret_area.gd" id="3_mh5xm"]
 [ext_resource type="Script" uid="uid://brp4cdrn2t7ua" path="res://turrets/turret_parts/turret_area_effect.gd" id="4_mh5xm"]
+[ext_resource type="Script" uid="uid://b6thojq18nq5d" path="res://turrets/turret_parts/turret_gun_bubble.gd" id="4_tanam"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tanam"]
 atlas = ExtResource("2_uxuih")
@@ -57,27 +58,38 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxuih"]
-radius = 64.0
+radius = 148.08444
 
-[node name="TestOxygenTurret" type="Node2D"]
+[node name="TestOxygenTurret" type="Node2D" unique_id=218531281]
 script = ExtResource("1_qki3r")
+turret_type = "Oxygène"
 metadata/_custom_type_script = "uid://nwp1pb74xoju"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1667100434]
 sprite_frames = SubResource("SpriteFrames_y2clv")
 frame_progress = 0.69204
 
-[node name="TurretTargetModule" type="Node2D" parent="."]
+[node name="TurretTargetModule" type="Node2D" parent="." unique_id=69447039]
 script = ExtResource("2_btcah")
+targeting_mode = "Suivi"
+fire_rate = 3.0
+target_damage = 2.0
+other_damage = 1.0
+target_amidons = true
+target_lipides = true
 metadata/_custom_type_script = "uid://dcqx1q055qoka"
 
-[node name="TurretArea2D" type="Area2D" parent="."]
+[node name="TurretGunBubble" type="Node2D" parent="TurretTargetModule" unique_id=35854905]
+script = ExtResource("4_tanam")
+metadata/_custom_type_script = "uid://b6thojq18nq5d"
+
+[node name="TurretArea2D" type="Area2D" parent="." unique_id=104179932]
 script = ExtResource("3_mh5xm")
 metadata/_custom_type_script = "uid://cm4a7a1pghirg"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretArea2D" unique_id=1155127867]
 shape = SubResource("CircleShape2D_uxuih")
 
-[node name="TurretAreaEffect" type="Node" parent="."]
+[node name="TurretAreaEffect" type="Node2D" parent="." unique_id=1499951933]
 script = ExtResource("4_mh5xm")
 metadata/_custom_type_script = "uid://brp4cdrn2t7ua"
