@@ -444,7 +444,8 @@ position = Vector2(-16, 135)
 polygon = PackedVector2Array(-24, -31, 20, -17, 29, -157, -13, -158)
 
 [node name="Tutorial" parent="." unique_id=211060962 instance=ExtResource("5_5722l")]
-TutoText = "[center]Maintenant que les canettes ont été enlevées, il reste encore des plus petits déchets sous forme de boue. Pour s’en débarasser, il faut utiliser un décanteur.[/center]"
+TutoText = "Maintenant que les canettes ont été enlevées, il reste encore des plus petits déchets sous forme de boue. 
+Pour s’en débarasser, il faut utiliser un décanteur."
 TutoMobAnimation = "Boue"
 TutoTurretAnimation = "Decanteur"
 

@@ -109,6 +109,7 @@ offset_bottom = 480.0
 text = "Back"
 
 [node name="Tutorial" parent="." unique_id=211060962 instance=ExtResource("3_s4mq8")]
-TutoText = "Les micropolluants sont les déchets les plus coriaces. Ils nécessitent un traitement spécial à base de charbon actif. "
+TutoText = "Les micropolluants sont les déchets les plus coriaces. 
+Ils nécessitent un traitement spécial à base de charbon actif. "
 
 [connection signal="pressed" from="BButton4" to="." method="_on_b_button_4_pressed"]
