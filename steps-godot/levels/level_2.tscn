@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="2_1y8me"]
 [ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="3_n7ypv"]
 [ext_resource type="Texture2D" uid="uid://b8eshxv8slfhv" path="res://Tilesheet/Hills.png" id="4_0s5r2"]
+[ext_resource type="PackedScene" uid="uid://mcx2frrhesqv" path="res://level_components/tutorial.tscn" id="5_5722l"]
 [ext_resource type="TileSet" uid="uid://bom58sxpv6mxi" path="res://Tilesheet/tileset.tres" id="7_ep78u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7j8ne"]
@@ -441,6 +442,12 @@ metadata/_edit_group_ = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/5RepelGravityArea2D" unique_id=846638010]
 position = Vector2(-16, 135)
 polygon = PackedVector2Array(-24, -31, 20, -17, 29, -157, -13, -158)
+
+[node name="Tutorial" parent="." unique_id=211060962 instance=ExtResource("5_5722l")]
+TutoText = "Maintenant que les canettes ont été enlevées, il reste encore des plus petits déchets sous forme de boue. 
+Pour s’en débarasser, il faut utiliser un décanteur."
+TutoMobAnimation = "Boue"
+TutoTurretAnimation = "Decanteur"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_b_button_2_pressed"]
 [connection signal="body_entered" from="FailureArea2D" to="." method="_on_failure_area_2d_body_entered"]

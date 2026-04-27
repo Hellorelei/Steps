@@ -381,6 +381,4 @@ amidon = 1.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="Tutorial" parent="." unique_id=211060962 instance=ExtResource("10_5ot28")]
-TutoText = "Pour commencer, il y a des gros déchets qu’on peut enlever à l’aide d’une simple grille! "
-TutoMobAnimation = "Lipide"
-TutoTurretAnimation = "Charbon"
+TutoText = "Pour commencer, il y a des gros déchets qu’on peut enlever à l’aide d’une simple grille!"
