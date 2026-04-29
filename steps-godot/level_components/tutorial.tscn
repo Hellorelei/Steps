@@ -357,7 +357,7 @@ offset_left = 208.0
 offset_top = 368.0
 offset_right = 304.0
 offset_bottom = 400.0
-text = "SKIP"
+text = "OK"
 
 [node name="TutoRichTextLabel" type="RichTextLabel" parent="." unique_id=488762561]
 offset_left = 48.0

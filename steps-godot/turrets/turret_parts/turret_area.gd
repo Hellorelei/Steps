@@ -5,13 +5,16 @@ class_name TurretArea2D
 ## des mobs dans la zone d'effet de la tourelle.
 ## TODO: Retirer la dépendence à une tourelle parente du code.
 
+
 var parent_turret: Turret
 var debug_area: CustomCircle
+
 
 ## Signal émis lorsqu'un mob est entré dans la zone d'effet de la tourelle.
 signal mob_entered_TurretArea2D(mob: Mob)
 ## Signal émis lorsqu'un mob est sorti dans la zone d'effet de la tourelle.
 signal mob_exited_TurretArea2D(mob: Mob)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,6 +40,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Mob:
 		mob_entered_TurretArea2D.emit(body)
 
+
 ## Activée lorsqu'une Node2D sort de la TurretArea2D.
 ## On vérifie alors qu'il s'agisse bien d'un mob avant d'en avertir la tourelle
 ## parente.
@@ -47,6 +51,7 @@ func _on_body_exited(body: Node2D) -> void:
 		#if body in parent_turret.enemies_in_zone:
 		#	parent_turret.remove_enemy_in_zone(body)
 
+
 ## Chaque seconde, vérifie si la zone de débug devrait être affichée ou non.
 ## TODO: Remplacer par un signal.
 func _on_pulse() -> void:
@@ -55,11 +60,13 @@ func _on_pulse() -> void:
 	elif Global.debug == false and debug_area.visible:
 		debug_area.visible = false
 
+
 ## Active le dampening linéaire si demandé par TurretAreaEffect.
 func _enable_dampening() -> void:
 	linear_damp_space_override = 3
 	linear_damp = 1.0
-	
+
+
 ## Prépare un cercle visible affichant la zone d'effet de la tourelle à afficher si debug == true.
 func _setup_debug_area() -> void:
 	debug_area = CustomCircle.new()

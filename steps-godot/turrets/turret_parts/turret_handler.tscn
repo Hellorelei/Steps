@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://b4v7c6i8mewmp" path="res://turrets/turret_parts/turret_handler.gd" id="1_wediq"]
 [ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="2_metqw"]
 [ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="3_qrji6"]
+[ext_resource type="Texture2D" uid="uid://cwmq0peox5plh" path="res://sprites/AGrid6.svg" id="4_e24eo"]
+[ext_resource type="Texture2D" uid="uid://bessbrbywo1jd" path="res://sprites/BDecanteur1.svg" id="5_0vnlp"]
+[ext_resource type="Texture2D" uid="uid://bckjhrycfnbp3" path="res://sprites/DCharbon1.svg" id="5_jnxc4"]
+[ext_resource type="Texture2D" uid="uid://cdwup2rv6p8e6" path="res://sprites/COxygene1.svg" id="6_pfpmx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m84is"]
 animations = [{
@@ -44,57 +48,91 @@ offset_bottom = 12.0
 z_index = 40
 offset_left = 20.0
 offset_top = -28.0
-offset_right = 44.0
+offset_right = 144.0
 offset_bottom = -4.0
 
 [node name="Label" type="Label" parent="AddTurret1Button1" unique_id=656568838]
 z_index = 40
 layout_mode = 0
-offset_right = 24.0
-offset_bottom = 24.0
-text = "t1"
+offset_left = 36.0
+offset_top = -4.0
+offset_right = 120.0
+offset_bottom = 28.0
+text = "GRILLE"
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="AddTurret1Button1" unique_id=794085825]
+position = Vector2(12, 12)
+scale = Vector2(0.074999996, 0.07499999)
+texture = ExtResource("4_e24eo")
 
 [node name="AddTurret1Button4" type="Button" parent="." unique_id=2030939153]
 z_index = 40
-offset_left = -44.0
+layout_direction = 3
+offset_left = 20.0
 offset_top = -28.0
-offset_right = -20.0
+offset_right = 192.0
 offset_bottom = -4.0
 
 [node name="Label" type="Label" parent="AddTurret1Button4" unique_id=1108165567]
 z_index = 40
 layout_mode = 0
-offset_right = 24.0
-offset_bottom = 24.0
-text = "t4"
+offset_left = 36.0
+offset_top = -4.0
+offset_right = 140.0
+offset_bottom = 28.0
+text = "DÉCANTEUR"
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="AddTurret1Button4" unique_id=1742598863]
+position = Vector2(160, 12)
+scale = Vector2(0.074999996, 0.07499999)
+texture = ExtResource("5_0vnlp")
 
 [node name="AddTurret1Button3" type="Button" parent="." unique_id=2006091202]
 z_index = 40
-offset_left = -44.0
+layout_direction = 3
+offset_left = 20.0
 offset_top = 4.0
-offset_right = -20.0
+offset_right = 160.0
 offset_bottom = 28.0
 
 [node name="Label" type="Label" parent="AddTurret1Button3" unique_id=883801273]
 z_index = 40
 layout_mode = 0
-offset_right = 24.0
-offset_bottom = 24.0
-text = "t3"
+offset_left = 36.0
+offset_top = -4.0
+offset_right = 140.0
+offset_bottom = 28.0
+text = "OXYGÈNE"
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="AddTurret1Button3" unique_id=738911800]
+position = Vector2(128, 12)
+scale = Vector2(0.074999996, 0.07499999)
+texture = ExtResource("6_pfpmx")
 
 [node name="AddTurret1Button2" type="Button" parent="." unique_id=446852335]
 z_index = 40
 offset_left = 20.0
 offset_top = 4.0
-offset_right = 44.0
+offset_right = 192.0
 offset_bottom = 28.0
 
 [node name="Label" type="Label" parent="AddTurret1Button2" unique_id=241261367]
 z_index = 40
 layout_mode = 0
-offset_right = 24.0
-offset_bottom = 24.0
-text = "t2"
+offset_left = 36.0
+offset_top = -4.0
+offset_right = 180.0
+offset_bottom = 28.0
+text = "CHARBON"
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="AddTurret1Button2" unique_id=677121066]
+position = Vector2(12, 12)
+scale = Vector2(0.074999996, 0.07499999)
+texture = ExtResource("5_jnxc4")
 
 [node name="DeleteTurretButton" type="Button" parent="." unique_id=589054045]
 z_index = 40

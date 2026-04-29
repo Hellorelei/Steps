@@ -3,7 +3,10 @@ extends Node2D
 class_name TurretGunBubble
 
 @export var effect_bubble: PackedScene = load("res://turrets/effects/effect_bubble.tscn")
+## Force de projection de la bulle.
+@export var strength: float = 4
 
+const STRENGTH_MULTIPLIER = 2
 var parent_target_module: TurretTargetModule
 
 
@@ -24,22 +27,14 @@ func _forward_target_hit(target):
 	parent_target_module.hit_target(target)
 
 
+## Tire une bulle en direction du mob cible.
 func _shoot_at(target: Mob) -> void:
-	var dir: Vector2
-	var STRENGTH_MULTIPLIER = 2
-	var strength = 4
+	var dir: Vector2  # Vecteur pointant vers la cible.
 	if target is not Mob:
 		dir = global_position.direction_to(Vector2(10,10)).normalized()
 	else:
 		dir = global_position.direction_to(target.global_position + target.constant_force).normalized()
-	#print(target)
-	#print("blub!")
+
 	var bubble:PhysicsBody2D = effect_bubble.instantiate()
-	#print("ripple out!")
-	# Application de la force au centre du mob, multipliée par FORCE_MULTIPLIER
-	#ripple.expand_speed = 32
-	#ripple.inverted = true
 	bubble.apply_central_force(dir * strength * STRENGTH_MULTIPLIER)
-	#bubble.position = Vector2(200, 200)
 	add_child(bubble)
-	#bubble.move_and_collide((dir * strength * STRENGTH_MULTIPLIER))

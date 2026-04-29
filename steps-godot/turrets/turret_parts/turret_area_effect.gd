@@ -30,6 +30,7 @@ var parent_turret: Turret
 ## Nombre magique multipliant la force d'attraction de la zone.
 const STRENGTH_MULTIPLIER = 4.0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	enabled_targets = _setup_targets()

@@ -84,8 +84,6 @@ func pause(status: bool) -> void:
 		Global.pause_game()
 	else:
 		Global.resume_game()
-	# pause_overlay.visible = status
-	# game_paused_label.visible = status
 
 
 ## Appelé lorsque le jeu est mis en pause.

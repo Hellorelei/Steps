@@ -10,19 +10,19 @@ script = ExtResource("1_fc217")
 process_mode = 3
 z_index = 100
 offset_left = 8.0
-offset_top = 472.0
-offset_right = 104.0
-offset_bottom = 504.0
-text = "< BACK"
+offset_top = 432.0
+offset_right = 128.0
+offset_bottom = 464.0
+text = "< RETOUR"
 
 [node name="RestartButton" type="Button" parent="." unique_id=1830931497]
 process_mode = 3
 z_index = 100
-offset_left = 112.0
+offset_left = 8.0
 offset_top = 472.0
-offset_right = 208.0
+offset_right = 200.0
 offset_bottom = 504.0
-text = "* RESTART"
+text = "* RECOMMENCER"
 
 [node name="CheckButton" type="CheckButton" parent="." unique_id=665378352]
 process_mode = 3
@@ -36,10 +36,10 @@ text = "Pause"
 [node name="StartButton" type="Button" parent="." unique_id=1739277029]
 z_index = 100
 offset_left = 8.0
-offset_top = 432.0
-offset_right = 104.0
-offset_bottom = 464.0
-text = "START!"
+offset_top = 392.0
+offset_right = 128.0
+offset_bottom = 424.0
+text = "DÉPART!"
 
 [node name="Wave" type="RichTextLabel" parent="." unique_id=1795778486]
 z_index = 100
