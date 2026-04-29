@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="2_16pka"]
 [ext_resource type="Script" uid="uid://ertdnvvm76ay" path="res://level_components/turret_marker.gd" id="4_bmgug"]
 [ext_resource type="TileSet" uid="uid://bom58sxpv6mxi" path="res://Tilesheet/tileset.tres" id="5_20opy"]
+[ext_resource type="Script" uid="uid://bsycb1sdvkag4" path="res://level_components/enemy_waves_holder.gd" id="5_lfnxh"]
+[ext_resource type="Script" uid="uid://bfc7fcemgqb6f" path="res://level_components/enemy_waves_spawner.gd" id="6_ofchu"]
+[ext_resource type="Script" uid="uid://b277fyrvnuk1c" path="res://level_components/enemy_waves_content.gd" id="7_jq78i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1jdk1"]
 texture = ExtResource("2_16pka")
@@ -37,9 +40,6 @@ tile_map_data = PackedByteArray("AAAGAAUAAAABAAEAAAAHAAUAAAABAAEAAAAIAAUAAAACAAE
 tile_set = ExtResource("5_20opy")
 metadata/_edit_lock_ = true
 
-[node name="MobSpawnMarker2D" type="Marker2D" parent="." unique_id=56812694]
-position = Vector2(192, -128)
-
 [node name="FailureArea2D" type="Area2D" parent="." unique_id=1802638806]
 position = Vector2(504, 208)
 
@@ -61,6 +61,20 @@ metadata/_custom_type_script = "uid://ertdnvvm76ay"
 position = Vector2(352, 320)
 script = ExtResource("4_bmgug")
 metadata/_custom_type_script = "uid://ertdnvvm76ay"
+
+[node name="EnemyWavesHolder" type="Node" parent="." unique_id=785233]
+script = ExtResource("5_lfnxh")
+metadata/_custom_type_script = "uid://bsycb1sdvkag4"
+
+[node name="EnemyWavesSpawner" type="Marker2D" parent="EnemyWavesHolder" unique_id=1339360104]
+position = Vector2(184, -40)
+script = ExtResource("6_ofchu")
+metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
+
+[node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner" unique_id=1774394412]
+script = ExtResource("7_jq78i")
+cannette = 4.0
+metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="Gravity" type="Node" parent="." unique_id=2045505559]
 

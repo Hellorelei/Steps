@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://mcx2frrhesqv" path="res://level_components/tutorial.tscn" id="5_5722l"]
 [ext_resource type="Script" uid="uid://ertdnvvm76ay" path="res://level_components/turret_marker.gd" id="6_ep78u"]
 [ext_resource type="TileSet" uid="uid://bom58sxpv6mxi" path="res://Tilesheet/tileset.tres" id="7_ep78u"]
+[ext_resource type="Script" uid="uid://bsycb1sdvkag4" path="res://level_components/enemy_waves_holder.gd" id="8_sd18g"]
+[ext_resource type="Script" uid="uid://bfc7fcemgqb6f" path="res://level_components/enemy_waves_spawner.gd" id="9_vm7no"]
+[ext_resource type="Script" uid="uid://b277fyrvnuk1c" path="res://level_components/enemy_waves_content.gd" id="10_hbb88"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7j8ne"]
 texture = ExtResource("2_1y8me")
@@ -398,5 +401,19 @@ TutoText = "Maintenant que les canettes ont été enlevées, il reste encore des
 Pour s’en débarasser, il faut utiliser un décanteur."
 TutoMobAnimation = "Boue"
 TutoTurretAnimation = "Decanteur"
+
+[node name="EnemyWavesHolder" type="Node" parent="." unique_id=449528744]
+script = ExtResource("8_sd18g")
+metadata/_custom_type_script = "uid://bsycb1sdvkag4"
+
+[node name="EnemyWavesSpawner" type="Marker2D" parent="EnemyWavesHolder" unique_id=790140744]
+position = Vector2(-80, 136)
+script = ExtResource("9_vm7no")
+metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
+
+[node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner" unique_id=148505741]
+script = ExtResource("10_hbb88")
+cannette = 4.0
+metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [connection signal="body_entered" from="FailureArea2D" to="." method="_on_failure_area_2d_body_entered"]
