@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6r5u28rhrmfv"]
 
 [ext_resource type="Script" uid="uid://niv6w48pn7vg" path="res://gui/ui_game_hud.gd" id="1_fc217"]
+[ext_resource type="Theme" uid="uid://de4ufpkuo4heg" path="res://gui/themes/gui_font_theme.tres" id="2_6gwv0"]
 
 [node name="UiGameHud" type="Node2D" unique_id=1504947573]
 z_index = 400
@@ -31,6 +32,7 @@ offset_left = 400.0
 offset_top = 8.0
 offset_right = 510.0
 offset_bottom = 39.0
+theme = ExtResource("2_6gwv0")
 text = "Pause"
 
 [node name="StartButton" type="Button" parent="." unique_id=1739277029]
@@ -47,6 +49,7 @@ offset_left = 8.0
 offset_top = 40.0
 offset_right = 128.0
 offset_bottom = 72.0
+theme = ExtResource("2_6gwv0")
 text = "Wave: "
 
 [node name="Time" type="RichTextLabel" parent="." unique_id=517486301]
@@ -55,6 +58,7 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 128.0
 offset_bottom = 40.0
+theme = ExtResource("2_6gwv0")
 text = "Time: "
 
 [node name="GamePausedLabel" type="Label" parent="." unique_id=1146558109]
@@ -80,6 +84,7 @@ offset_left = 400.0
 offset_top = 33.0
 offset_right = 510.0
 offset_bottom = 64.0
+theme = ExtResource("2_6gwv0")
 text = "Debug"
 
 [node name="VictoryRichTextLabel" type="RichTextLabel" parent="." unique_id=1171050106]

@@ -46,6 +46,8 @@ func _ready() -> void:
 	Global.resume_game_requested.connect(_on_game_resumed)
 	Global.pause_game_requested.connect(_on_game_paused)
 	$DebugCheckButton.button_pressed = Global.debug
+	if Global.dev_mode == false:
+		$DebugCheckButton.visible = false
 	Global.resume_game()
 
 
@@ -73,7 +75,7 @@ func _on_check_button_toggled(toggled_status: bool) -> void:
 	pause(toggled_status)
 
 
-## 
+## Affiche ou cache les visuels de développement.
 func _on_debug_check_button_toggled(toggled_status: bool) -> void:
 	Global.debug = toggled_status
 

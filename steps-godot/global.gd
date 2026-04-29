@@ -11,6 +11,9 @@ var pulse_clock: Object
 var half_pulse_clock: Object
 var current_tutorial: Tutorial
 
+## Affiche le toggle de développement en haut à droite de l'interface.
+@export var dev_mode: bool = true
+## Affiche les visuels de développement et débuggage. 
 @export var debug: bool = true
 @export_group("Global Mob Settings", "mob_")
 @export var mob_invincibility_duration: float = 0.6
