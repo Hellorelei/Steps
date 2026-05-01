@@ -4,7 +4,11 @@ class_name SpawnMob
 
 static var cannette: PackedScene = preload("res://mobs/mob_can.tscn")
 static var amidon: PackedScene = preload("res://mobs/mob_starch.tscn")
+static var boue: PackedScene = preload("res://mobs/mob_mud.tscn")
+static var lipide: PackedScene = preload("res://mobs/mob_lipid.tscn")
+static var micro: PackedScene = preload("res://mobs/mob_micro.tscn")
 
+## Renvoie un hello world pour indiquer qe 
 static func hello_world() -> String:
 	return "hello world!"
 
@@ -16,6 +20,12 @@ static func spawn(mob, caller) -> void:
 			tospawn = cannette
 		"amidon":
 			tospawn = amidon
+		"boue":
+			tospawn = boue
+		"lipide":
+			tospawn = lipide
+		"micropolluant":
+			tospawn = micro
 	
 	tospawn = tospawn.instantiate()
 	tospawn.rotation = randf()

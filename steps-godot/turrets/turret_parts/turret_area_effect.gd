@@ -24,6 +24,8 @@ class_name TurretAreaEffect
 @export var target_micropolluants: bool = false
 ## Vise les lipides?
 @export var target_lipides: bool = false
+## Vise les boues?
+@export var target_boues: bool = false
 
 var enabled_targets: Array # Stocke la liste d'entités cibles pertinentes.
 var parent_turret: Turret
@@ -73,12 +75,14 @@ func _apply_artificial_gravity(mob: Mob) -> void:
 func _setup_targets() -> Array:
 	var target_list: Array
 	if target_cannettes:
-		target_list.append("Cannette")
+		target_list.append("Cannettes")
 	if target_amidons:
 		target_list.append("Amidons")
 	if target_micropolluants:
 		target_list.append("Micropolluants")
 	if target_lipides:
 		target_list.append("Lipides")
+	if target_boues:
+		target_list.append("Boues")
 		
 	return target_list

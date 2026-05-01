@@ -10,7 +10,7 @@ extends RigidBody2D
 class_name Mob
 
 ## Type de mob; affecte l'interaction avec les tours et projectiles.
-@export_enum("Cannette", "Amidons", "Micropolluants", "Lipides") var type: String = "Cannette"
+@export_enum("Cannettes", "Amidons", "Micropolluants", "Lipides", "Boues") var type: String = "Cannettes"
 
 var original_gravity_scale: float
 

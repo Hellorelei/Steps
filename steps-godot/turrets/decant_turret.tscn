@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cfye1u4v8ptt3"]
+
+[ext_resource type="Script" uid="uid://nwp1pb74xoju" path="res://turrets/turret_parts/turret.gd" id="1_ggcee"]
+[ext_resource type="Texture2D" uid="uid://bessbrbywo1jd" path="res://sprites/BDecanteur1.svg" id="2_0sknm"]
+[ext_resource type="Texture2D" uid="uid://dnv45y55pb6eb" path="res://sprites/BDecanteur2.svg" id="3_72u2j"]
+[ext_resource type="Texture2D" uid="uid://bj1te7fn4650f" path="res://sprites/BDecanteur3.svg" id="4_4rcgp"]
+[ext_resource type="Texture2D" uid="uid://b4gxtrf5dd6wf" path="res://sprites/BDecanteur4.svg" id="5_c4jod"]
+[ext_resource type="Texture2D" uid="uid://btvrj8ko7s5ja" path="res://sprites/BDecanteur5.svg" id="6_8hfpp"]
+[ext_resource type="Texture2D" uid="uid://66is6j4ps330" path="res://sprites/BDecanteur6.svg" id="7_nbr33"]
+[ext_resource type="Script" uid="uid://dcqx1q055qoka" path="res://turrets/turret_parts/turret_target_module.gd" id="8_mvka1"]
+[ext_resource type="Script" uid="uid://xjv5keo1nquy" path="res://turrets/turret_parts/turret_gun_ripple.gd" id="9_agjyo"]
+[ext_resource type="Script" uid="uid://cm4a7a1pghirg" path="res://turrets/turret_parts/turret_area.gd" id="10_bxsr1"]
+[ext_resource type="Script" uid="uid://brp4cdrn2t7ua" path="res://turrets/turret_parts/turret_area_effect.gd" id="11_pkt2g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlecy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0sknm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_72u2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4rcgp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c4jod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8hfpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nbr33")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gem06"]
+radius = 64.0
+
+[node name="DecantTurret" type="Node2D" unique_id=1152034797]
+script = ExtResource("1_ggcee")
+turret_type = "Décanteur"
+metadata/_custom_type_script = "uid://nwp1pb74xoju"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1044753264]
+position = Vector2(0, 1.9073486e-06)
+scale = Vector2(0.074999996, 0.074999996)
+sprite_frames = SubResource("SpriteFrames_rlecy")
+frame_progress = 0.51756376
+
+[node name="TargetModule" type="Node2D" parent="." unique_id=596319772]
+script = ExtResource("8_mvka1")
+targeting_mode = "Zone"
+fire_rate = 2.0
+metadata/_custom_type_script = "uid://dcqx1q055qoka"
+
+[node name="TurretGunRipple" type="Node2D" parent="TargetModule" unique_id=188982764]
+script = ExtResource("9_agjyo")
+metadata/_custom_type_script = "uid://xjv5keo1nquy"
+
+[node name="TurretArea2D" type="Area2D" parent="." unique_id=2053875996]
+script = ExtResource("10_bxsr1")
+metadata/_custom_type_script = "uid://cm4a7a1pghirg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretArea2D" unique_id=203623174]
+shape = SubResource("CircleShape2D_gem06")
+
+[node name="TurretAreaEffect" type="Node2D" parent="." unique_id=583047286]
+script = ExtResource("11_pkt2g")
+dampening = true
+artificial_gravity = true
+target_cannettes = true
+target_boues = true
+metadata/_custom_type_script = "uid://brp4cdrn2t7ua"

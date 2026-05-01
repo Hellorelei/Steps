@@ -60,7 +60,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_31ajc"]
 radius = 64.0
 
-[node name="TestGrateTurret" type="Node2D" unique_id=1350976895]
+[node name="GrateTurret" type="Node2D" unique_id=1350976895]
 script = ExtResource("1_5x63j")
 metadata/_custom_type_script = "uid://nwp1pb74xoju"
 

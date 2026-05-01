@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bprldklrp4m03" path="res://gui/fonts/uni0564/uni0564-webfont.ttf" id="1_bwfo3"]
 
 [resource]
-Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.23529412)
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/constants/shadow_outline_size = 8

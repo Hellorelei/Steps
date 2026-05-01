@@ -2,8 +2,10 @@ extends Node2D
 
 ## TODO: Cleanup button auto hide by having a better timer and/or hover detection.
 
-var _test_grate_turret: PackedScene = load("res://turrets/grate_turret.tscn")
-var _test_oxygen_turret: PackedScene = load("res://turrets/oxygen_turret.tscn")
+var grate_turret: PackedScene = load("res://turrets/grate_turret.tscn")
+var oxygen_turret: PackedScene = load("res://turrets/oxygen_turret.tscn")
+var coal_turret: PackedScene = load("res://turrets/coal_turret.tscn")
+var decant_turret: PackedScene = load("res://turrets/decant_turret.tscn")
 
 # Liste des boutons pour ajouter une tourelle.
 var turret_buttons: Array
@@ -79,6 +81,16 @@ func _on_add_turret_1_button_2_button_down() -> void:
 	button_toggle(turret_buttons, 0)
 
 
+func _on_add_turret_1_button_3_button_down() -> void:
+	set_turret("3")
+	button_toggle(turret_buttons, 0)
+
+
+func _on_add_turret_1_button_4_button_down() -> void:
+	set_turret("4")
+	button_toggle(turret_buttons, 0)
+
+
 func _on_delete_turret_button_button_down() -> void:
 	set_turret("empty")
 	button_toggle(delete_button, 0)
@@ -90,8 +102,12 @@ func set_turret(turret:String):
 		"empty":
 			built_turret.delete()
 		"1":
-			built_turret = _test_grate_turret.instantiate()
+			built_turret = grate_turret.instantiate()
 		"2":
-			built_turret = _test_oxygen_turret.instantiate()
+			built_turret = coal_turret.instantiate()
+		"3":
+			built_turret = oxygen_turret.instantiate()
+		"4":
+			built_turret = decant_turret.instantiate()
 	built_turret.position = Vector2(0, 0)
 	add_child(built_turret)

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://b1dant3obkuch"]
+
+[ext_resource type="Script" uid="uid://dw5o6ippordx5" path="res://mob_components/mob.gd" id="1_bkye3"]
+[ext_resource type="Texture2D" uid="uid://dxq5mmsk5vgsa" path="res://sprites/DMicropolluant1.svg" id="2_w16ce"]
+[ext_resource type="Texture2D" uid="uid://b3wg6kjduvb8s" path="res://sprites/DMicropolluant2.svg" id="3_vx038"]
+[ext_resource type="Texture2D" uid="uid://dw6g63irowb6r" path="res://sprites/DMicropolluant3.svg" id="4_vjgyt"]
+[ext_resource type="Script" uid="uid://byakvqdfkjtai" path="res://mob_components/mob_debug.gd" id="4_w16ce"]
+[ext_resource type="Texture2D" uid="uid://dgxk61ww8c8rl" path="res://sprites/DMicropolluant4.svg" id="5_erm6d"]
+[ext_resource type="Script" uid="uid://dv1s83mjox34l" path="res://mob_components/mob_health.gd" id="5_vx038"]
+[ext_resource type="Script" uid="uid://c4okk3uvqup7r" path="res://general_components/health_bar.gd" id="6_vjgyt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_erm6d"]
+height = 28.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f51x1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w16ce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vx038")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vjgyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_erm6d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_km5es"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6oe3"]
+
+[node name="MobMicro" type="RigidBody2D" unique_id=1157351513]
+collision_layer = 513
+script = ExtResource("1_bkye3")
+type = "Micropolluants"
+metadata/_custom_type_script = "uid://dw5o6ippordx5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=625248181]
+shape = SubResource("CapsuleShape2D_erm6d")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=31795066]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1710210431]
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_f51x1")
+
+[node name="MobDebug" type="Node" parent="." unique_id=1963395851]
+script = ExtResource("4_w16ce")
+metadata/_custom_type_script = "uid://byakvqdfkjtai"
+
+[node name="MobHealth" type="Node2D" parent="." unique_id=77136616]
+script = ExtResource("5_vx038")
+metadata/_custom_type_script = "uid://dv1s83mjox34l"
+
+[node name="HealthBar" type="ProgressBar" parent="MobHealth" unique_id=338467643]
+y_sort_enabled = true
+offset_left = -9.0
+offset_top = 15.0
+offset_right = 10.0
+offset_bottom = 19.0
+theme_override_styles/background = SubResource("StyleBoxFlat_km5es")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d6oe3")
+show_percentage = false
+script = ExtResource("6_vjgyt")
+metadata/_custom_type_script = "uid://c4okk3uvqup7r"
+metadata/_edit_use_anchors_ = true
