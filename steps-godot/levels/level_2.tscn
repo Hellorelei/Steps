@@ -189,9 +189,6 @@ tile_map_data = PackedByteArray("AAAGABgAAAABAAEAAAAHABgAAAABAAEAAAAGAAUAAAABAAE
 tile_set = ExtResource("7_ep78u")
 metadata/_edit_lock_ = true
 
-[node name="MobSpawnMarker2D" type="Marker2D" parent="." unique_id=1278025271]
-position = Vector2(-136, 136)
-
 [node name="FailureArea2D" type="Area2D" parent="." unique_id=440909329]
 position = Vector2(128, 472)
 
@@ -223,6 +220,20 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gravity/SpawnGravityArea2D" unique_id=475535957]
 position = Vector2(-136, 0)
+shape = SubResource("CircleShape2D_v5uil")
+
+[node name="SpawnGravityArea2D2" type="Area2D" parent="Gravity" unique_id=489971442]
+position = Vector2(288, 16)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 10.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gravity/SpawnGravityArea2D2" unique_id=1339898434]
+position = Vector2(0, -144)
 shape = SubResource("CircleShape2D_v5uil")
 
 [node name="1GravityArea2D" type="Area2D" parent="Gravity" unique_id=1162937092]
@@ -297,6 +308,7 @@ gravity = 20.0
 linear_damp_space_override = 3
 linear_damp = 0.5
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/5GravityArea2D" unique_id=951438303]
 position = Vector2(-246, -294)
@@ -396,6 +408,165 @@ metadata/_edit_group_ = true
 position = Vector2(-16, 135)
 polygon = PackedVector2Array(-24, -31, 20, -17, 29, -157, -13, -158)
 
+[node name="10RepelGravityArea2D3" type="Area2D" parent="Gravity" unique_id=1851242856]
+position = Vector2(312, 136)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/10RepelGravityArea2D3" unique_id=722881151]
+position = Vector2(9, -8)
+polygon = PackedVector2Array(-49, -136, 15, -144, 47, 0, -33, 0)
+
+[node name="10RepelGravityArea2D4" type="Area2D" parent="Gravity" unique_id=332102199]
+position = Vector2(296, 272)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/10RepelGravityArea2D4" unique_id=1405059264]
+position = Vector2(9, -48)
+polygon = PackedVector2Array(-57, -80, -33, -88, -25, -80, -25, 24)
+
+[node name="2GravityArea2D2" type="Area2D" parent="Gravity" unique_id=1536204353]
+position = Vector2(288, 296)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/2GravityArea2D2" unique_id=1701098008]
+polygon = PackedVector2Array(0, -160, 0, -16, 48, -8, 56, -160)
+
+[node name="10RepelGravityArea2D7" type="Area2D" parent="Gravity" unique_id=1697286296]
+position = Vector2(288, 384)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/10RepelGravityArea2D7" unique_id=408627749]
+position = Vector2(113, -8)
+polygon = PackedVector2Array(-25, -80, -57, -80, -97, -8, -49, 40)
+
+[node name="10RepelGravityArea2D6" type="Area2D" parent="Gravity" unique_id=27740457]
+position = Vector2(320, 296)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/10RepelGravityArea2D6" unique_id=779293308]
+position = Vector2(113, -8)
+polygon = PackedVector2Array(-41, -72, -89, -64, -89, 0, -49, 0)
+
+[node name="10RepelGravityArea2D5" type="Area2D" parent="Gravity" unique_id=1039677244]
+position = Vector2(328, 216)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/10RepelGravityArea2D5" unique_id=468710896]
+position = Vector2(113, -8)
+polygon = PackedVector2Array(-49, -48, -89, -72, -97, 8, -49, 0)
+
+[node name="10RepelGravityArea2D10" type="Area2D" parent="Gravity" unique_id=362112086]
+position = Vector2(208, 504)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/10RepelGravityArea2D10" unique_id=809037325]
+position = Vector2(65, 88)
+polygon = PackedVector2Array(-9, -112, -41, -120, -41, -72, -9, -64)
+
+[node name="10RepelGravityArea2D9" type="Area2D" parent="Gravity" unique_id=1162221028]
+position = Vector2(216, 456)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/10RepelGravityArea2D9" unique_id=1775706051]
+position = Vector2(65, 88)
+polygon = PackedVector2Array(7, -88, -17, -128, -49, -80, -9, -64)
+
+[node name="10RepelGravityArea2D8" type="Area2D" parent="Gravity" unique_id=1754636923]
+position = Vector2(256, 400)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/10RepelGravityArea2D8" unique_id=1371677034]
+position = Vector2(65, 88)
+polygon = PackedVector2Array(31, -64, -1, -96, -49, -80, -33, -40)
+
+[node name="10RepelGravityArea2D2" type="Area2D" parent="Gravity" unique_id=972057342]
+position = Vector2(312, 136)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/10RepelGravityArea2D2" unique_id=750095585]
+position = Vector2(9, -8)
+polygon = PackedVector2Array(-57, -128, -81, -144, -73, 0, -41, 8)
+
 [node name="Tutorial" parent="." unique_id=211060962 instance=ExtResource("5_5722l")]
 TutoText = "Maintenant que les canettes ont été enlevées, il reste encore des plus petits déchets sous forme de boue. 
 Pour s’en débarasser, il faut utiliser un décanteur."
@@ -406,6 +577,16 @@ TutoTurretAnimation = "Decanteur"
 script = ExtResource("8_sd18g")
 metadata/_custom_type_script = "uid://bsycb1sdvkag4"
 
+[node name="EnemyWavesSpawner2" type="Marker2D" parent="EnemyWavesHolder" unique_id=2096969922]
+position = Vector2(288, -48)
+script = ExtResource("9_vm7no")
+metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
+
+[node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner2" unique_id=876009631]
+script = ExtResource("10_hbb88")
+boue = 2.0
+metadata/_custom_type_script = "uid://b277fyrvnuk1c"
+
 [node name="EnemyWavesSpawner" type="Marker2D" parent="EnemyWavesHolder" unique_id=790140744]
 position = Vector2(-80, 136)
 script = ExtResource("9_vm7no")
@@ -413,7 +594,7 @@ metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
 
 [node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner" unique_id=148505741]
 script = ExtResource("10_hbb88")
-cannette = 4.0
+boue = 2.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [connection signal="body_entered" from="FailureArea2D" to="." method="_on_failure_area_2d_body_entered"]

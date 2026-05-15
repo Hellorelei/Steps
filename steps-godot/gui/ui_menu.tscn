@@ -189,7 +189,6 @@ offset_right = 360.0
 offset_bottom = 384.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 18
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="." unique_id=1989214116]
@@ -200,7 +199,7 @@ offset_right = 360.0
 offset_bottom = 336.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 16
 text = "Crédits"
 
 [node name="QuitButton" type="Button" parent="." unique_id=789930197]
@@ -209,7 +208,6 @@ offset_left = 152.0
 offset_top = 392.0
 offset_right = 360.0
 offset_bottom = 432.0
-theme_override_font_sizes/font_size = 18
 text = "X Quitter"
 
 [node name="StartButton" type="Button" parent="." unique_id=385170376]

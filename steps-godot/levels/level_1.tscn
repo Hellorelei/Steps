@@ -363,14 +363,11 @@ metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
 [node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner" unique_id=39275377]
 script = ExtResource("10_08mmt")
 cannette = 1.0
-boue = 1.0
-lipide = 1.0
-amidon = 1.0
-micropolluant = 1.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesContent2" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner" unique_id=1074836684]
 script = ExtResource("10_08mmt")
+cannette = 3.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesSpawner2" type="Marker2D" parent="EnemyWavesHolder" unique_id=737463566]
@@ -381,7 +378,6 @@ metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
 [node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner2" unique_id=1614564915]
 script = ExtResource("10_08mmt")
 cannette = 1.0
-amidon = 1.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="Tutorial" parent="." unique_id=211060962 instance=ExtResource("10_5ot28")]

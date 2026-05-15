@@ -20,8 +20,6 @@ var current_tutorial: Tutorial
 
 ## Émis chaque seconde.
 signal pulse 
-## Émis chaque demi-seconde (non implémenté).
-signal half_pulse
 ## Indique que les spawners sont prêts.
 signal spawners_ready
 ## Émis pour demander au jeu d'être mis en pause.
@@ -43,6 +41,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	game_time = game_time + delta
+
 
 ## Appelé lorsque la personne jouant a complété le tutoriel.
 func tutorial_complete() -> void:
@@ -66,61 +65,71 @@ func reset_time_and_waves() -> void:
 	current_wave = 0
 	total_waves = 0
 
+
 ## Remet la note actuelle à zéro
 func reset_grade() -> void:
 	current_grade = 0
+
 
 ## Définit le temps actuel comme étant x.
 func set_time(time: float) -> void:
 	game_time = time
 
-## DEPRECIATED Ajoute delta au temps actuel.
-func add_time(delta: float) -> void:
-	return
 
 ## Retourne le temps actuel.
 func get_time() -> float:
 	return game_time
 
+
 ## Retourne le temps en nombre entier, format string.
 func get_display_time() -> String:
 	return str(int(floor(game_time)))
+
 
 ## Définit la vague actuelle comme étant x.
 func set_current_wave(wave: int) -> void:
 	current_wave = wave
 
+
 ## Retourne la vague actuelle en int.
 func get_current_wave() -> int:
 	return current_wave
+
 
 ## Définit le nombre de vagues totales comme étant x.
 func set_total_waves(waves: int) -> void:
 	total_waves = waves
 	print(total_waves)
 
+
 ## Retourne le nombre total de vagues en int.
 func get_total_waves() -> int:
 	return total_waves
 
+
 func get_current_grade() -> int:
 	return current_grade
+
 
 ## Envoie le signal send_wave.
 func emit_send_wave():
 	send_wave.emit()
 
+
 ## Envoie le signal spawners_ready qui indique à GameLogic que les spawners sont prêts.
 func emit_spawners_ready():
 	spawners_ready.emit()
+
 
 ## Envoie le signal pulse. 
 func _emit_pulse():
 	pulse.emit()
 
+
 ## Remet à zéro le minuteur pulse_clock.
 func reset_pulse():
 	pulse_clock.start()
+
 
 ## Configure et lance le minuteur pulse_clock; 1Hz.
 func _setup_pulse():
@@ -130,10 +139,27 @@ func _setup_pulse():
 	add_child(pulse_clock)
 	pulse_clock.start()
 
-## Fournit la durée d'invincibilité des mobs configurée via Global
+
+## Fournit la durée d'invincibilité des mobs configurée via Global.
 func get_invincibility_duration() -> float:
 	return mob_invincibility_duration
 
-## Met à jour la note actuelle
+
+## Met à jour la note actuelle.
 func set_grade(new_grade) -> void:
 	current_grade = new_grade
+	
+
+## Passe au niveau suivant.
+func move_to_next_level(current_level_name) -> void:
+	var next_level_path = "res://gui/ui_level.tscn"
+	match current_level_name:
+		"Level1":
+			next_level_path = "res://levels/level_2.tscn"
+		"Level2":
+			next_level_path = "res://levels/level_3.tscn"
+		"Level3":
+			next_level_path = "res://levels/level_4.tscn"
+		"Level4":
+			next_level_path = "res://gui/credits.tscn"
+	get_tree().change_scene_to_file(next_level_path)

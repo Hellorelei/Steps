@@ -190,7 +190,7 @@ offset_left = -64.128
 offset_top = -64.128
 offset_right = 63.872
 offset_bottom = 63.872
-text = "1"
+text = "NIVEAU 1"
 
 [node name="Level2Button" type="Button" parent="." unique_id=81623244]
 anchors_preset = -1
@@ -202,7 +202,7 @@ offset_left = -63.872
 offset_top = -64.128
 offset_right = 64.128
 offset_bottom = 63.872
-text = "2"
+text = "NIVEAU 2"
 metadata/_edit_use_anchors_ = true
 
 [node name="Level3Button" type="Button" parent="." unique_id=1020281667]
@@ -215,7 +215,7 @@ offset_left = -64.128
 offset_top = -63.872
 offset_right = 63.872
 offset_bottom = 64.128
-text = "3"
+text = "NIVEAU 3"
 metadata/_edit_use_anchors_ = true
 
 [node name="Level4Button" type="Button" parent="." unique_id=1993049109]
@@ -228,7 +228,7 @@ offset_left = -63.872
 offset_top = -63.872
 offset_right = 64.128
 offset_bottom = 64.128
-text = "4"
+text = "NIVEAU 4"
 metadata/_edit_use_anchors_ = true
 
 [node name="BackButton" type="Button" parent="." unique_id=363619281]

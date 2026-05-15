@@ -76,6 +76,128 @@ script = ExtResource("7_jq78i")
 cannette = 4.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
+[node name="EnemyWavesSpawner2" type="Marker2D" parent="EnemyWavesHolder" unique_id=1334652876]
+position = Vector2(208, 544)
+script = ExtResource("6_ofchu")
+metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
+
+[node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner2" unique_id=1596576805]
+script = ExtResource("7_jq78i")
+cannette = 20.0
+metadata/_custom_type_script = "uid://b277fyrvnuk1c"
+
+[node name="Gravity2" type="Node" parent="." unique_id=1115118366]
+
+[node name="SpawnGravityArea2D" type="Area2D" parent="Gravity2" unique_id=1907221424]
+position = Vector2(200, 496)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 10.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gravity2/SpawnGravityArea2D" unique_id=985690689]
+position = Vector2(0, 152)
+shape = SubResource("CircleShape2D_gew73")
+
+[node name="1GravityArea2D" type="Area2D" parent="Gravity2" unique_id=231705779]
+position = Vector2(174, 361)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity2/1GravityArea2D" unique_id=2045790323]
+position = Vector2(27, 121)
+polygon = PackedVector2Array(-35, -104, -1, -106, 31, 54, -33, 54)
+
+[node name="2GravityArea2D" type="Area2D" parent="Gravity2" unique_id=1904617046]
+position = Vector2(161, 251)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity2/2GravityArea2D" unique_id=770845124]
+position = Vector2(-21, 85)
+polygon = PackedVector2Array(-4, 40, -10, -78, 36, -64, 52, 32)
+
+[node name="3GravityArea2D" type="Area2D" parent="Gravity2" unique_id=1679863890]
+position = Vector2(269, 232)
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 20.0
+linear_damp_space_override = 3
+linear_damp = 0.5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity2/3GravityArea2D" unique_id=1853708787]
+position = Vector2(-5, -38)
+polygon = PackedVector2Array(-24, 94, -128, 54, -112, 22, -16, 6)
+
+[node name="1RepelGravityArea2D" type="Area2D" parent="Gravity2" unique_id=19398745]
+position = Vector2(109, 416)
+gravity_space_override = 2
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+gravity = 60.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity2/1RepelGravityArea2D" unique_id=412790480]
+polygon = PackedVector2Array(-23, -61, 52, -3, 52, 14, -24, 7)
+
+[node name="2RepelGravityArea2D4" type="Area2D" parent="Gravity2" unique_id=44124963]
+position = Vector2(184, 200)
+gravity_space_override = 2
+gravity_point_center = Vector2(0.3, 1)
+gravity_direction = Vector2(0.3, 1)
+gravity = 60.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity2/2RepelGravityArea2D4" unique_id=2028657265]
+position = Vector2(6, 14)
+polygon = PackedVector2Array(-46, -46, 26, -38, 26, -14, -54, 2)
+
+[node name="2RepelGravityArea2D3" type="Area2D" parent="Gravity2" unique_id=2006592223]
+position = Vector2(104, 280)
+gravity_space_override = 2
+gravity_point_center = Vector2(1, 0)
+gravity_direction = Vector2(1, 0)
+gravity = 60.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity2/2RepelGravityArea2D3" unique_id=1715247710]
+position = Vector2(6, 14)
+polygon = PackedVector2Array(-38, -94, 26, -118, 2, 66, -30, 50)
+
+[node name="2RepelGravityArea2D2" type="Area2D" parent="Gravity2" unique_id=814123595]
+position = Vector2(424, 312)
+gravity_space_override = 2
+gravity_point_center = Vector2(1, -1)
+gravity_direction = Vector2(1, -1)
+gravity = 60.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity2/2RepelGravityArea2D2" unique_id=519883808]
+position = Vector2(6, 14)
+polygon = PackedVector2Array(-182, -30, 90, -14, 90, 34, -118, 34)
+
+[node name="2RepelGravityArea2D" type="Area2D" parent="Gravity2" unique_id=467920964]
+position = Vector2(248, 376)
+gravity_space_override = 2
+gravity_point_center = Vector2(-1, 0)
+gravity_direction = Vector2(-1, 0)
+gravity = 60.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity2/2RepelGravityArea2D" unique_id=67410320]
+position = Vector2(6, 14)
+polygon = PackedVector2Array(-37, -38, 19, -16, 25, 38, -6, 138)
+
 [node name="Gravity" type="Node" parent="." unique_id=2045505559]
 
 [node name="SpawnGravityArea2D" type="Area2D" parent="Gravity" unique_id=1644791334]

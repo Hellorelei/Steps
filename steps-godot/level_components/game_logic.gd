@@ -8,6 +8,7 @@ var game_started: bool
 var check_victory: bool
 var ui: Node
 var start_button: Button
+const MAX_GRADE: int = 3
 var grade: int
 var tutorial: Tutorial
 
@@ -16,6 +17,8 @@ var tutorial: Tutorial
 func _ready() -> void:
 	_setup_ui()
 	_setup_failure_area()
+	grade = MAX_GRADE
+	Global.set_grade(grade)
 	Global.pulse.connect(_on_pulse)
 	Global.tutorial_done.connect(_tutorial_done)
 	Global.pause_game_requested.connect(_pause_game)
@@ -43,7 +46,13 @@ func _setup_failure_area() -> void:
 func _check_for_defeat(mob) -> void:
 	print(mob)
 	if mob is Mob:
-		defeat()
+		mob.destroy()
+		print("grade: " + str(grade))
+		grade = grade - 1  # Baisse de la note lorsqu'un mob entre dans la zone de défaite.
+		print("postgrade: " + str(grade))
+		Global.set_grade(grade)
+		if grade <= 0:
+			defeat()
 
 
 ## Vérifie la présence d'ennemis.

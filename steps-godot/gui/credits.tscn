@@ -187,4 +187,80 @@ offset_right = 152.0
 offset_bottom = 480.0
 text = "< RETOUR"
 
+[node name="Développement" type="Node" parent="." unique_id=540707885]
+
+[node name="PauseOverlayPolygon2D" type="Polygon2D" parent="Développement" unique_id=794149463]
+position = Vector2(7.9999995, 24)
+scale = Vector2(1.012935, 0.4260113)
+color = Color(0, 0, 0, 0.501961)
+polygon = PackedVector2Array(513.3597, 0, 513.3597, 488.25, -23.693523, 488.25, -23.693523, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Développement" unique_id=1445428028]
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 480.0
+offset_bottom = 80.0
+bbcode_enabled = true
+text = "[b]DÉVELOPPEMENT[/b]"
+vertical_alignment = 1
+
+[node name="TitreRichTextLabel" type="RichTextLabel" parent="Développement" unique_id=1970487357]
+offset_left = 16.0
+offset_top = 72.0
+offset_right = 496.0
+offset_bottom = 216.0
+text = "CODE
+CONCEPT
+INTERFACE
+MÉCANIQUES DE JEU
+NIVEAUX
+SPRITES"
+
+[node name="ContenuTextLabel3" type="RichTextLabel" parent="Développement/TitreRichTextLabel" unique_id=36216630]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 152.0
+text = "L. Chevroulet
+M. Frey
+L. Chevroulet
+L. Chevroulet
+M. Frey
+M. Frey"
+horizontal_alignment = 2
+
+[node name="Développement2" type="Node" parent="." unique_id=1374765120]
+
+[node name="PauseOverlayPolygon2D" type="Polygon2D" parent="Développement2" unique_id=1545754215]
+position = Vector2(8, 240)
+scale = Vector2(1.012935, 0.39324117)
+color = Color(0, 0, 0, 0.501961)
+polygon = PackedVector2Array(513.3597, 0, 513.3597, 488.25, -23.693523, 488.25, -23.693523, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Développement2" unique_id=1101733587]
+offset_left = 16.0
+offset_top = 256.0
+offset_right = 480.0
+offset_bottom = 296.0
+bbcode_enabled = true
+text = "[b]RESSOURCES TIÈRCES[/b]"
+vertical_alignment = 1
+
+[node name="TitreRichTextLabel" type="RichTextLabel" parent="Développement2" unique_id=883813020]
+offset_left = 16.0
+offset_top = 288.0
+offset_right = 496.0
+offset_bottom = 408.0
+text = "FONTE
+TILEMAP
+PLUGINS"
+
+[node name="ContenuTextLabel3" type="RichTextLabel" parent="Développement2/TitreRichTextLabel" unique_id=2060731251]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 120.0
+text = "Shantell Sans
+Cup Nooble: Sprout Lands
+Sanjo: Tileset Collision Generator"
+horizontal_alignment = 2
+
 [connection signal="pressed" from="BackButtonC" to="." method="_on_back_button_c_pressed"]

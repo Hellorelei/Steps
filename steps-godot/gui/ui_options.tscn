@@ -180,6 +180,12 @@ tile_set = SubResource("TileSet_50pcx")
 tile_map_data = PackedByteArray("AAAZAA8AAAAAAAIAAAAaAA8AAAABAAIAAAAZAA4AAAAAAAEAAAAZAA0AAAAAAAAAAAAaAA0AAAABAAAAAAAbAA0AAAAGAAIAAAAbAAwAAAAAAAAAAAAcAAwAAAACAAAAAAAcAA0AAAACAAEAAAAcAA4AAAACAAIAAAAaAA4AAAADAAUAAAAbAA4AAAAFAAEAAAAbAA8AAAACAAIAAAA=")
 tile_set = SubResource("TileSet_ilq67")
 
+[node name="PauseOverlayPolygon2D" type="Polygon2D" parent="." unique_id=2120767854]
+position = Vector2(4.9231033, 168)
+scale = Vector2(1.012935, 0.11469534)
+color = Color(0, 0, 0, 0.501961)
+polygon = PackedVector2Array(516.3973, 0, 516.3973, 488.25, -20.655891, 488.25, -20.655891, 0)
+
 [node name="BackButton" type="Button" parent="." unique_id=363619281]
 anchors_preset = -1
 offset_left = 32.0
@@ -190,9 +196,9 @@ text = "< RETOUR"
 metadata/_edit_use_anchors_ = true
 
 [node name="CheckButton" type="CheckButton" parent="." unique_id=2081054178]
-offset_left = 104.0
+offset_left = 96.0
 offset_top = 184.0
-offset_right = 148.0
+offset_right = 140.0
 offset_bottom = 208.0
 button_pressed = true
 
