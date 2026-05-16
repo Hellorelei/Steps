@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="2_fm787"]
 [ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="3_lguj5"]
 [ext_resource type="Texture2D" uid="uid://b8eshxv8slfhv" path="res://Tilesheet/Hills.png" id="4_pam2p"]
+[ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="5_jhe3i"]
+[ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="6_d0uvk"]
+[ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="7_pfcda"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhe3i"]
 texture = ExtResource("2_fm787")
@@ -190,6 +193,11 @@ offset_left = -64.128
 offset_top = -64.128
 offset_right = 63.872
 offset_bottom = 63.872
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_styles/normal = ExtResource("5_jhe3i")
+theme_override_styles/pressed = ExtResource("6_d0uvk")
+theme_override_styles/hover = ExtResource("7_pfcda")
 text = "NIVEAU 1"
 
 [node name="Level2Button" type="Button" parent="." unique_id=81623244]
@@ -202,6 +210,11 @@ offset_left = -63.872
 offset_top = -64.128
 offset_right = 64.128
 offset_bottom = 63.872
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_styles/normal = ExtResource("5_jhe3i")
+theme_override_styles/pressed = ExtResource("6_d0uvk")
+theme_override_styles/hover = ExtResource("7_pfcda")
 text = "NIVEAU 2"
 metadata/_edit_use_anchors_ = true
 
@@ -215,6 +228,11 @@ offset_left = -64.128
 offset_top = -63.872
 offset_right = 63.872
 offset_bottom = 64.128
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_styles/normal = ExtResource("5_jhe3i")
+theme_override_styles/pressed = ExtResource("6_d0uvk")
+theme_override_styles/hover = ExtResource("7_pfcda")
 text = "NIVEAU 3"
 metadata/_edit_use_anchors_ = true
 
@@ -228,6 +246,11 @@ offset_left = -63.872
 offset_top = -63.872
 offset_right = 64.128
 offset_bottom = 64.128
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_styles/normal = ExtResource("5_jhe3i")
+theme_override_styles/pressed = ExtResource("6_d0uvk")
+theme_override_styles/hover = ExtResource("7_pfcda")
 text = "NIVEAU 4"
 metadata/_edit_use_anchors_ = true
 
@@ -237,6 +260,11 @@ offset_left = 32.0
 offset_top = 448.0
 offset_right = 152.0
 offset_bottom = 480.0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_styles/normal = ExtResource("5_jhe3i")
+theme_override_styles/pressed = ExtResource("6_d0uvk")
+theme_override_styles/hover = ExtResource("7_pfcda")
 text = "< RETOUR"
 metadata/_edit_use_anchors_ = true
 

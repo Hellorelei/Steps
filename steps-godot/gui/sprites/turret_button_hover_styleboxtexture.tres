@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://d2hn7vr6gv57c"]
+
+[ext_resource type="Texture2D" uid="uid://d0lk2de14hdj4" path="res://gui/sprites/Square Buttons 26x26.png" id="1_ymalu"]
+
+[resource]
+texture = ExtResource("1_ymalu")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 7.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(11, 11, 26, 28)
+modulate_color = Color(1.0627335, 1.0627335, 1.0627335, 1)

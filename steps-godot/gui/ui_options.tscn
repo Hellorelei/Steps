@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="2_e86rf"]
 [ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="3_2mc0y"]
 [ext_resource type="Texture2D" uid="uid://b8eshxv8slfhv" path="res://Tilesheet/Hills.png" id="4_jh4g1"]
+[ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="5_jh4g1"]
+[ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="6_uontp"]
+[ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="7_mj073"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhe3i"]
 texture = ExtResource("2_e86rf")
@@ -192,6 +195,11 @@ offset_left = 32.0
 offset_top = 448.0
 offset_right = 152.0
 offset_bottom = 480.0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_styles/normal = ExtResource("5_jh4g1")
+theme_override_styles/pressed = ExtResource("6_uontp")
+theme_override_styles/hover = ExtResource("7_mj073")
 text = "< RETOUR"
 metadata/_edit_use_anchors_ = true
 

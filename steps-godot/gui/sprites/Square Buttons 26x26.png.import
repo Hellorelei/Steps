@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8eshxv8slfhv"
-path="res://.godot/imported/Hills.png-46478ce9a93d0f70b3dfd54d91b9e259.ctex"
+uid="uid://d0lk2de14hdj4"
+path="res://.godot/imported/Square Buttons 26x26.png-728e5a4c3219753b12d513f8975143a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilesheet/Hills.png"
-dest_files=["res://.godot/imported/Hills.png-46478ce9a93d0f70b3dfd54d91b9e259.ctex"]
+source_file="res://gui/sprites/Square Buttons 26x26.png"
+dest_files=["res://.godot/imported/Square Buttons 26x26.png-728e5a4c3219753b12d513f8975143a5.ctex"]
 
 [params]
 

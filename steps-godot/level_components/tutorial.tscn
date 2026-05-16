@@ -1,9 +1,13 @@
 [gd_scene format=4 uid="uid://mcx2frrhesqv"]
 
 [ext_resource type="Script" uid="uid://k4civ1mvp1vg" path="res://level_components/tutorial.gd" id="1_3ft5y"]
+[ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="2_pur3k"]
 [ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="2_tkgn1"]
+[ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="3_7mp7a"]
 [ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="3_lwtkm"]
 [ext_resource type="Texture2D" uid="uid://dgr71trbwwxv2" path="res://sprites/CLipid1.svg" id="4_ux6pk"]
+[ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="4_ycdsi"]
+[ext_resource type="StyleBox" uid="uid://bmkcuat6d6gni" path="res://gui/sprites/label_styleboxtexture.tres" id="5_7mp7a"]
 [ext_resource type="Texture2D" uid="uid://by78nvsv20sux" path="res://sprites/CLipid2.svg" id="5_wtgww"]
 [ext_resource type="Texture2D" uid="uid://dxq5mmsk5vgsa" path="res://sprites/DMicropolluant1.svg" id="6_ah7lt"]
 [ext_resource type="Texture2D" uid="uid://dw6g63irowb6r" path="res://sprites/DMicropolluant3.svg" id="7_wons3"]
@@ -357,6 +361,11 @@ offset_left = 208.0
 offset_top = 368.0
 offset_right = 304.0
 offset_bottom = 400.0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_styles/normal = ExtResource("2_pur3k")
+theme_override_styles/pressed = ExtResource("3_7mp7a")
+theme_override_styles/hover = ExtResource("4_ycdsi")
 text = "OK"
 
 [node name="TutoRichTextLabel" type="RichTextLabel" parent="." unique_id=488762561]
@@ -364,8 +373,11 @@ offset_left = 48.0
 offset_top = 208.0
 offset_right = 464.0
 offset_bottom = 352.0
-theme_override_colors/font_outline_color = Color(0.01035503, 0.09028987, 0.10570093, 0.5686275)
-theme_override_constants/outline_size = 7
+theme_override_colors/default_color = Color(0.6905322, 0.46975857, 0.3225609, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/shadow_offset_x = 1
+theme_override_styles/normal = ExtResource("5_7mp7a")
 bbcode_enabled = true
 text = "Gugu
 "

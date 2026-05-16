@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://dwah4lswujbjr"]
+
+[ext_resource type="Texture2D" uid="uid://d0lk2de14hdj4" path="res://gui/sprites/Square Buttons 26x26.png" id="1_6utpe"]
+
+[resource]
+texture = ExtResource("1_6utpe")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(59, 11, 26, 26)

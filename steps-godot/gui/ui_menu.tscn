@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="3_dq8c1"]
 [ext_resource type="Texture2D" uid="uid://fa5ktq1n3h7v" path="res://sprites/Logo.svg" id="4_6y42r"]
 [ext_resource type="Texture2D" uid="uid://b8eshxv8slfhv" path="res://Tilesheet/Hills.png" id="4_ka1qd"]
+[ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="5_8viu7"]
+[ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="6_o3g50"]
+[ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="7_6cias"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dq8c1"]
 texture = ExtResource("2_gcaxk")
@@ -189,6 +192,11 @@ offset_right = 360.0
 offset_bottom = 384.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_styles/normal = ExtResource("5_8viu7")
+theme_override_styles/pressed = ExtResource("6_o3g50")
+theme_override_styles/hover = ExtResource("7_6cias")
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="." unique_id=1989214116]
@@ -199,7 +207,12 @@ offset_right = 360.0
 offset_bottom = 336.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("5_8viu7")
+theme_override_styles/pressed = ExtResource("6_o3g50")
+theme_override_styles/hover = ExtResource("7_6cias")
 text = "Crédits"
 
 [node name="QuitButton" type="Button" parent="." unique_id=789930197]
@@ -208,6 +221,11 @@ offset_left = 152.0
 offset_top = 392.0
 offset_right = 360.0
 offset_bottom = 432.0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_styles/normal = ExtResource("5_8viu7")
+theme_override_styles/pressed = ExtResource("6_o3g50")
+theme_override_styles/hover = ExtResource("7_6cias")
 text = "X Quitter"
 
 [node name="StartButton" type="Button" parent="." unique_id=385170376]
@@ -219,16 +237,21 @@ anchor_bottom = 0.546875
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("5_8viu7")
+theme_override_styles/pressed = ExtResource("6_o3g50")
+theme_override_styles/hover = ExtResource("7_6cias")
 metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="StartButton" unique_id=1277570379]
 layout_mode = 0
+offset_top = -2.0
 offset_right = 208.0
-offset_bottom = 48.0
+offset_bottom = 46.0
 mouse_filter = 2
+theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_font_sizes/bold_font_size = 22
 bbcode_enabled = true
-text = "[b]JOUER[/b]"
+text = "[b]> JOUER[/b]"
 horizontal_alignment = 1
 vertical_alignment = 1
 

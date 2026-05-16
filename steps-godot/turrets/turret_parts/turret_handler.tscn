@@ -3,9 +3,15 @@
 [ext_resource type="Script" uid="uid://b4v7c6i8mewmp" path="res://turrets/turret_parts/turret_handler.gd" id="1_wediq"]
 [ext_resource type="Texture2D" uid="uid://bjshug00g7vfp" path="res://sprites/ACannette1.svg" id="2_metqw"]
 [ext_resource type="Texture2D" uid="uid://bdujj64r3qjja" path="res://sprites/ACannette3.svg" id="3_qrji6"]
+[ext_resource type="StyleBox" uid="uid://denwmfm51gxck" path="res://gui/sprites/turret_button_styleboxtexture.tres" id="4_bpgac"]
 [ext_resource type="Texture2D" uid="uid://cwmq0peox5plh" path="res://sprites/AGrid6.svg" id="4_e24eo"]
+[ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="4_jau4w"]
+[ext_resource type="StyleBox" uid="uid://dwah4lswujbjr" path="res://gui/sprites/turret_button_pressed_styleboxtexture.tres" id="5_0p2sd"]
 [ext_resource type="Texture2D" uid="uid://bessbrbywo1jd" path="res://sprites/BDecanteur1.svg" id="5_0vnlp"]
+[ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="5_bpgac"]
+[ext_resource type="StyleBox" uid="uid://d2hn7vr6gv57c" path="res://gui/sprites/turret_button_hover_styleboxtexture.tres" id="5_hy7rm"]
 [ext_resource type="Texture2D" uid="uid://bckjhrycfnbp3" path="res://sprites/DCharbon1.svg" id="5_jnxc4"]
+[ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="6_hy7rm"]
 [ext_resource type="Texture2D" uid="uid://cdwup2rv6p8e6" path="res://sprites/COxygene1.svg" id="6_pfpmx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m84is"]
@@ -43,6 +49,9 @@ offset_left = -12.0
 offset_top = -12.0
 offset_right = 12.0
 offset_bottom = 12.0
+theme_override_styles/normal = ExtResource("4_bpgac")
+theme_override_styles/pressed = ExtResource("5_0p2sd")
+theme_override_styles/hover = ExtResource("5_hy7rm")
 
 [node name="AddTurret1Button1" type="Button" parent="." unique_id=462347420]
 z_index = 40
@@ -50,6 +59,9 @@ offset_left = 20.0
 offset_top = -28.0
 offset_right = 144.0
 offset_bottom = -4.0
+theme_override_styles/normal = ExtResource("4_jau4w")
+theme_override_styles/pressed = ExtResource("5_bpgac")
+theme_override_styles/hover = ExtResource("6_hy7rm")
 
 [node name="Label" type="Label" parent="AddTurret1Button1" unique_id=656568838]
 z_index = 40
@@ -58,6 +70,7 @@ offset_left = 36.0
 offset_top = -4.0
 offset_right = 120.0
 offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 text = "GRILLE"
 vertical_alignment = 1
 
@@ -73,6 +86,9 @@ offset_left = 20.0
 offset_top = -28.0
 offset_right = 192.0
 offset_bottom = -4.0
+theme_override_styles/normal = ExtResource("4_jau4w")
+theme_override_styles/pressed = ExtResource("5_bpgac")
+theme_override_styles/hover = ExtResource("6_hy7rm")
 
 [node name="Label" type="Label" parent="AddTurret1Button4" unique_id=1108165567]
 z_index = 40
@@ -81,6 +97,7 @@ offset_left = 36.0
 offset_top = -4.0
 offset_right = 140.0
 offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 text = "DÉCANTEUR"
 vertical_alignment = 1
 
@@ -96,6 +113,9 @@ offset_left = 20.0
 offset_top = 4.0
 offset_right = 160.0
 offset_bottom = 28.0
+theme_override_styles/normal = ExtResource("4_jau4w")
+theme_override_styles/pressed = ExtResource("5_bpgac")
+theme_override_styles/hover = ExtResource("6_hy7rm")
 
 [node name="Label" type="Label" parent="AddTurret1Button3" unique_id=883801273]
 z_index = 40
@@ -104,6 +124,7 @@ offset_left = 36.0
 offset_top = -4.0
 offset_right = 140.0
 offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 text = "OXYGÈNE"
 vertical_alignment = 1
 
@@ -118,6 +139,9 @@ offset_left = 20.0
 offset_top = 4.0
 offset_right = 192.0
 offset_bottom = 28.0
+theme_override_styles/normal = ExtResource("4_jau4w")
+theme_override_styles/pressed = ExtResource("5_bpgac")
+theme_override_styles/hover = ExtResource("6_hy7rm")
 
 [node name="Label" type="Label" parent="AddTurret1Button2" unique_id=241261367]
 z_index = 40
@@ -126,6 +150,7 @@ offset_left = 36.0
 offset_top = -4.0
 offset_right = 180.0
 offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 text = "CHARBON"
 vertical_alignment = 1
 
@@ -140,12 +165,18 @@ offset_left = 20.0
 offset_top = -28.0
 offset_right = 44.0
 offset_bottom = -4.0
+theme_override_styles/normal = ExtResource("4_jau4w")
+theme_override_styles/pressed = ExtResource("5_bpgac")
+theme_override_styles/hover = ExtResource("6_hy7rm")
 
 [node name="Label" type="Label" parent="DeleteTurretButton" unique_id=1815029216]
 z_index = 40
 layout_mode = 0
-offset_right = 24.0
-offset_bottom = 24.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 23.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 text = " X"
 
 [connection signal="button_down" from="BaseButton" to="." method="_on_base_button_button_down"]

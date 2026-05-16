@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://niv6w48pn7vg" path="res://gui/ui_game_hud.gd" id="1_fc217"]
 [ext_resource type="Theme" uid="uid://de4ufpkuo4heg" path="res://gui/themes/gui_font_theme.tres" id="2_6gwv0"]
+[ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="2_8lmc1"]
+[ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="3_ymmm6"]
+[ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="4_407sa"]
 
 [node name="UiGameHud" type="Node2D" unique_id=1504947573]
 z_index = 400
@@ -14,6 +17,11 @@ offset_left = 8.0
 offset_top = 432.0
 offset_right = 128.0
 offset_bottom = 464.0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_styles/normal = ExtResource("2_8lmc1")
+theme_override_styles/pressed = ExtResource("3_ymmm6")
+theme_override_styles/hover = ExtResource("4_407sa")
 text = "< RETOUR"
 
 [node name="RestartButton" type="Button" parent="." unique_id=1830931497]
@@ -23,6 +31,11 @@ offset_left = 8.0
 offset_top = 472.0
 offset_right = 200.0
 offset_bottom = 504.0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_styles/normal = ExtResource("2_8lmc1")
+theme_override_styles/pressed = ExtResource("3_ymmm6")
+theme_override_styles/hover = ExtResource("4_407sa")
 text = "* RECOMMENCER"
 
 [node name="CheckButton" type="CheckButton" parent="." unique_id=665378352]
@@ -46,6 +59,11 @@ offset_left = 8.0
 offset_top = 392.0
 offset_right = 128.0
 offset_bottom = 424.0
+theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_styles/normal = ExtResource("2_8lmc1")
+theme_override_styles/pressed = ExtResource("3_ymmm6")
+theme_override_styles/hover = ExtResource("4_407sa")
 text = "DÉPART!"
 
 [node name="Wave" type="RichTextLabel" parent="." unique_id=1795778486]

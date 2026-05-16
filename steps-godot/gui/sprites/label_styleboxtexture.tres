@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://bmkcuat6d6gni"]
+
+[ext_resource type="Texture2D" uid="uid://v7dc1lce5y5u" path="res://gui/sprites/dialog box big.png" id="1_mdkk7"]
+
+[resource]
+texture = ExtResource("1_mdkk7")
+texture_margin_left = 9.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(2, 7, 172, 35)

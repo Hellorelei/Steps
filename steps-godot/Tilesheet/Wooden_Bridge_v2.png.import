@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8eshxv8slfhv"
-path="res://.godot/imported/Hills.png-46478ce9a93d0f70b3dfd54d91b9e259.ctex"
+uid="uid://ctr5tcy0sdnfc"
+path="res://.godot/imported/Wooden_Bridge_v2.png-37da75c499453f0af96d84018e2948ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilesheet/Hills.png"
-dest_files=["res://.godot/imported/Hills.png-46478ce9a93d0f70b3dfd54d91b9e259.ctex"]
+source_file="res://Tilesheet/Wooden_Bridge_v2.png"
+dest_files=["res://.godot/imported/Wooden_Bridge_v2.png-37da75c499453f0af96d84018e2948ad.ctex"]
 
 [params]
 

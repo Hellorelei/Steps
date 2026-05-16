@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://ykmsof45q5m4"]
+
+[ext_resource type="Texture2D" uid="uid://bxwmbawcysibh" path="res://gui/sprites/UI Big Play Button.png" id="1_5mg4o"]
+
+[resource]
+texture = ExtResource("1_5mg4o")
+region_rect = Rect2(3, 34, 90, 27)
