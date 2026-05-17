@@ -186,9 +186,7 @@ tile_map_data = PackedByteArray("AAAJACAABgACAAEAAAAJAB8ABgACAAEAAAAIAB0ABgACAAE
 tile_set = ExtResource("2_vm7no")
 
 [node name="DecoLayer" type="TileMapLayer" parent="." unique_id=1467205423]
-visible = false
 z_index = 2
-tile_map_data = PackedByteArray("AAAYABcAAAAHAAYAAAALAAYAAAAHAAYAAAAEAA8AAAAFAAUAAAABAAUAAAAFAAUAAAAMAAYAAQAAAAUAAAANACAACAADAAEAAAANACEACAADAAEAAAANAB8ACAADAAAAAAANACIACAADAAIAAAAPAB0ACQABAAEAAAAVAA8ACQAAAAIAAAAVAA4ACQAAAAAAAAAWAA4ACQACAAAAAAAWAA8ACQACAAIAAAAEAAcACQABAAIAAAAFAAcACQABAAIAAAAGAAcACQABAAIAAAAKAAwACQAAAAAAAAALAAwACQACAAAAAAAKAA0ACQAGAAIAAAAQABwACQACAAAAAAAPABwACQAFAAIAAAAQAB0ACQACAAEAAAAQAB8ACQACAAEAAAAQACAACQACAAEAAAA=")
 tile_set = ExtResource("2_vm7no")
 
 [node name="DecoRockCliffLayer" type="TileMapLayer" parent="." unique_id=1024558435]
@@ -615,6 +613,7 @@ position = Vector2(9, -8)
 polygon = PackedVector2Array(-57, -128, -81, -144, -73, 0, -41, 8)
 
 [node name="Tutorial" parent="." unique_id=211060962 instance=ExtResource("5_5722l")]
+visible = false
 TutoText = "Maintenant que les canettes ont été enlevées, il reste encore des plus petits déchets sous forme de boue. 
 Pour s’en débarasser, il faut utiliser un décanteur."
 TutoMobAnimation = "Boue"

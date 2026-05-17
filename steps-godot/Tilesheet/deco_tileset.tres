@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://71eirgqw1nr2" path="res://Tilesheet/Trees, stumps and bushes.png" id="8_mgkcr"]
 [ext_resource type="Texture2D" uid="uid://bqdtq0eton2he" path="res://Tilesheet/Soil_Ground_Tiles.png" id="8_pvypo"]
 [ext_resource type="Texture2D" uid="uid://ywbqtca6vqrq" path="res://Tilesheet/STONE PATH.png" id="9_mgkcr"]
+[ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="9_q3flb"]
 [ext_resource type="Texture2D" uid="uid://c7ncqsfb64l0a" path="res://Tilesheet/Stone_Ground_Hills_Tiles.png" id="10_80j87"]
 [ext_resource type="Texture2D" uid="uid://b07jhmxt4i8hv" path="res://Tilesheet/Stone_Ground_Tiles.png" id="11_mydo4"]
 
@@ -412,6 +413,13 @@ texture = ExtResource("8_mgkcr")
 8:6/0 = 0
 9:6/0 = 0
 10:6/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvypo"]
+texture = ExtResource("9_q3flb")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_knsw0"]
 texture = ExtResource("4_x8bqy")
@@ -829,3 +837,4 @@ sources/12 = SubResource("TileSetAtlasSource_x8bqy")
 sources/13 = SubResource("TileSetAtlasSource_80j87")
 sources/14 = SubResource("TileSetAtlasSource_mydo4")
 sources/15 = SubResource("TileSetAtlasSource_vq3hk")
+sources/16 = SubResource("TileSetAtlasSource_pvypo")
