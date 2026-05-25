@@ -397,34 +397,24 @@ position = Vector2(352, 240)
 script = ExtResource("9_08mmt")
 metadata/_custom_type_script = "uid://ertdnvvm76ay"
 
-[node name="EnemyWavesHolder" type="Node" parent="." unique_id=1861217944]
+[node name="Tutorial" parent="." unique_id=211060962 instance=ExtResource("10_5ot28")]
+TutoText = "Pour commencer, il y a des gros déchets qu’on peut enlever à l’aide d’une simple grille!"
+
+[node name="EnemyWavesHolder" type="Node" parent="." unique_id=1716068447]
 script = ExtResource("7_3sk1a")
 metadata/_custom_type_script = "uid://bsycb1sdvkag4"
 
-[node name="EnemyWavesSpawner" type="Marker2D" parent="EnemyWavesHolder" unique_id=1504040584]
-position = Vector2(-25, 184)
+[node name="EnemyWavesSpawner2" type="Marker2D" parent="EnemyWavesHolder" unique_id=1385454919]
+position = Vector2(-48, 192)
 script = ExtResource("8_3sk1a")
 metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
 
-[node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner" unique_id=39275377]
+[node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner2" unique_id=2001145918]
 script = ExtResource("10_08mmt")
 cannette = 1.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
-[node name="EnemyWavesContent2" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner" unique_id=1074836684]
+[node name="EnemyWavesContent2" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner2" unique_id=1523687136]
 script = ExtResource("10_08mmt")
-cannette = 3.0
+cannette = 4.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
-
-[node name="EnemyWavesSpawner2" type="Marker2D" parent="EnemyWavesHolder" unique_id=737463566]
-position = Vector2(40, 176)
-script = ExtResource("8_3sk1a")
-metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
-
-[node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner2" unique_id=1614564915]
-script = ExtResource("10_08mmt")
-cannette = 1.0
-metadata/_custom_type_script = "uid://b277fyrvnuk1c"
-
-[node name="Tutorial" parent="." unique_id=211060962 instance=ExtResource("10_5ot28")]
-TutoText = "Pour commencer, il y a des gros déchets qu’on peut enlever à l’aide d’une simple grille!"

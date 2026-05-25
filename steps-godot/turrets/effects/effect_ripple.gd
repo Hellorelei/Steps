@@ -19,7 +19,6 @@ func _ready() -> void:
 	if inverted:
 		expand_speed = 0 - expand_speed
 		radius = max_radius
-	#print("hi!")
 
 ## Dessine le cercle de l'onde.
 func _draw():
@@ -29,7 +28,6 @@ func _draw():
 func _process(delta: float) -> void:
 	# Ajoute le temps écoulé * la vitesse de l'onde à son rayon.
 	radius = clamp(radius + (delta * expand_speed), 0, max_radius)
-	#print(radius)
 	if radius >= max_radius or radius <= 0:
 		disappear()
 	# Adapte la taille du cercle de collision au nouveau rayon.
@@ -39,13 +37,11 @@ func _process(delta: float) -> void:
 
 ## Fait disparaître l'onde.
 func disappear() -> void:
-	#print("bye!")
 	queue_free()
 	
 ## Endommage tout objet touché de masse >= 1.
 func _on_damage_area_2d_body_entered(body: Node2D) -> void:
 	if body is Mob:
-		print("body entered aoe: bang!")
 		get_parent().hit_target(body)
 		#if body.mass >= 1:
 		#	body.hit(2)

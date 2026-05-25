@@ -8,15 +8,17 @@ var game_started: bool
 var check_victory: bool
 var ui: Node
 var start_button: Button
-const MAX_GRADE: int = 3
-var grade: int
+const MAX_GRADE: int = 3  # Note maximale possible.
+var grade: int  # Note actuelle.
 var tutorial: Tutorial
+var over: bool # Est-ce que le jeu est fini? 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_setup_ui()
 	_setup_failure_area()
+	over = false
 	grade = MAX_GRADE
 	Global.set_grade(grade)
 	Global.pulse.connect(_on_pulse)
@@ -44,12 +46,9 @@ func _setup_failure_area() -> void:
 ## Appelé lorsqu'un corps rentre dans la FailureArea2D. On vérifie qu'il s'agisse bien d'un mob,
 ## et si c'est le cas, on cause une défaite.
 func _check_for_defeat(mob) -> void:
-	print(mob)
 	if mob is Mob:
 		mob.destroy()
-		print("grade: " + str(grade))
 		grade = grade - 1  # Baisse de la note lorsqu'un mob entre dans la zone de défaite.
-		print("postgrade: " + str(grade))
 		Global.set_grade(grade)
 		if grade <= 0:
 			defeat()
@@ -58,8 +57,6 @@ func _check_for_defeat(mob) -> void:
 ## Vérifie la présence d'ennemis.
 func check_for_enemies() -> int:
 	var spotted = len(get_tree().get_nodes_in_group("enemy_group"))
-	if spotted > 0:
-		print(spotted)
 	return spotted
 
 
@@ -72,7 +69,7 @@ func _send_wave() -> void:
 ## Chaque seconde, on vérifie la présence d'ennemis.
 func _on_pulse() -> void:
 	## Si le jeu a commencé et qu'il n'y a plus d'ennemis…
-	if game_started and (check_for_enemies() < 1):
+	if game_started and (check_for_enemies() < 1) and over == false:
 		## …et si il reste des vagues à envoyer…
 		if Global.get_current_wave() < Global.get_total_waves():
 			## On envoie une vague.
@@ -114,7 +111,7 @@ func victory() -> void:
 
 ## Appelé lors d'une défaite
 func defeat() -> void:
-	print("defeat!")
+	over = true
 	ui.show_defeat()
 
 
@@ -124,6 +121,3 @@ func _pause_game() -> void:
 
 func _resume_game() -> void:
 	get_tree().paused = false
-
-## Calcul de la note, sur trois étoiles
-## ?

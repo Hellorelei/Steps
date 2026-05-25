@@ -23,7 +23,6 @@ func _ready() -> void:
 
 ## Informe le target module parent qu'une cible a été touchée.
 func _forward_target_hit(target):
-	print("forwarding target: " + str(target))
 	parent_target_module.hit_target(target)
 
 
@@ -33,7 +32,7 @@ func _shoot_at(target: Mob) -> void:
 	if target is not Mob:
 		dir = global_position.direction_to(Vector2(10,10)).normalized()
 	else:
-		dir = global_position.direction_to(target.global_position + target.constant_force).normalized()
+		dir = global_position.direction_to(target.global_position + target.linear_velocity).normalized()
 
 	var bubble:PhysicsBody2D = effect_bubble.instantiate()
 	bubble.apply_central_force(dir * strength * STRENGTH_MULTIPLIER)

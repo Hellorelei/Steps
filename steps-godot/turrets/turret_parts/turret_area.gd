@@ -36,7 +36,6 @@ func _ready() -> void:
 ## On vérifie alors qu'il s'agisse bien d'un mob avant d'en avertir la tourelle
 ## parente.
 func _on_body_entered(body: Node2D) -> void:
-	#print("turret_area: body entered: " + str(body))
 	if body is Mob:
 		mob_entered_TurretArea2D.emit(body)
 
@@ -45,11 +44,8 @@ func _on_body_entered(body: Node2D) -> void:
 ## On vérifie alors qu'il s'agisse bien d'un mob avant d'en avertir la tourelle
 ## parente.
 func _on_body_exited(body: Node2D) -> void:
-	#print("turret_area: body exited: " + str(body))
 	if body is Mob:
 		mob_exited_TurretArea2D.emit(body)
-		#if body in parent_turret.enemies_in_zone:
-		#	parent_turret.remove_enemy_in_zone(body)
 
 
 ## Chaque seconde, vérifie si la zone de débug devrait être affichée ou non.

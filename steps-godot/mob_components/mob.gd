@@ -31,20 +31,25 @@ func _ready() -> void:
 	else:
 		print("Attention: Pas d'$AnimatedSprite2D pour le mob, celui-ci sera invisible.")
 
+
 ## Applique x dégâts au mob.
 func hit(damage: int = 0) -> void:
 	mob_hit.emit(damage)
+
 
 ## Applique la modulation Color au sprite. Si aucun paramètre, réinitialise la modulation. 
 func apply_color_mod_to_sprite(new_color: Color = Color(1, 1, 1, 1)) -> void:
 	$AnimatedSprite2D.self_modulate = new_color
 
+
 func change_gravity_scale(new_scale: float = 0) -> void:
 	gravity_scale = new_scale
+
 
 ## Réinitialise la gravity_scale du mob.
 func reset_gravity_scale() -> void:
 	gravity_scale = original_gravity_scale
+
 
 ## Appelé lorsqu'un mob est détruit.
 func destroy() -> void:

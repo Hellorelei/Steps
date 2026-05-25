@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bw4a28korccw0"]
+
+[ext_resource type="Script" uid="uid://brtbthdih0ld" path="res://turrets/effects/effect_bubble.gd" id="1_sjcf2"]
+[ext_resource type="Texture2D" uid="uid://d4ik08qt26jk" path="res://sprites/ZCoalBubble.png" id="2_sjcf2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibveb"]
+radius = 4.0
+
+[node name="EffectBubble" type="RigidBody2D" unique_id=706861510]
+z_index = 1000
+collision_layer = 0
+collision_mask = 512
+mass = 0.001
+can_sleep = false
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_sjcf2")
+
+[node name="DamageCollisionShape2D" type="CollisionShape2D" parent="." unique_id=259396802]
+shape = SubResource("CircleShape2D_ibveb")
+debug_color = Color(0.97877, 0.0442085, 0.357028, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1798082397]
+texture = ExtResource("2_sjcf2")
+
+[connection signal="body_entered" from="." to="." method="_on_damage_area_2d_body_entered"]

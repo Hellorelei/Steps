@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b54v06ghgetg0" path="res://sprites/DCharbon5.svg" id="6_x61ue"]
 [ext_resource type="Texture2D" uid="uid://dnks5x2tyv70i" path="res://sprites/DCharbon6.svg" id="7_kdxvq"]
 [ext_resource type="Script" uid="uid://b6thojq18nq5d" path="res://turrets/turret_parts/turret_gun_bubble.gd" id="9_nqx75"]
+[ext_resource type="PackedScene" uid="uid://bw4a28korccw0" path="res://turrets/effects/coal_bubble.tscn" id="10_e4274"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nqx75"]
 animations = [{
@@ -55,14 +56,15 @@ frame_progress = 0.9240665
 [node name="TargetModule" type="Node2D" parent="." unique_id=823551710]
 script = ExtResource("3_ekrgo")
 targeting_mode = "Suivi"
-fire_rate = 5.0
-target_damage = 2
+fire_rate = 1.2
+target_damage = 6
 other_damage = 1
 target_micropolluants = true
 metadata/_custom_type_script = "uid://dcqx1q055qoka"
 
 [node name="TurretGunBubble" type="Node2D" parent="TargetModule" unique_id=1230131337]
 script = ExtResource("9_nqx75")
+effect_bubble = ExtResource("10_e4274")
 metadata/_custom_type_script = "uid://b6thojq18nq5d"
 
 [node name="TurretArea2D" type="Area2D" parent="." unique_id=2136913814]

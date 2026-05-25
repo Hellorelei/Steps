@@ -13,17 +13,14 @@ var bubble_placeholder: CustomCircle
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	parent = get_parent()
-	print(parent)
-	bubble_placeholder = CustomCircle.new()
-	bubble_placeholder.radius = get_child(0).get_shape().radius
-	add_child(bubble_placeholder)
+	if get_parent() is TurretGunBubble:
+		parent = get_parent()
+	if not $Sprite2D:
+		bubble_placeholder = CustomCircle.new()
+		bubble_placeholder.radius = get_child(0).get_shape().radius
+		bubble_placeholder.color = Color(0.778, 0.852, 1.0, 1.0)
+		add_child(bubble_placeholder)
 	_self_doom()
-	
-
-## Dessine le cercle de l'onde.
-func _draw():
-	pass
 
 
 ## Détruit automatiquement la bulle après un temps donné.
@@ -38,8 +35,6 @@ func disappear() -> void:
 
 ## Endommage tout objet touché de masse >= 1.
 func _on_damage_area_2d_body_entered(body: Node2D) -> void:
-	print("a")
 	if body is RigidBody2D:
-		print("got you!")
 		parent._forward_target_hit(body)
 		disappear()

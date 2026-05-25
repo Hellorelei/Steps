@@ -30,6 +30,7 @@ func _ready() -> void:
 	parent_mob = get_parent()
 	parent_mob.mob_hit.connect(_on_mob_hit)
 
+
 ## Appelé lorsque le mob parent reçoit une attaque.
 func _on_mob_hit(damage: int) -> void:
 	if mob_is_invincible:
@@ -38,12 +39,14 @@ func _on_mob_hit(damage: int) -> void:
 		_display_mob_hurt_effect()
 		_apply_damage_to_mob(damage)
 
+
 ## Fait clignoter le mob en rouge pour signifier que des dégâts ont été reçus.
 func _display_mob_hurt_effect() -> void:
 	parent_mob.apply_color_mod_to_sprite() # Reset au cas où un effet est déjà appliqué.
 	parent_mob.apply_color_mod_to_sprite(Color(1.2, 0.2, 0.2, 1))
 	await get_tree().create_timer(0.2).timeout
 	parent_mob.apply_color_mod_to_sprite()
+
 
 ## Fait clignoter le mob en blanc pour signifier son invincibilité.
 func _display_mob_invincible_effect() -> void:
@@ -52,11 +55,13 @@ func _display_mob_invincible_effect() -> void:
 	await get_tree().create_timer(0.2).timeout
 	parent_mob.apply_color_mod_to_sprite()
 
+
 ## Applique les dégâts damage au mob.
 func _apply_damage_to_mob(damage:int) -> void:
 	current_health_points = current_health_points - damage # C'est health_points qui se charge du clamping.
 	if current_health_points == 0:
 		_kill_parent_mob()
+
 
 ## Remonte au mob parent l'instruction de se détruire.
 func _kill_parent_mob() -> void:

@@ -14,7 +14,7 @@ var current_tutorial: Tutorial
 ## Affiche le toggle de développement en haut à droite de l'interface.
 @export var dev_mode: bool = true
 ## Affiche les visuels de développement et débuggage. 
-@export var debug: bool = true
+@export var debug: bool = false
 @export_group("Global Mob Settings", "mob_")
 @export var mob_invincibility_duration: float = 0.6
 
@@ -99,7 +99,6 @@ func get_current_wave() -> int:
 ## Définit le nombre de vagues totales comme étant x.
 func set_total_waves(waves: int) -> void:
 	total_waves = waves
-	print(total_waves)
 
 
 ## Retourne le nombre total de vagues en int.

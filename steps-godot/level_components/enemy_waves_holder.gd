@@ -5,14 +5,13 @@ var registered_spawners: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("spawners ready.")
 	Global.emit_spawners_ready()
 	_fill_Global()
 
 ## Appelé par un spawner pour s'enregistrer auprès de cette node.
 func register_spawner(spawner: Object) -> void:
 	registered_spawners.append(spawner)
-	print("spawner registered.")
+
 
 ## Transmet le total de vagues au Global.
 func _fill_Global() -> void:

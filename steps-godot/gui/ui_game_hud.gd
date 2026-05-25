@@ -49,7 +49,6 @@ func _ready() -> void:
 	if Global.dev_mode == false:
 		$DebugCheckButton.visible = false
 	Global.resume_game()
-	print("level name: " + str(get_tree().get_current_scene().name))
 
 
 ## Met à jour les éléments de texte (temps, vague) de l'interface.
@@ -127,7 +126,6 @@ func _fetch_victory_grade() -> void:
 
 
 func _display_grade() -> void:
-	print("displaying grade! grade: " + str(grade))
 	$ZeroStarScoreRichTextLabel.visible = true
 	await get_tree().create_timer(0.2).timeout
 	if grade >= 1:
@@ -158,5 +156,4 @@ func show_defeat() -> void:
 ## Demande à passer au prochain niveau. 
 func _on_next_level_button_button_down() -> void:
 	var level_name = str(get_tree().get_current_scene().name)
-	print("level name: " + level_name)
 	Global.move_to_next_level(level_name)

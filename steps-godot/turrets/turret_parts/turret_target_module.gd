@@ -46,7 +46,6 @@ func _on_fire_pulse() -> void:
 				return
 			else:
 				current_target = parent_turret.get_mobs_in_zone().pick_random()
-				print("_on_fire_pulse shooting @" + str(current_target))
 		"Suivi":
 			if potential_targets.is_empty():
 				return
@@ -84,9 +83,7 @@ func _setup_fire_clock() -> void:
 
 ## Fonction appelée lorsqu'un mob est touché par la tourelle.
 func hit_target(body: Mob) -> void:
-	print(body)
 	if body.type in enabled_targets:
-		print("hit " + str(body))
 		body.hit(target_damage)
 	else:
 		if other_damage == 0:

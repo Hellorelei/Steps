@@ -14,6 +14,7 @@ func _ready() -> void:
 	add_child(debug_line)
 	parent_mob = get_parent()
 
+
 ## Affiche une droite représentant les forces appliquées sur le mob parent.
 func _process(delta: float) -> void:
 	debug_line.points = PackedVector2Array(

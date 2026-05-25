@@ -24,7 +24,6 @@ var built_turret: Object
 ## Appelé lorsque l'objet entre dans l'arbre de la scène la première fois.
 ## Initialise les variables et boutons. 
 func _ready() -> void:
-	print("▎ turret handler called!")
 	game_time = 0
 	# Il n'y a pas encore de tourelle → "empty".
 	turret_selected = "empty"
@@ -63,7 +62,6 @@ func button_toggle(buttons: Array, value: bool) -> void:
 
 
 func _on_base_button_button_down() -> void:
-	print("▎ turret handler button down called!")
 	last_base_press = game_time
 	if turret_selected == "empty":
 		button_flyout(turret_buttons)
