@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3fump1qjww35"]
+[gd_scene format=3 uid="uid://d3fump1qjww35"]
 
 [sub_resource type="GDScript" id="GDScript_7dm0k"]
 script/source = "extends Node
@@ -13,5 +13,5 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" unique_id=1179862271]
 script = SubResource("GDScript_7dm0k")

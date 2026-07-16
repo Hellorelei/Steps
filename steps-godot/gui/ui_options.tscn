@@ -190,6 +190,7 @@ color = Color(0, 0, 0, 0.501961)
 polygon = PackedVector2Array(516.3973, 0, 516.3973, 488.25, -20.655891, 488.25, -20.655891, 0)
 
 [node name="BackButton" type="Button" parent="." unique_id=363619281]
+process_mode = 3
 anchors_preset = -1
 offset_left = 32.0
 offset_top = 448.0
@@ -201,9 +202,9 @@ theme_override_styles/normal = ExtResource("5_jh4g1")
 theme_override_styles/pressed = ExtResource("6_uontp")
 theme_override_styles/hover = ExtResource("7_mj073")
 text = "< RETOUR"
-metadata/_edit_use_anchors_ = true
 
 [node name="CheckButton" type="CheckButton" parent="." unique_id=2081054178]
+process_mode = 3
 offset_left = 96.0
 offset_top = 184.0
 offset_right = 140.0

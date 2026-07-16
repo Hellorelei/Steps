@@ -185,6 +185,7 @@ tile_map_data = PackedByteArray("AAAZAA8AAAAAAAIAAAAaAA8AAAABAAIAAAAZAA4AAAAAAAE
 tile_set = SubResource("TileSet_qeds2")
 
 [node name="BackButtonC" type="Button" parent="." unique_id=862611067]
+process_mode = 3
 offset_left = 32.0
 offset_top = 448.0
 offset_right = 152.0

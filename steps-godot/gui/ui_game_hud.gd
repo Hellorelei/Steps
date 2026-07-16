@@ -25,10 +25,12 @@ var total_waves: String
 var victory_label: Object
 var defeat_label: Object
 var grade: int
+var debug_menu_button: MenuButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	## On récupère les différents éléments d'interface.
+	debug_menu_button = $DebugMenuButton
 	pause_overlay = $PauseOverlayPolygon2D
 	game_paused_label = $GamePausedLabel
 	time = $Time
@@ -48,6 +50,8 @@ func _ready() -> void:
 	$DebugCheckButton.button_pressed = Global.debug
 	if Global.dev_mode == false:
 		$DebugCheckButton.visible = false
+		$DebugMenuButton.visible = false
+	debug_menu_button.get_popup().id_pressed.connect(_debug_ending)
 	Global.resume_game()
 
 
@@ -72,11 +76,13 @@ func _fetch_time_data() -> void:
 
 ## Appelé lorsque l'interrupteur de pause est allumé.
 func _on_check_button_toggled(toggled_status: bool) -> void:
+	Sound.play('ui_button_toggle')
 	pause(toggled_status)
 
 
 ## Affiche ou cache les visuels de développement.
 func _on_debug_check_button_toggled(toggled_status: bool) -> void:
+	Sound.play('ui_button_toggle')
 	Global.debug = toggled_status
 
 
@@ -110,12 +116,14 @@ func hide_pause_screen() -> void:
 
 ## Appelé lorsque le bouton de retour au menu est activé.
 func _on_back_button_button_down() -> void:
+	Sound.play('ui_button_back')
 	Global.resume_game()
 	get_tree().change_scene_to_file("res://gui/ui_level.tscn")
 
 
 ## Appelé lorsque le bouton restart est appuyé → recharge la scène.
 func _on_restart_button_button_down() -> void:
+	Sound.play('ui_button_start')
 	Global.resume_game()
 	get_tree().reload_current_scene()
 
@@ -144,16 +152,27 @@ func _display_grade() -> void:
 func show_victory() -> void:
 	_fetch_victory_grade()
 	Global.pause_game()
+	Sound.play('ui_victory', false)
 	victory_label.visible = true
 	_display_grade()
 
 
 ## Affiche l'écran de défaîte. 
 func show_defeat() -> void:
+	Sound.play('ui_defeat', false)
 	defeat_label.visible = true
+
+
+## Relie les boutons d'action débug aux fonctions.
+func _debug_ending(id) -> void:
+	if id == 0:
+		show_victory()
+	elif id == 1:
+		show_defeat()
 
 
 ## Demande à passer au prochain niveau. 
 func _on_next_level_button_button_down() -> void:
+	Sound.play('ui_button_ahead')
 	var level_name = str(get_tree().get_current_scene().name)
 	Global.move_to_next_level(level_name)

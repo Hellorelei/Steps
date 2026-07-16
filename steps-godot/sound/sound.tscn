@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://1n0vn6b8rjt8"]
+
+[ext_resource type="Script" uid="uid://ca41oj05irocs" path="res://sound/sound.gd" id="1_vayi2"]
+
+[node name="Sound" type="Node" unique_id=875244562]
+script = ExtResource("1_vayi2")
+
+[node name="FXAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=170771297]
+process_mode = 3

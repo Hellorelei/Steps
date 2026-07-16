@@ -185,6 +185,7 @@ tile_map_data = PackedByteArray("AAAZAA8AAAAAAAIAAAAaAA8AAAABAAIAAAAZAA4AAAAAAAE
 tile_set = SubResource("TileSet_o655y")
 
 [node name="OptionsButton" type="Button" parent="." unique_id=2025643860]
+process_mode = 3
 anchors_preset = -1
 offset_left = 152.0
 offset_top = 344.0
@@ -200,6 +201,7 @@ theme_override_styles/hover = ExtResource("7_6cias")
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="." unique_id=1989214116]
+process_mode = 3
 anchors_preset = -1
 offset_left = 152.0
 offset_top = 296.0
@@ -216,6 +218,7 @@ theme_override_styles/hover = ExtResource("7_6cias")
 text = "Crédits"
 
 [node name="QuitButton" type="Button" parent="." unique_id=789930197]
+process_mode = 3
 anchors_preset = -1
 offset_left = 152.0
 offset_top = 392.0
@@ -229,6 +232,7 @@ theme_override_styles/hover = ExtResource("7_6cias")
 text = "X Quitter"
 
 [node name="StartButton" type="Button" parent="." unique_id=385170376]
+process_mode = 3
 anchors_preset = -1
 anchor_left = 0.296875
 anchor_top = 0.453125
