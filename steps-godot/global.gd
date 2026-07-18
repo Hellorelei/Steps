@@ -10,6 +10,7 @@ var current_grade: int
 var pulse_clock: Object
 var half_pulse_clock: Object
 var current_tutorial: Tutorial
+var sound_enabled: bool
 
 ## Affiche le toggle de développement en haut à droite de l'interface.
 @export var dev_mode: bool = true
@@ -31,6 +32,7 @@ signal tutorial_done
 
 # Appelé une seule fois lorsque Global est initialisé. Global est persistent. 
 func _ready() -> void:
+	sound_enabled = true
 	game_time = 0.0
 	current_wave = 0
 	total_waves = 0

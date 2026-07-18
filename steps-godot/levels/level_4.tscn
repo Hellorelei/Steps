@@ -96,7 +96,7 @@ metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
 
 [node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner2" unique_id=1193709022]
 script = ExtResource("7_ng40l")
-cannette = 4.0
+micropolluant = 4.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesSpawner" type="Marker2D" parent="EnemyWavesHolder" unique_id=884672031]

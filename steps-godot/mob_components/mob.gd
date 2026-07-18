@@ -53,4 +53,13 @@ func reset_gravity_scale() -> void:
 
 ## Appelé lorsqu'un mob est détruit.
 func destroy() -> void:
+	match type:
+		"Cannettes":
+			Sound.play("mob_can_1", true, 0.4)
+		"Boues":
+			Sound.play("mob_mud_1", true, 0.4)
+		"Lipides":
+			Sound.play("mob_lipid_1", true, 0.3)
+		"Micropolluants":
+			Sound.play("mob_micro_1", true, 0.3)
 	self.queue_free()

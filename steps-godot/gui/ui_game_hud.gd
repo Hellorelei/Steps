@@ -27,6 +27,7 @@ var defeat_label: Object
 var grade: int
 var debug_menu_button: MenuButton
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	## On récupère les différents éléments d'interface.

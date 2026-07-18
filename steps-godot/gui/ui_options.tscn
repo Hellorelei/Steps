@@ -221,5 +221,24 @@ text = "Outils de développement."
 scroll_active = false
 vertical_alignment = 1
 
+[node name="CheckButton2" type="CheckButton" parent="." unique_id=1058825869]
+process_mode = 3
+offset_left = 96.0
+offset_top = 216.0
+offset_right = 140.0
+offset_bottom = 240.0
+button_pressed = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CheckButton2" unique_id=1099379958]
+layout_mode = 0
+offset_left = 48.0
+offset_top = -2.0
+offset_right = 328.0
+offset_bottom = 22.0
+text = "Son activé / désactivé."
+scroll_active = false
+vertical_alignment = 1
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_devmode_button_pressed"]
+[connection signal="toggled" from="CheckButton2" to="." method="_on_sound_button_pressed"]
