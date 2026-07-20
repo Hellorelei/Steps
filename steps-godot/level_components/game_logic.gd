@@ -25,6 +25,8 @@ func _ready() -> void:
 	Global.tutorial_done.connect(_tutorial_done)
 	Global.pause_game_requested.connect(_pause_game)
 	Global.resume_game_requested.connect(_resume_game)
+	if str(get_tree().get_current_scene().name) == 'Level4':
+		Sound.play_bg('bg_waves_1', 0.4, true)
 
 
 func _tutorial_done() -> void:
@@ -90,6 +92,8 @@ func _setup_ui() -> void:
 ## Appelé lorsque le bouton start est pesé.
 func _on_button_down() -> void:
 	if not game_started:
+		print("playing sound")
+		Sound.play('ui_button_start', false, 2.0)
 		_send_wave()
 		game_started = true
 		start_button.disabled = true

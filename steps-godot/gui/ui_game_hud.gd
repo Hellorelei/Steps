@@ -124,7 +124,7 @@ func _on_back_button_button_down() -> void:
 
 ## Appelé lorsque le bouton restart est appuyé → recharge la scène.
 func _on_restart_button_button_down() -> void:
-	Sound.play('ui_button_start')
+	Sound.play('ui_button_start_2', true, 1.5)
 	Global.resume_game()
 	get_tree().reload_current_scene()
 
@@ -134,6 +134,7 @@ func _fetch_victory_grade() -> void:
 	grade = Global.get_current_grade()
 
 
+## Affiche un nombre d'étoiles proportionnel à la note obtenue.
 func _display_grade() -> void:
 	$ZeroStarScoreRichTextLabel.visible = true
 	await get_tree().create_timer(0.2).timeout
@@ -153,14 +154,14 @@ func _display_grade() -> void:
 func show_victory() -> void:
 	_fetch_victory_grade()
 	Global.pause_game()
-	Sound.play('ui_victory', false)
+	Sound.play('ui_victory', false, 0.4)
 	victory_label.visible = true
 	_display_grade()
 
 
 ## Affiche l'écran de défaîte. 
 func show_defeat() -> void:
-	Sound.play('ui_defeat', false)
+	Sound.play('ui_defeat', false, 0.4)
 	defeat_label.visible = true
 
 

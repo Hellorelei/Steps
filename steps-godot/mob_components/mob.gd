@@ -60,6 +60,8 @@ func destroy() -> void:
 			Sound.play("mob_mud_1", true, 0.4)
 		"Lipides":
 			Sound.play("mob_lipid_1", true, 0.3)
+		"Amidons":
+			Sound.play("mob_lipid_1", true, 0.3)
 		"Micropolluants":
 			Sound.play("mob_micro_1", true, 0.3)
 	self.queue_free()

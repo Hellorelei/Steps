@@ -19,5 +19,6 @@ func _ready() -> void:
 
 ## Indique que le jeu peu commencer; fait disparaître le tutoriel.
 func _on_skip_button_button_down() -> void:
+	Sound.play('ui_button_ahead')
 	Global.tutorial_complete()
 	self.queue_free()

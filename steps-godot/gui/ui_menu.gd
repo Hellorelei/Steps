@@ -2,6 +2,7 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Sound.play_bg('bg_forest_1', 0.6, true)
 	pass # Replace with function body.
 
 

@@ -7,3 +7,6 @@ script = ExtResource("1_vayi2")
 
 [node name="FXAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=170771297]
 process_mode = 3
+
+[node name="BGAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1837253227]
+process_mode = 3
