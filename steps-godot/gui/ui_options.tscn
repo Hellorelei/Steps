@@ -5,8 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="3_2mc0y"]
 [ext_resource type="Texture2D" uid="uid://b8eshxv8slfhv" path="res://Tilesheet/Hills.png" id="4_jh4g1"]
 [ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="5_jh4g1"]
+[ext_resource type="Shader" uid="uid://csiri7lt1wwew" path="res://gui/blur.gdshader" id="5_uontp"]
 [ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="6_uontp"]
 [ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="7_mj073"]
+[ext_resource type="Theme" uid="uid://de4ufpkuo4heg" path="res://gui/themes/gui_font_theme.tres" id="9_mj073"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhe3i"]
 texture = ExtResource("2_e86rf")
@@ -168,6 +170,10 @@ texture = ExtResource("4_jh4g1")
 [sub_resource type="TileSet" id="TileSet_ilq67"]
 sources/0 = SubResource("TileSetAtlasSource_ftwid")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mj073"]
+shader = ExtResource("5_uontp")
+shader_parameter/blur_amount = 2.0
+
 [node name="UIOptions" type="CanvasLayer" unique_id=1337196038]
 script = ExtResource("1_xdmhf")
 
@@ -183,7 +189,13 @@ tile_set = SubResource("TileSet_50pcx")
 tile_map_data = PackedByteArray("AAAZAA8AAAAAAAIAAAAaAA8AAAABAAIAAAAZAA4AAAAAAAEAAAAZAA0AAAAAAAAAAAAaAA0AAAABAAAAAAAbAA0AAAAGAAIAAAAbAAwAAAAAAAAAAAAcAAwAAAACAAAAAAAcAA0AAAACAAEAAAAcAA4AAAACAAIAAAAaAA4AAAADAAUAAAAbAA4AAAAFAAEAAAAbAA8AAAACAAIAAAA=")
 tile_set = SubResource("TileSet_ilq67")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=886867235]
+material = SubResource("ShaderMaterial_mj073")
+offset_right = 512.0
+offset_bottom = 512.0
+
 [node name="PauseOverlayPolygon2D" type="Polygon2D" parent="." unique_id=2120767854]
+visible = false
 position = Vector2(4.9231033, 168)
 scale = Vector2(1.012935, 0.11469534)
 color = Color(0, 0, 0, 0.501961)
@@ -209,6 +221,7 @@ offset_left = 96.0
 offset_top = 184.0
 offset_right = 140.0
 offset_bottom = 208.0
+theme = ExtResource("9_mj073")
 button_pressed = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CheckButton" unique_id=113129048]
@@ -227,6 +240,7 @@ offset_left = 96.0
 offset_top = 216.0
 offset_right = 140.0
 offset_bottom = 240.0
+theme = ExtResource("9_mj073")
 button_pressed = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CheckButton2" unique_id=1099379958]

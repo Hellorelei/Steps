@@ -32,7 +32,7 @@ var debug_menu_button: MenuButton
 func _ready() -> void:
 	## On récupère les différents éléments d'interface.
 	debug_menu_button = $DebugMenuButton
-	pause_overlay = $PauseOverlayPolygon2D
+	pause_overlay = $PauseOverlay
 	game_paused_label = $GamePausedLabel
 	time = $Time
 	wave = $Wave
@@ -154,6 +154,8 @@ func _display_grade() -> void:
 func show_victory() -> void:
 	_fetch_victory_grade()
 	Global.pause_game()
+	$CheckButton.disabled = true
+	$PauseOverlay/GamePausedLabel.visible = false
 	Sound.play('ui_victory', false, 0.4)
 	victory_label.visible = true
 	_display_grade()
@@ -161,6 +163,9 @@ func show_victory() -> void:
 
 ## Affiche l'écran de défaîte. 
 func show_defeat() -> void:
+	Global.pause_game()
+	$CheckButton.disabled = true
+	$PauseOverlay/GamePausedLabel.visible = false
 	Sound.play('ui_defeat', false, 0.4)
 	defeat_label.visible = true
 

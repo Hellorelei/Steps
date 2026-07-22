@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b36re1xou1v20" path="res://Tilesheet/Water.png" id="2_fm787"]
 [ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="3_lguj5"]
 [ext_resource type="Texture2D" uid="uid://b8eshxv8slfhv" path="res://Tilesheet/Hills.png" id="4_pam2p"]
+[ext_resource type="Shader" uid="uid://csiri7lt1wwew" path="res://gui/blur.gdshader" id="5_d0uvk"]
 [ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="5_jhe3i"]
 [ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="6_d0uvk"]
 [ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="7_pfcda"]
@@ -168,6 +169,10 @@ texture = ExtResource("4_pam2p")
 [sub_resource type="TileSet" id="TileSet_ilq67"]
 sources/0 = SubResource("TileSetAtlasSource_ftwid")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfcda"]
+shader = ExtResource("5_d0uvk")
+shader_parameter/blur_amount = 2.0
+
 [node name="UILevel" type="CanvasLayer" unique_id=1337196038]
 script = ExtResource("1_dg5w1")
 
@@ -182,6 +187,11 @@ tile_set = SubResource("TileSet_50pcx")
 [node name="HillLayerMenu" type="TileMapLayer" parent="." unique_id=1096676744]
 tile_map_data = PackedByteArray("AAAZAA8AAAAAAAIAAAAaAA8AAAABAAIAAAAZAA4AAAAAAAEAAAAZAA0AAAAAAAAAAAAaAA0AAAABAAAAAAAbAA0AAAAGAAIAAAAbAAwAAAAAAAAAAAAcAAwAAAACAAAAAAAcAA0AAAACAAEAAAAcAA4AAAACAAIAAAAaAA4AAAADAAUAAAAbAA4AAAAFAAEAAAAbAA8AAAACAAIAAAA=")
 tile_set = SubResource("TileSet_ilq67")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=369764912]
+material = SubResource("ShaderMaterial_pfcda")
+offset_right = 512.0
+offset_bottom = 512.0
 
 [node name="Level1Button" type="Button" parent="." unique_id=568885209]
 anchors_preset = -1

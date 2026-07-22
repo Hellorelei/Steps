@@ -162,5 +162,5 @@ func move_to_next_level(current_level_name) -> void:
 		"Level3":
 			next_level_path = "res://levels/level_4.tscn"
 		"Level4":
-			next_level_path = "res://gui/credits.tscn"
+			next_level_path = "res://gui/congrats.tscn"
 	get_tree().change_scene_to_file(next_level_path)

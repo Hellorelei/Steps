@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dpf4svj5w6nsc" path="res://Tilesheet/Grass.png" id="3_852rj"]
 [ext_resource type="Texture2D" uid="uid://b8eshxv8slfhv" path="res://Tilesheet/Hills.png" id="4_xloii"]
 [ext_resource type="StyleBox" uid="uid://d0wb8sy704g7c" path="res://gui/sprites/credits_styleboxtexture.tres" id="5_852rj"]
+[ext_resource type="Shader" uid="uid://csiri7lt1wwew" path="res://gui/blur.gdshader" id="5_f3nrh"]
 [ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="5_p5mnd"]
 [ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="6_f3nrh"]
 [ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="7_0lymr"]
@@ -169,6 +170,10 @@ texture = ExtResource("4_xloii")
 [sub_resource type="TileSet" id="TileSet_qeds2"]
 sources/0 = SubResource("TileSetAtlasSource_s3561")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0lymr"]
+shader = ExtResource("5_f3nrh")
+shader_parameter/blur_amount = 2.0
+
 [node name="Credits" type="CanvasLayer" unique_id=1019927468]
 script = ExtResource("1_nm7lk")
 
@@ -183,6 +188,11 @@ tile_set = SubResource("TileSet_0lymr")
 [node name="HillLayerMenu" type="TileMapLayer" parent="." unique_id=1534670453]
 tile_map_data = PackedByteArray("AAAZAA8AAAAAAAIAAAAaAA8AAAABAAIAAAAZAA4AAAAAAAEAAAAZAA0AAAAAAAAAAAAaAA0AAAABAAAAAAAbAA0AAAAGAAIAAAAbAAwAAAAAAAAAAAAcAAwAAAACAAAAAAAcAA0AAAACAAEAAAAcAA4AAAACAAIAAAAaAA4AAAADAAUAAAAbAA4AAAAFAAEAAAAbAA8AAAACAAIAAAA=")
 tile_set = SubResource("TileSet_qeds2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2144946312]
+material = SubResource("ShaderMaterial_0lymr")
+offset_right = 512.0
+offset_bottom = 512.0
 
 [node name="BackButtonC" type="Button" parent="." unique_id=862611067]
 process_mode = 3

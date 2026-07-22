@@ -5,6 +5,11 @@
 [ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="2_8lmc1"]
 [ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="3_ymmm6"]
 [ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="4_407sa"]
+[ext_resource type="Shader" uid="uid://csiri7lt1wwew" path="res://gui/blur.gdshader" id="6_ymmm6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_407sa"]
+shader = ExtResource("6_ymmm6")
+shader_parameter/blur_amount = 2.0
 
 [node name="UiGameHud" type="Node2D" unique_id=1504947573]
 z_index = 400
@@ -84,22 +89,30 @@ offset_bottom = 40.0
 theme = ExtResource("2_6gwv0")
 text = "Time: "
 
-[node name="GamePausedLabel" type="Label" parent="." unique_id=1146558109]
+[node name="PauseOverlay" type="Node2D" parent="." unique_id=1005957661]
 visible = false
+
+[node name="GamePausedLabel" type="Label" parent="PauseOverlay" unique_id=1146558109]
 z_index = 100
 offset_left = 216.0
 offset_top = 232.0
 offset_right = 300.0
 offset_bottom = 281.0
-text = "GAME
-PAUSED"
+theme = ExtResource("2_6gwv0")
+text = "PAUSE"
 horizontal_alignment = 1
 
-[node name="PauseOverlayPolygon2D" type="Polygon2D" parent="." unique_id=1689750511]
+[node name="PauseOverlayPolygon2D" type="Polygon2D" parent="PauseOverlay" unique_id=1689750511]
 visible = false
 z_index = 90
 color = Color(0, 0, 0, 0.501961)
 polygon = PackedVector2Array(535, -23, 535, 535, -24, 534, -21, -21)
+
+[node name="PauseOverlayBlur" type="ColorRect" parent="PauseOverlay" unique_id=273452327]
+material = SubResource("ShaderMaterial_407sa")
+offset_right = 512.0
+offset_bottom = 512.0
+mouse_filter = 2
 
 [node name="DebugCheckButton" type="CheckButton" parent="." unique_id=720772543]
 z_index = 100
