@@ -31,6 +31,7 @@ func get_children_waves() -> void:
 func spawn_wave(index: int = 0) -> void:
 	if index < len(waves): 
 		var wave = waves[index]
+		print(wave)
 		for entry in wave: 
 			SpawnMob.spawn(entry, self)
 			await get_tree().create_timer(1, false).timeout

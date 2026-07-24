@@ -26,7 +26,7 @@ func _ready() -> void:
 	Global.pause_game_requested.connect(_pause_game)
 	Global.resume_game_requested.connect(_resume_game)
 	if str(get_tree().get_current_scene().name) == 'Level4':
-		Sound.play_bg('bg_waves_1', 0.4, true)
+		Sound.play_bg('bg_waves_1', 0.3, true)
 
 
 func _tutorial_done() -> void:

@@ -32,5 +32,5 @@ func get_wave() -> Array:
 			for i in range(0, wave_content[entry]):
 				unpacked_wave.append(entry)
 	# Mélange le contenu de la liste de mobs.
-	unpacked_wave.shuffle()
+	#unpacked_wave.shuffle()
 	return unpacked_wave

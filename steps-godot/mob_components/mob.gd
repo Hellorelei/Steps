@@ -57,7 +57,7 @@ func destroy() -> void:
 		"Cannettes":
 			Sound.play("mob_can_1", true, 0.4)
 		"Boues":
-			Sound.play("mob_mud_1", true, 0.4)
+			Sound.play("mob_mud_1", true, 0.3)
 		"Lipides":
 			Sound.play("mob_lipid_1", true, 0.3)
 		"Amidons":

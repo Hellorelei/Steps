@@ -17,7 +17,7 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_m84is"]
 animations = [{
 "frames": [],
-"loop": true,
+"loop": 1,
 "name": &"boom",
 "speed": 5.0
 }, {
@@ -28,7 +28,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_qrji6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"live",
 "speed": 3.0
 }]
@@ -81,11 +81,11 @@ texture = ExtResource("4_e24eo")
 
 [node name="AddTurret1Button4" type="Button" parent="." unique_id=2030939153]
 z_index = 40
-layout_direction = 3
 offset_left = 20.0
 offset_top = -28.0
 offset_right = 192.0
 offset_bottom = -4.0
+layout_direction = 3
 theme_override_styles/normal = ExtResource("4_jau4w")
 theme_override_styles/pressed = ExtResource("5_bpgac")
 theme_override_styles/hover = ExtResource("6_hy7rm")
@@ -108,11 +108,11 @@ texture = ExtResource("5_0vnlp")
 
 [node name="AddTurret1Button3" type="Button" parent="." unique_id=2006091202]
 z_index = 40
-layout_direction = 3
 offset_left = 20.0
 offset_top = 4.0
 offset_right = 160.0
 offset_bottom = 28.0
+layout_direction = 3
 theme_override_styles/normal = ExtResource("4_jau4w")
 theme_override_styles/pressed = ExtResource("5_bpgac")
 theme_override_styles/hover = ExtResource("6_hy7rm")

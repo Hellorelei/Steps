@@ -41,7 +41,7 @@ func play(sound_name: String, pitch_adjust: bool = true, volume_adjust = 1.0) ->
 		# Si permis, on ajuste le ton d'un facteur entre zéro et deux pour garantir
 		# de la diversité et éviter une répétition fatiguante.
 		if pitch_adjust: 
-			fx_player.pitch_scale = randf() * 2.0
+			fx_player.pitch_scale = randf() * 1.5
 		else:
 			print("nopitch")
 			fx_player.pitch_scale = 1.0  # Sinon, on remet le son à son ton par défaut.

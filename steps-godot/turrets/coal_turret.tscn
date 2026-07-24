@@ -34,13 +34,13 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_kdxvq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e4274"]
-radius = 64.0
+radius = 88.0
 
 [node name="CoalTurret" type="Node2D" unique_id=1974238422]
 script = ExtResource("1_0fy5h")
@@ -56,8 +56,8 @@ frame_progress = 0.9240665
 [node name="TargetModule" type="Node2D" parent="." unique_id=823551710]
 script = ExtResource("3_ekrgo")
 targeting_mode = "Suivi"
-fire_rate = 1.2
-target_damage = 8
+fire_rate = 1.6
+target_damage = 12
 other_damage = 1
 target_micropolluants = true
 metadata/_custom_type_script = "uid://dcqx1q055qoka"
@@ -76,5 +76,4 @@ shape = SubResource("CircleShape2D_e4274")
 
 [node name="TurretAreaEffect" type="Node2D" parent="." unique_id=350817668]
 script = ExtResource("6_pug6b")
-target_cannettes = true
 metadata/_custom_type_script = "uid://brp4cdrn2t7ua"

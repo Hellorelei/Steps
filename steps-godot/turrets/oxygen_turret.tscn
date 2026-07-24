@@ -53,13 +53,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u40je")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxuih"]
-radius = 148.08444
+radius = 104.0
 
 [node name="TestOxygenTurret" type="Node2D" unique_id=218531281]
 script = ExtResource("1_3baf3")
@@ -72,9 +72,8 @@ frame_progress = 0.69204
 
 [node name="TurretTargetModule" type="Node2D" parent="." unique_id=69447039]
 script = ExtResource("3_pcbsr")
-targeting_mode = "Suivi"
-fire_rate = 3.0
-target_damage = 2.0
+fire_rate = 3.4
+target_damage = 4
 other_damage = 1.0
 target_amidons = true
 target_lipides = true

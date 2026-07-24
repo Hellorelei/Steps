@@ -52,13 +52,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_obocj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_31ajc"]
-radius = 64.0
+radius = 80.0
 
 [node name="GrateTurret" type="Node2D" unique_id=1350976895]
 script = ExtResource("1_5x63j")

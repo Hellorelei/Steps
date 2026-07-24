@@ -47,9 +47,9 @@ text = "* RECOMMENCER"
 process_mode = 3
 z_index = 100
 offset_left = 400.0
-offset_top = 8.0
+offset_top = 424.0
 offset_right = 510.0
-offset_bottom = 39.0
+offset_bottom = 455.0
 theme = ExtResource("2_6gwv0")
 
 [node name="Label" type="Label" parent="CheckButton" unique_id=898302428]
@@ -117,9 +117,9 @@ mouse_filter = 2
 [node name="DebugCheckButton" type="CheckButton" parent="." unique_id=720772543]
 z_index = 100
 offset_left = 400.0
-offset_top = 33.0
+offset_top = 449.0
 offset_right = 510.0
-offset_bottom = 64.0
+offset_bottom = 480.0
 theme = ExtResource("2_6gwv0")
 
 [node name="Label" type="Label" parent="DebugCheckButton" unique_id=1682201056]
@@ -269,9 +269,9 @@ vertical_alignment = 1
 
 [node name="DebugMenuButton" type="MenuButton" parent="." unique_id=1933837281]
 offset_left = 396.0
-offset_top = 55.0
+offset_top = 471.0
 offset_right = 482.0
-offset_bottom = 86.0
+offset_bottom = 502.0
 text = "Actions"
 switch_on_hover = true
 item_count = 2
