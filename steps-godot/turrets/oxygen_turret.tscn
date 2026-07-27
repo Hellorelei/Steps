@@ -63,7 +63,6 @@ radius = 104.0
 
 [node name="TestOxygenTurret" type="Node2D" unique_id=218531281]
 script = ExtResource("1_3baf3")
-turret_type = "Oxygène"
 metadata/_custom_type_script = "uid://nwp1pb74xoju"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1667100434]
@@ -74,7 +73,6 @@ frame_progress = 0.69204
 script = ExtResource("3_pcbsr")
 fire_rate = 3.4
 target_damage = 4
-other_damage = 1.0
 target_amidons = true
 target_lipides = true
 metadata/_custom_type_script = "uid://dcqx1q055qoka"

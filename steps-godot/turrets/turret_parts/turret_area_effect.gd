@@ -1,36 +1,36 @@
+class_name TurretAreaEffect
 extends Node2D
-
 ## Applique un effet d'amortissement et/ou une gravité artificielle dans la zone de la tourelle afin
 ## d'attirer/repousser les mobs donnés.
-class_name TurretAreaEffect
 
 @export_group("Dampening")
 ## Applique un effet d'amortissement aux mobs se trouvant dans la zone d'effet de la tourelle.
-@export var dampening: bool = false
+@export var dampening:= false
 
 @export_group("Artificial gravity")
 ## Applique un effet de gravité en direction de la tourelle aux mobs se trouvant dans la zone
 ## d'effet de la tourelle ET listés comme cibles potentielles.
-@export var artificial_gravity: bool = false
+@export var artificial_gravity := false
 ## Fréquence d'application de la gravité artificielle, en secondes.
-@export_range(0.0, 6, 0.1) var frequency: float = 0.1
+@export_range(0.0, 6.0, 0.1) var frequency := 0.1
 ## Intensité de la force de gravité artificielle.
-@export_range(0.0, 32, 0.1) var strength: float = 16
+@export_range(0.0, 32.0, 0.1) var strength := 16.0
 ## Vise les cannettes?
-@export var target_cannettes: bool = false
+@export var target_cannettes := false
 ## Vise les amidons?
-@export var target_amidons: bool = false
+@export var target_amidons := false
 ## Vise les micropolluants?
-@export var target_micropolluants: bool = false
+@export var target_micropolluants := false
 ## Vise les lipides?
-@export var target_lipides: bool = false
+@export var target_lipides := false
 ## Vise les boues?
-@export var target_boues: bool = false
+@export var target_boues := false
+
+## Nombre magique multipliant la force d'attraction de la zone.
+const STRENGTH_MULTIPLIER := 4.0
 
 var enabled_targets: Array # Stocke la liste d'entités cibles pertinentes.
 var parent_turret: Turret
-## Nombre magique multipliant la force d'attraction de la zone.
-const STRENGTH_MULTIPLIER = 4.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,14 +39,14 @@ func _ready() -> void:
 	if get_parent() is Turret:
 		parent_turret = get_parent()
 	else:
-		print("Erreur: la node parent de TurretAreaEffect doit être une tourelle.")
+		printerr("La node parent de TurretAreaEffect doit être une tourelle.")
 
 
 ## Lorsqu'un ennemi rentre, on le rend immunisé à la gravité générale et on lui applique une fausse
 ## gravité. 
 func _on_mob_in(mob: Mob) -> void:
-	if artificial_gravity and mob.type in enabled_targets:
-		mob.change_gravity_scale(0)
+	if artificial_gravity == true and mob.type in enabled_targets:
+		mob.change_gravity_scale(0.0)
 		_apply_artificial_gravity(mob)
 
 

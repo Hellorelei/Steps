@@ -1,6 +1,5 @@
 extends Node2D
-
-## TODO: Cleanup button auto hide by having a better timer and/or hover detection.
+## Gère les boutons liés aux tourelles. 
 
 var grate_turret: PackedScene = load("res://turrets/grate_turret.tscn")
 var oxygen_turret: PackedScene = load("res://turrets/oxygen_turret.tscn")
@@ -18,23 +17,23 @@ var game_time: float
 # Tourelle actuellement placée sur la base, "empty" si vide.
 var turret_selected: String
 # Objet tourelle posé sur la base, on le stocke pour pouvoir appeler delete(). 
-var built_turret: Object
+var built_turret: Turret
 
 
 ## Appelé lorsque l'objet entre dans l'arbre de la scène la première fois.
 ## Initialise les variables et boutons. 
 func _ready() -> void:
-	game_time = 0
+	game_time = 0.0
 	# Il n'y a pas encore de tourelle → "empty".
 	turret_selected = "empty"
 	# On stocke les boutons dans des listes.
 	turret_buttons = [
-		$AddTurret1Button1, $AddTurret1Button2, $AddTurret1Button3,
-		$AddTurret1Button4
-		]
-	delete_button = [
-		$DeleteTurretButton
+		$AddTurret1Button1, 
+		$AddTurret1Button2, 
+		$AddTurret1Button3,
+		$AddTurret1Button4,
 	]
+	delete_button = [$DeleteTurretButton]
 	# Et on confirme qu'ils sont actuellement invisibles.
 	for button in turret_buttons:
 		button.visible = 0
@@ -47,18 +46,39 @@ func _process(delta: float) -> void:
 	game_time = game_time + delta
 
 
+## Gère le menu avec les boutons.
 func button_flyout(buttons: Array):
 	button_toggle(buttons, 1)
 	await get_tree().create_timer(5.5).timeout
-	# Checking if five seconds have elapsed since last
-	# registered button press: if yes, hide buttons.
+	# On vérifie que cinq secondes soient passées depuis l'appui
+	# sur un bouton: si oui, on cache les boutons.
 	if game_time - last_base_press > 5:
 		button_toggle(buttons, 0)
 
 
+## Change la visibilité des boutons fournis.
 func button_toggle(buttons: Array, value: bool) -> void:
 	for button in buttons:
 		button.visible = value
+
+
+## Place la tourelle demandée sur la base.
+func set_turret(turret:String):
+	turret_selected = turret
+	match turret:
+		"empty":
+			built_turret.delete()
+			return
+		"1":
+			built_turret = grate_turret.instantiate()
+		"2":
+			built_turret = coal_turret.instantiate()
+		"3":
+			built_turret = oxygen_turret.instantiate()
+		"4":
+			built_turret = decant_turret.instantiate()
+	built_turret.position = Vector2(0.0, 0.0)
+	add_child(built_turret)
 
 
 func _on_base_button_button_down() -> void:
@@ -92,20 +112,3 @@ func _on_add_turret_1_button_4_button_down() -> void:
 func _on_delete_turret_button_button_down() -> void:
 	set_turret("empty")
 	button_toggle(delete_button, 0)
-	
-
-func set_turret(turret:String):
-	turret_selected = turret
-	match turret:
-		"empty":
-			built_turret.delete()
-		"1":
-			built_turret = grate_turret.instantiate()
-		"2":
-			built_turret = coal_turret.instantiate()
-		"3":
-			built_turret = oxygen_turret.instantiate()
-		"4":
-			built_turret = decant_turret.instantiate()
-	built_turret.position = Vector2(0, 0)
-	add_child(built_turret)

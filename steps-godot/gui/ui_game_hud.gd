@@ -1,5 +1,4 @@
 extends Node2D
-
 ## Interface pendant les niveaux.
 ## Le contenu de l'interface est rafraîchi à 1Hz, sauf cas échéant (vagues lors d'une nouvelle
 ## vague, etc.).
@@ -15,15 +14,14 @@ extends Node2D
 ## - VictoryRichTextLabel : message affiché lors de la victoire;
 ## - DefeatRichTextLabel : message affiché lors d'une défaîte.
 
-var pause_overlay: Object
-var game_paused_label: Object
-var time: Object
-var wave: Object
+var pause_overlay: Node2D
+var time: RichTextLabel
+var wave: RichTextLabel
 var current_time: String
 var current_wave: String
 var total_waves: String
-var victory_label: Object
-var defeat_label: Object
+var victory_label: RichTextLabel
+var defeat_label: RichTextLabel
 var grade: int
 var debug_menu_button: MenuButton
 
@@ -33,7 +31,6 @@ func _ready() -> void:
 	## On récupère les différents éléments d'interface.
 	debug_menu_button = $DebugMenuButton
 	pause_overlay = $PauseOverlay
-	game_paused_label = $GamePausedLabel
 	time = $Time
 	wave = $Wave
 	defeat_label = $DefeatRichTextLabel
@@ -45,7 +42,6 @@ func _ready() -> void:
 	Global.pulse.connect(update_texts)
 	## Mais aussi quand une nouvelle vague est lancée!
 	Global.send_wave.connect(update_texts)
-	#Global.game_paused.connect()
 	Global.resume_game_requested.connect(_on_game_resumed)
 	Global.pause_game_requested.connect(_on_game_paused)
 	$DebugCheckButton.button_pressed = Global.debug
@@ -62,6 +58,34 @@ func update_texts() -> void:
 	_fetch_wave_data()
 	wave.text = "🌊 " + current_wave + "/" + total_waves
 	time.text = "⏱️ " + current_time
+
+
+## Pause le jeu et affiche l'interface de pause.
+func pause(status: bool) -> void:
+	if status:
+		Global.pause_game()
+	else:
+		Global.resume_game()
+
+
+## Affiche l'écran de victoire.
+func show_victory() -> void:
+	_fetch_victory_grade()
+	Global.pause_game()
+	$CheckButton.disabled = true
+	$PauseOverlay/GamePausedLabel.visible = false
+	Sound.play('ui_victory', false, 0.4)
+	victory_label.visible = true
+	_display_grade()
+
+
+## Affiche l'écran de défaîte. 
+func show_defeat() -> void:
+	Global.pause_game()
+	$CheckButton.disabled = true
+	$PauseOverlay/GamePausedLabel.visible = false
+	Sound.play('ui_defeat', false, 0.4)
+	defeat_label.visible = true
 
 
 ## Va chercher les données de vague dans Global.
@@ -87,17 +111,9 @@ func _on_debug_check_button_toggled(toggled_status: bool) -> void:
 	Global.debug = toggled_status
 
 
-## Pause le jeu et affiche l'interface de pause.
-func pause(status: bool) -> void:
-	if status:
-		Global.pause_game()
-	else:
-		Global.resume_game()
-
-
 ## Appelé lorsque le jeu est mis en pause.
 func _on_game_paused() -> void:
-	show_pause_screen()	
+	show_pause_screen()
 
 
 ## Appelé lorsque le jeu reprend.
@@ -148,26 +164,6 @@ func _display_grade() -> void:
 				$ThreeStarScoreRichTextLabel3.visible = true
 				await get_tree().create_timer(0.2).timeout
 	$NextLevelButton.visible = true
-
-
-## Affiche l'écran de victoire.
-func show_victory() -> void:
-	_fetch_victory_grade()
-	Global.pause_game()
-	$CheckButton.disabled = true
-	$PauseOverlay/GamePausedLabel.visible = false
-	Sound.play('ui_victory', false, 0.4)
-	victory_label.visible = true
-	_display_grade()
-
-
-## Affiche l'écran de défaîte. 
-func show_defeat() -> void:
-	Global.pause_game()
-	$CheckButton.disabled = true
-	$PauseOverlay/GamePausedLabel.visible = false
-	Sound.play('ui_defeat', false, 0.4)
-	defeat_label.visible = true
 
 
 ## Relie les boutons d'action débug aux fonctions.

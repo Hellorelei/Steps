@@ -1,24 +1,8 @@
 extends Node
+## 
 
+## Indique qu'il faut envoyer une vague d'ennemis.
 signal send_wave
-
-var game_time: float
-var current_wave: int
-var total_waves: int
-var current_grade: int
-## Émetteur du signal pulse une fois par seconde.
-var pulse_clock: Object
-var half_pulse_clock: Object
-var current_tutorial: Tutorial
-var sound_enabled: bool
-
-## Affiche le toggle de développement en haut à droite de l'interface.
-@export var dev_mode: bool = true
-## Affiche les visuels de développement et débuggage. 
-@export var debug: bool = false
-@export_group("Global Mob Settings", "mob_")
-@export var mob_invincibility_duration: float = 0.6
-
 ## Émis chaque seconde.
 signal pulse 
 ## Indique que les spawners sont prêts.
@@ -29,6 +13,24 @@ signal pause_game_requested
 signal resume_game_requested
 ## Émis lorsque le tutoriel est terminé.
 signal tutorial_done
+
+## Affiche le toggle de développement en haut à droite de l'interface.
+@export var dev_mode := true
+## Affiche les visuels de développement et débuggage. 
+@export var debug := false
+@export_group("Global Mob Settings", "mob_")
+@export var mob_invincibility_duration: float = 0.6
+
+var game_time: float
+var current_wave: int
+var total_waves: int
+var current_grade: int
+## Émetteur du signal pulse une fois par seconde.
+var pulse_clock: Timer
+var half_pulse_clock: Timer
+var current_tutorial: Tutorial
+var sound_enabled: bool
+
 
 # Appelé une seule fois lorsque Global est initialisé. Global est persistent. 
 func _ready() -> void:
@@ -147,12 +149,12 @@ func get_invincibility_duration() -> float:
 
 
 ## Met à jour la note actuelle.
-func set_grade(new_grade) -> void:
+func set_grade(new_grade: int) -> void:
 	current_grade = new_grade
-	
+
 
 ## Passe au niveau suivant.
-func move_to_next_level(current_level_name) -> void:
+func move_to_next_level(current_level_name: String) -> void:
 	var next_level_path = "res://gui/ui_level.tscn"
 	match current_level_name:
 		"Level1":

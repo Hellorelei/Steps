@@ -5,6 +5,7 @@ func _ready() -> void:
 	$CheckButton.button_pressed = Global.dev_mode
 	$CheckButton2.button_pressed = Global.sound_enabled
 
+
 func _on_devmode_button_pressed(toggle_status: bool) -> void:
 	Sound.play('ui_button_toggle')
 	Global.dev_mode = toggle_status

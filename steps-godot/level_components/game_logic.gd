@@ -29,6 +29,17 @@ func _ready() -> void:
 		Sound.play_bg('bg_waves_1', 0.3, true)
 
 
+## Appelé lors d'une victoire.
+func victory() -> void:
+	ui.show_victory()
+
+
+## Appelé lors d'une défaite
+func defeat() -> void:
+	over = true
+	ui.show_defeat()
+
+
 func _tutorial_done() -> void:
 	Global.resume_game()
 
@@ -40,7 +51,7 @@ func _exit_tree() -> void:
 func _setup_failure_area() -> void:
 	var failure_area: Area2D = get_node("../FailureArea2D")
 	if not failure_area:
-		print("FailureArea2D manquante.")
+		printerr("FailureArea2D manquante.")
 	else:
 		failure_area.body_entered.connect(_check_for_defeat)
 
@@ -58,7 +69,7 @@ func _check_for_defeat(mob) -> void:
 
 ## Vérifie la présence d'ennemis.
 func check_for_enemies() -> int:
-	var spotted = len(get_tree().get_nodes_in_group("enemy_group"))
+	var spotted := len(get_tree().get_nodes_in_group("enemy_group"))
 	return spotted
 
 
@@ -71,7 +82,7 @@ func _send_wave() -> void:
 ## Chaque seconde, on vérifie la présence d'ennemis.
 func _on_pulse() -> void:
 	## Si le jeu a commencé et qu'il n'y a plus d'ennemis…
-	if game_started and (check_for_enemies() < 1) and over == false:
+	if game_started == true and check_for_enemies() < 1 and over == false:
 		## …et si il reste des vagues à envoyer…
 		if Global.get_current_wave() < Global.get_total_waves():
 			## On envoie une vague.
@@ -92,7 +103,6 @@ func _setup_ui() -> void:
 ## Appelé lorsque le bouton start est pesé.
 func _on_button_down() -> void:
 	if not game_started:
-		print("playing sound")
 		Sound.play('ui_button_start', false, 2.0)
 		_send_wave()
 		game_started = true
@@ -105,18 +115,6 @@ func _reset_level() -> void:
 	start_button.disabled = false
 	Global.reset_time_and_waves()
 	Global.reset_grade()
-
-
-## Appelé lors d'une victoire.
-func victory() -> void:
-	print("well played!")
-	ui.show_victory()
-
-
-## Appelé lors d'une défaite
-func defeat() -> void:
-	over = true
-	ui.show_defeat()
 
 
 func _pause_game() -> void:

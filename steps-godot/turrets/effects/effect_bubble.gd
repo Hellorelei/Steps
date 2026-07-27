@@ -1,15 +1,14 @@
 extends Node2D
-"""
-Créé une bulle avec durée de vie prédéterminée.
-"""
+## Créé une bulle avec durée de vie prédéterminée.
 
 ## Durée de vie de la bulle, en secondes.
-const LIFESPAN: float = 3
+const LIFESPAN := 3.0
 
 var parent: TurretGunBubble
 
 var radius: float
 var bubble_placeholder: CustomCircle
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,17 +22,18 @@ func _ready() -> void:
 	_self_doom()
 
 
-## Détruit automatiquement la bulle après un temps donné.
-func _self_doom() -> void:
-	await get_tree().create_timer(LIFESPAN).timeout
-	disappear()
-
 ## Fait disparaître la bulle.
 func disappear() -> void:
 	queue_free()
 
 
-## Endommage tout objet touché de masse >= 1.
+## Détruit automatiquement la bulle après un temps donné.
+func _self_doom() -> void:
+	await get_tree().create_timer(LIFESPAN).timeout
+	disappear()
+
+
+## Endommage les mobs.
 func _on_damage_area_2d_body_entered(body: Node2D) -> void:
 	if body is RigidBody2D:
 		parent._forward_target_hit(body)

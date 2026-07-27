@@ -1,36 +1,32 @@
-extends Area2D
 class_name TurretArea2D
-
+extends Area2D
 ## Les nodes TurretArea2D servent uniquement à notifier la tourelle parente de l'entrée et sortie
 ## des mobs dans la zone d'effet de la tourelle.
-## TODO: Retirer la dépendence à une tourelle parente du code.
-
-
-var parent_turret: Turret
-var debug_area: CustomCircle
-
 
 ## Signal émis lorsqu'un mob est entré dans la zone d'effet de la tourelle.
 signal mob_entered_TurretArea2D(mob: Mob)
 ## Signal émis lorsqu'un mob est sorti dans la zone d'effet de la tourelle.
 signal mob_exited_TurretArea2D(mob: Mob)
 
+var parent_turret: Turret
+var debug_area: CustomCircle
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	## On va chercher le signal chez le parent.
+	# On va chercher le signal chez le parent.
 	if get_parent() is Turret:
 		parent_turret = get_parent()
 		parent_turret.pulse.connect(_on_pulse)
-		#parent_turret.enable_dampening.connect(_enable_dampening)
 	else:
-		print("Erreur: La node parent de TurretArea2D doit être de type Turret.")
+		printerr("La node parent de TurretArea2D doit être de type Turret.")
 	
 	_setup_debug_area()
 	
-	## Connexiond des signaux.
+	# Connexion des signaux.
 	self.connect("body_entered", _on_body_entered)
 	self.connect("body_exited", _on_body_exited)
+
 
 ## Activée lorsqu'une Node2D entre dans la TurretArea2D.
 ## On vérifie alors qu'il s'agisse bien d'un mob avant d'en avertir la tourelle
@@ -49,7 +45,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 ## Chaque seconde, vérifie si la zone de débug devrait être affichée ou non.
-## TODO: Remplacer par un signal.
+## Potentielle amélioration: remplacer par un signal.
 func _on_pulse() -> void:
 	if Global.debug and debug_area.visible == false:
 		debug_area.visible = true
@@ -59,7 +55,7 @@ func _on_pulse() -> void:
 
 ## Active le dampening linéaire si demandé par TurretAreaEffect.
 func _enable_dampening() -> void:
-	linear_damp_space_override = 3
+	linear_damp_space_override = SPACE_OVERRIDE_REPLACE
 	linear_damp = 1.0
 
 
@@ -68,4 +64,3 @@ func _setup_debug_area() -> void:
 	debug_area = CustomCircle.new()
 	debug_area.radius = get_child(0).get_shape().radius
 	add_child(debug_area)
-	

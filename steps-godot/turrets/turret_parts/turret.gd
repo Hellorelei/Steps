@@ -1,9 +1,7 @@
+class_name Turret
+extends Node2D
 ## Node de base pour une tourelle.
 ## La tourelle demande: 
-extends Node2D
-class_name Turret
-
-@export_enum("Charbon", "Décanteur", "Grille", "Oxygène") var turret_type: String = "Grille"
 
 ## Horloge interne à 0.1Hz. 
 signal pulse
@@ -16,25 +14,28 @@ signal mob_exited_zone(mob: Mob)
 ## Signal pour indiquer à TurretArea2D d'activer le dampening.
 signal enable_dampening
 
+@export_enum("Charbon", "Décanteur", "Grille", "Oxygène") var turret_type: String = "Grille"
+
 ## Horloge interne à 10Hz pour les modules enfants.
 var internal_clock: Timer
 
 ## Contient la liste de mobs (Objets) dans la zone d'effet de la tourelle.
 var mobs_in_zone: Array
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_internal_clock() # Lance l'horloge interne.
 	
 	if $AnimatedSprite2D:
-		var sprite = $AnimatedSprite2D
+		var sprite: AnimatedSprite2D = $AnimatedSprite2D
 		
 		sprite.z_index = 100
 		sprite.animation = "default"
 		sprite.play()
 		
 	if $TurretArea2D: # Connecte aux signaux de la TurretArea2D si fournie.
-		var turret_area_2d = $TurretArea2D
+		var turret_area_2d: TurretArea2D = $TurretArea2D
 		
 		# Liaison des signaux $TurretArea2D → tourelle.
 		turret_area_2d.mob_entered_TurretArea2D.connect(_register_to_mobs_in_zone)
@@ -44,21 +45,30 @@ func _ready() -> void:
 		connect("enable_dampening", turret_area_2d._enable_dampening)
 		
 	if $TurretAreaEffect:
-		var turret_area_effect = $TurretAreaEffect
+		var turret_area_effect: TurretAreaEffect = $TurretAreaEffect
 		
 		# Si l'amortissement est activé, on avertit $TurretArea2D via signal.
 		if turret_area_effect.dampening:
 			enable_dampening.emit()
 
-		# Liaison des signaux tourelle → $TurretAreaEffect .
+		# Liaison des signaux tourelle → $TurretAreaEffect.
 		connect("mob_entered_zone", turret_area_effect._on_mob_in)
 		connect("mob_exited_zone", turret_area_effect._on_mob_out)
 
 
 ## Efface la tourelle.
 func delete() -> void:
-	queue_free()		
-	
+	queue_free()
+
+
+## Renvoie la liste de mobs présents dans la zone.
+func get_mobs_in_zone() -> Array:
+	return mobs_in_zone
+
+
+func area2d_enable_dampening() -> void:
+	enable_dampening.emit()
+
 
 ## Horloge interne à 10Hz.
 func _internal_clock() -> void:
@@ -84,12 +94,3 @@ func _register_to_mobs_in_zone(mob: Mob) -> void:
 func _withdraw_from_mobs_in_zone(mob: Mob) -> void:
 	mobs_in_zone.erase(mob)
 	mob_exited_zone.emit(mob)
-
-
-## Renvoie la liste de mobs présents dans la zone.
-func get_mobs_in_zone() -> Array:
-	return mobs_in_zone
-
-
-func area2d_enable_dampening() -> void:
-	enable_dampening.emit()

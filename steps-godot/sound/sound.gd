@@ -1,5 +1,4 @@
 extends Node
-
 ## Ce script est un Global qui permet de jouer des sons.
 
 var named_sounds = {
@@ -25,49 +24,47 @@ var fx_player: AudioStreamPlayer
 var bg_player: AudioStreamPlayer
 var bg_ease_f: float  # Ajustement progressif du volume du son de fond.
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_setup_fx_player()
-	
+
 
 ## Joue un son sound_name présent dans le dictionnaire named_sounds. 
 func play(sound_name: String, pitch_adjust: bool = true, volume_adjust = 1.0) -> void:
-	print("playing:" + str(sound_name)) # TODO: DELETE DEBUG STATEMENT.
 	# On vérifie que le son désiré existe dans la liste.
 	if sound_name in named_sounds:
-		
-		if !fx_player.playing: fx_player.play()
+		if !fx_player.playing: 
+			fx_player.play()
 		 
 		# Si permis, on ajuste le ton d'un facteur entre zéro et deux pour garantir
 		# de la diversité et éviter une répétition fatiguante.
 		if pitch_adjust: 
 			fx_player.pitch_scale = randf() * 1.5
 		else:
-			print("nopitch")
 			fx_player.pitch_scale = 1.0  # Sinon, on remet le son à son ton par défaut.
-		print(fx_player.pitch_scale) # TODO: DELETE DEBUG STATEMENT.
+		
 		fx_player.volume_linear = volume_adjust
 		if Global.sound_enabled:
 			fx_player.get_stream_playback().play_stream(named_sounds.get(sound_name))
 
 	else:
-		printerr("Erreur: le son " + sound_name + " n'a pas été trouvé dans named_sounds.")
+		printerr("Le son " + sound_name + " n'a pas été trouvé dans named_sounds.")
 
 
 ## Joue un sound_name comme son de fond.
 func play_bg(sound_name: String, volume_adjust = 1.0, random_start = false) -> void:
-	print("playing:" + str(sound_name)) # TODO: DELETE DEBUG STATEMENT.
 	var starting_pos = 0.0
 	if sound_name in named_bg_sounds:	
 		if Global.sound_enabled:
 			bg_player.stream = named_bg_sounds.get(sound_name)
 		if random_start:
-			starting_pos = randf_range(0, bg_player.stream.get_length())
+			starting_pos = randf_range(0.0, bg_player.stream.get_length())
 		bg_player.play(starting_pos)
 		_bg_ease(volume_adjust)
 		
 	else:
-		printerr("Erreur: le son " + sound_name + " n'a pas été trouvé dans named_bg_sounds.")
+		printerr("Le son " + sound_name + " n'a pas été trouvé dans named_bg_sounds.")
 
 
 ## Montée progressive du volume.
@@ -88,5 +85,3 @@ func _setup_fx_player() -> void:
 	
 	bg_player = $BGAudioStreamPlayer
 	bg_ease_f = 0.0
-	
-	

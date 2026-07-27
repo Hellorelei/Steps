@@ -1,15 +1,15 @@
+class_name EnemyWavesSpawner
+extends Marker2D
 ## Cette classe est un point de spawn pour des vagues d'ennemis. 
 ##
 ## Elle hérite de Marker2D pour définir l'emplacement.
 ## Elle demande des enfants de type EnemyWavesContent pour fournir les vagues.
 ## Elle se fait appeler avec spawn_wave(index: int = 0) lorsqu'il faut faire apparaître une vague.
-extends Marker2D
-
-class_name EnemyWavesSpawner
 
 # Les vagues d'ennemis, en liste de listes d'ennemis au format string.
 var waves: Array
 var all_waves_spawned: bool
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,7 +31,6 @@ func get_children_waves() -> void:
 func spawn_wave(index: int = 0) -> void:
 	if index < len(waves): 
 		var wave = waves[index]
-		print(wave)
 		for entry in wave: 
 			SpawnMob.spawn(entry, self)
 			await get_tree().create_timer(1, false).timeout
@@ -47,5 +46,5 @@ func _register_spawner() -> void:
 	if get_parent() is EnemyWavesHolder:
 		get_parent().register_spawner(self)
 	else:
-		print("Error registering spawner.")
+		printerr("Problème lors de l'enregistrement du spawner.")
 	return

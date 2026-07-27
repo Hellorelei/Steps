@@ -1,15 +1,17 @@
-## Cette classe contient un dictionnaire représentant une vague d'ennemis.
-extends EnemyWavesSpawner
 class_name EnemyWavesContent
+extends EnemyWavesSpawner
+## Cette classe contient un dictionnaire représentant une vague d'ennemis.
 
-var wave_content: Dictionary
-
+# L'usage de float est lié à une limitation Godot quant à l'affichage
+# dans l'environnement de programmation. 
 @export_group("Vague")
 @export_range(0, 20, 1.0) var cannette:float = 0
 @export_range(0, 20, 1.0) var boue:float = 0
 @export_range(0, 20, 1.0) var lipide:float = 0
 @export_range(0, 20, 1.0) var amidon:float = 0
 @export_range(0, 20, 1.0) var micropolluant:float = 0
+
+var wave_content: Dictionary
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,5 +34,5 @@ func get_wave() -> Array:
 			for i in range(0, wave_content[entry]):
 				unpacked_wave.append(entry)
 	# Mélange le contenu de la liste de mobs.
-	#unpacked_wave.shuffle()
+	#unpacked_wave.shuffle() # Mélange l'ordre des mobs si désiré.
 	return unpacked_wave
