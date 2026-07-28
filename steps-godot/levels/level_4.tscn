@@ -101,7 +101,8 @@ metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesContent2" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner2" unique_id=1420583180]
 script = ExtResource("7_ng40l")
-lipide = 2.0
+cannette = 1.0
+lipide = 1.0
 micropolluant = 1.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
@@ -115,9 +116,9 @@ metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesContent4" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner2" unique_id=793520797]
 script = ExtResource("7_ng40l")
-cannette = 4.0
-boue = 3.0
-lipide = 3.0
+cannette = 3.0
+boue = 2.0
+lipide = 1.0
 amidon = 2.0
 micropolluant = 5.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
@@ -129,10 +130,13 @@ metadata/_custom_type_script = "uid://bfc7fcemgqb6f"
 
 [node name="EnemyWavesContent" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner" unique_id=970025853]
 script = ExtResource("7_ng40l")
+micropolluant = 1.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesContent2" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner" unique_id=2117289805]
 script = ExtResource("7_ng40l")
+boue = 1.0
+amidon = 1.0
 micropolluant = 2.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
@@ -140,7 +144,8 @@ metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 script = ExtResource("7_ng40l")
 cannette = 2.0
 boue = 1.0
-micropolluant = 1.0
+lipide = 1.0
+micropolluant = 3.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesContent4" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner" unique_id=1709788878]
@@ -149,7 +154,7 @@ cannette = 2.0
 boue = 3.0
 lipide = 1.0
 amidon = 1.0
-micropolluant = 4.0
+micropolluant = 3.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="TurretMarker2" type="Marker2D" parent="." unique_id=474414602]

@@ -280,8 +280,11 @@ offset_right = 480.0
 offset_bottom = 408.0
 theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 text = "FONTE
+PLUGINS
+SONS
 TILEMAP
-PLUGINS"
+UI
+"
 
 [node name="ContenuTextLabel3" type="RichTextLabel" parent="Développement2/TitreRichTextLabel" unique_id=2060731251]
 layout_mode = 0
@@ -289,8 +292,10 @@ offset_right = 448.0
 offset_bottom = 120.0
 theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 text = "Shantell Sans
-Sprout Lands
-Tileset Collision Generator"
+Tileset Collision Generator
+Sonniss GameAudio-GDC
+Cup Nooble: Sprout Lands
+Kenney: Pixel Adventure"
 horizontal_alignment = 2
 
 [connection signal="pressed" from="BackButtonC" to="." method="_on_back_button_c_pressed"]

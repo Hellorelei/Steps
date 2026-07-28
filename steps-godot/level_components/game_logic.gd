@@ -1,7 +1,7 @@
 extends Node
 class_name GameLogic
 
-signal start_game
+#signal start_game
 
 @export var ui_game_hud: PackedScene = preload("res://gui/ui_game_hud.tscn")
 var game_started: bool

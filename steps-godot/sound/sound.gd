@@ -58,6 +58,9 @@ func play_bg(sound_name: String, volume_adjust = 1.0, random_start = false) -> v
 	if sound_name in named_bg_sounds:	
 		if Global.sound_enabled:
 			bg_player.stream = named_bg_sounds.get(sound_name)
+		else:
+			bg_player.stream_paused = true
+			return
 		if random_start:
 			starting_pos = randf_range(0.0, bg_player.stream.get_length())
 		bg_player.play(starting_pos)

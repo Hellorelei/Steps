@@ -135,7 +135,7 @@ metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesContent2" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner" unique_id=501999157]
 script = ExtResource("7_jq78i")
-cannette = 2.0
+cannette = 1.0
 lipide = 2.0
 amidon = 1.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
@@ -143,9 +143,9 @@ metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 [node name="EnemyWavesContent3" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner" unique_id=2068757285]
 script = ExtResource("7_jq78i")
 cannette = 1.0
-boue = 3.0
-lipide = 1.0
-amidon = 3.0
+boue = 2.0
+lipide = 3.0
+amidon = 1.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesSpawner2" type="Marker2D" parent="EnemyWavesHolder" unique_id=1334652876]
@@ -159,12 +159,14 @@ metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesContent2" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner2" unique_id=1804888654]
 script = ExtResource("7_jq78i")
-cannette = 1.0
-amidon = 3.0
+boue = 1.0
+lipide = 1.0
+amidon = 2.0
 metadata/_custom_type_script = "uid://b277fyrvnuk1c"
 
 [node name="EnemyWavesContent3" type="Marker2D" parent="EnemyWavesHolder/EnemyWavesSpawner2" unique_id=1127945965]
 script = ExtResource("7_jq78i")
+cannette = 2.0
 boue = 2.0
 lipide = 3.0
 amidon = 2.0

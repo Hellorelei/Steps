@@ -46,10 +46,10 @@ text = "* RECOMMENCER"
 [node name="CheckButton" type="CheckButton" parent="." unique_id=665378352]
 process_mode = 3
 z_index = 100
-offset_left = 400.0
-offset_top = 424.0
-offset_right = 510.0
-offset_bottom = 455.0
+offset_left = 394.0
+offset_top = 8.0
+offset_right = 504.0
+offset_bottom = 39.0
 theme = ExtResource("2_6gwv0")
 
 [node name="Label" type="Label" parent="CheckButton" unique_id=898302428]

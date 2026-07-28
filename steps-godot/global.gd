@@ -15,7 +15,7 @@ signal resume_game_requested
 signal tutorial_done
 
 ## Affiche le toggle de développement en haut à droite de l'interface.
-@export var dev_mode := true
+@export var dev_mode := false
 ## Affiche les visuels de développement et débuggage. 
 @export var debug := false
 @export_group("Global Mob Settings", "mob_")
