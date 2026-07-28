@@ -58,6 +58,11 @@ func play_bg(sound_name: String, volume_adjust = 1.0, random_start = false) -> v
 	if sound_name in named_bg_sounds:	
 		if Global.sound_enabled:
 			bg_player.stream = named_bg_sounds.get(sound_name)
+			if (
+				bg_player.stream == named_bg_sounds.get("bg_forest_1")
+				and bg_player.playing
+				):
+				return
 		else:
 			bg_player.stream_paused = true
 			return
