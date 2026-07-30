@@ -55,7 +55,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_tpy2p")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Boue",
 "speed": 5.0
 }, {
@@ -66,7 +66,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_lwtkm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Cannette",
 "speed": 5.0
 }, {
@@ -77,7 +77,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_wtgww")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Lipide",
 "speed": 5.0
 }, {
@@ -88,7 +88,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_wons3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Micropolluant",
 "speed": 5.0
 }]
@@ -114,7 +114,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_yflqr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Charbon",
 "speed": 5.0
 }, {
@@ -137,7 +137,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_tv5i5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Decanteur",
 "speed": 5.0
 }, {
@@ -160,7 +160,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("27_bxmcl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Grille",
 "speed": 5.0
 }, {
@@ -183,7 +183,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("33_41hxn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Oxygene",
 "speed": 5.0
 }]
@@ -393,7 +393,7 @@ theme_override_constants/shadow_outline_size = 1
 theme_override_constants/shadow_offset_x = 1
 theme_override_styles/normal = ExtResource("5_7mp7a")
 bbcode_enabled = true
-text = "Gugu
+text = "Texte
 "
 fit_content = true
 horizontal_alignment = 1
