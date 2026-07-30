@@ -20,7 +20,7 @@ func _ready() -> void:
 	Global.pause_game()
 
 
-## Indique que le jeu peu commencer; fait disparaître le tutoriel.
+## Indique que le jeu peut commencer; fait disparaître le tutoriel.
 func _on_skip_button_button_down() -> void:
 	Sound.play('ui_button_ahead')
 	Global.tutorial_complete()
