@@ -12,6 +12,7 @@ func _on_back_button_pressed():
 ## Appelé lorsque le bouton du niveau 1 est activé.
 func _on_level_1_button_pressed():
 	Sound.play('ui_button_ahead')
+	Global.game_time = 0.0
 	get_tree().change_scene_to_file("res://levels/level_1.tscn")
 
 ## Appelé lorsque le bouton du niveau 3 est activé.
