@@ -1,7 +1,7 @@
 # Steps
 ## Description 
 
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/0b41b875-fb44-49d6-9ce1-4d456af8b837" />
+<img width="750" height="750" alt="image" src="https://github.com/user-attachments/assets/0b41b875-fb44-49d6-9ce1-4d456af8b837" />
 
 STEPS est un jeu à propos de la terre. Or, la terre est en majorité recouverte d’eau ; le jeu est donc surtout à propos de l'eau !
 
