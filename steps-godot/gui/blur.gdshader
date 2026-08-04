@@ -1,3 +1,5 @@
+// Ce shader a été créé par kanaverum:
+// https://godotshaders.com/shader/basic-background-blur-4-3/
 shader_type canvas_item;
 
 uniform float blur_amount : hint_range(0.0, 8.0) = 2.0;
