@@ -13,14 +13,14 @@ Poser une tour demande simplement un clic sur l'une des bases prévues. Et comme
 
 Saurez-vous nettoyer votre ruisseau avant qu'il ne rejoigne le grand large ?
 
-
 ## Lancement 
 
 Pour jouer en ligne : URL
 
 ## Crédits
 
-Une idée originale de Lorelei Chevroulet et Mila Frey 
+Une idée originale de Lorelei Chevroulet et Mila Frey<br/>
+
 
 **Code :** Lorelei Chevroulet
 
@@ -32,8 +32,7 @@ Une idée originale de Lorelei Chevroulet et Mila Frey
 
 **Mécaniques de jeu :** Lorelei Chevroulet
 
-**Conception et développement des niveaux :** Mila Frey
-
+**Conception et développement des niveaux :** Mila Frey<br/>
 
 
 ### Sources extérieures
@@ -48,11 +47,9 @@ Une idée originale de Lorelei Chevroulet et Mila Frey
 
 **Plugin :** Tileset Collision Generator – Sanjo, Godot Asset Library https://godotengine.org/asset-library/asset/3121 
 
-
 ## LLM et IA 
 
 Aucune IA n'a été mobilisée pour le développement de ce projet. 
-
 
 ## Contexte de développement
 
