@@ -1,49 +1,45 @@
 # Steps
+## Description 
 
-Steps is a game about the earth. And because most of the earth is covered in water, it's mostly about water!
+STEPS est un jeu à propos de la terre. Or, la terre est en majorité recouverte d’eau ; le jeu est donc surtout à propos de l'eau !
 
-## The game
+Au contraire d'un Tower Defense meurtrier et sanguinolent, il est ici question de défendre autre chose : quelque chose de mieux, de plus important, de plus proche… l’eau ! Un Water Defense, si vous voulez. Sans châteaux d'eau, par contre — ça, c'est une autre histoire.
 
-Out murder-glorifying tower defenses, this is about defending something better. Something more important, something closer. Water! A water defense, if you will. And not a water tower, which is something else.
+STEPS est un jeu en 2D développé sur Godot et s'inspirant d'un souvenir commun aux deux personnes l'ayant créé : les visites scolaires de stations d'épuration, aussi connues comme STEPs, organisées pour sensibiliser les enfants aux enjeux du traitement des eaux usées et à la pollution des cours d'eau. Le jeu STEPS vous charge donc d'une mission : nettoyer un cours d'eau de ses différents types de déchets en positionnant stratégiquement des installations typiquement trouvées dans les stations d'épuration.
 
-And so, **you**, our most valued employee, have just gotten a promotion. From standing on the parking lot to being in charge of the very health and safety of Los City. You must ensure that **sewer water** goes from murky hazard to pure, safe, **clean water**. 
+Poser une tour demande simplement un clic sur l'une des bases prévues. Et comme subtilement rappelé dans le titre, le traitement des eaux se fait en différentes étapes : il est déconseillé de tenter ce nettoyage dans le désordre ! À travers les quatre niveaux du jeu, vous aurez progressivement accès aux informations nécessaires à votre compréhension des différentes méthodes de traitement. 
 
-### Mechanics
+Saurez-vous nettoyer votre ruisseau avant qu'il ne rejoigne le grand large ?
 
-#### Ennemies
+## Lancement 
 
-* Microplastics (Activated carbon 4)
-* Déchets pyhsiques (étape dégrillage 1)
-* Mud (étape décantation basique 2)
-* Organic molecules (étape décantation avec bactéries aérobies 3)
+Pour jouer en ligne : URL
 
-#### Towers
+## Crédits
 
-* Grates 1
-* Décantation 
-* Décantation aérobie
-* Activated carbon
+Une idée originale de hellorelei et milaprz 
 
-https://simcardlocked.itch.io/steps
+Code : hellorelei
+Concept : milaprz
+Univers graphique sur Asprite : milaprz 
+Interface : hellorelei 
+Mécaniques de jeu : hellorelei
+Conception et développement des niveaux : milaprz
 
-## Project structure
+### Sources extérieures
+Asset Pack : Premium Pack Sprout Lands – Cup Nooble https://cupnooble.itch.io/sprout-lands-asset-pack 
+UI : UI Pack Pixel Adventure – Kenney https://kenney.nl/assets/ui-pack-pixel-adventure 
+Sons : GameAudioGDC – Sonniss https://sonniss.com/gameaudiogdc/ 
+Plugin : Tileset Collision Generator – Sanjo, Godot Asset Library https://godotengine.org/asset-library/asset/3121 
 
-### Files
-### TODO: UPDATE FOR GODOT
-```
-Steps /             Project folder.
-  assets /          Assets ready to be used by game code.
-    ... /           Asset categories (font, map, etc.).
-      ...
-  base_assets /     Assets as made by artist.
-    ... /           Asset categories (font, map, etc.).
-      ...
-  index.html        Web page. Imports kaplay.
-  main.js           Game code.
-  README.MD         This README.
-  sprites /         Default kaplay folder. TODO: delete when finishing game.
-    ...
-  todo.md           TODO list.
-  ui /              Game UI definitions as .json files.       
+## LLM et IA 
+
+Aucune IA n'a été mobilisée pour le développement de ce projet. 
+
+## Contexte de développement
+
+Ce jeu a été développé dans le cadre du cours « Développement de jeux vidéo 2D » (SLI, Faculté des Lettres, UNIL), encadré par Isaac Pante et Johan Cuda. 
+
+    
     ...
 ```
