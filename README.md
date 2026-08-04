@@ -21,27 +21,31 @@ Pour jouer en ligne : URL
 
 Une idée originale de Lorelei Chevroulet et Mila Frey 
 
-Code : Lorelei Chevroulet
 
-Concept : Mila Frey
+**Code :** Lorelei Chevroulet
 
-Univers graphique sur Asprite : Mila Frey 
+**Concept :** Mila Frey
 
-Interface : Lorelei Chevroulet 
+**Univers graphique sur Asprite :** Mila Frey 
 
-Mécaniques de jeu : Lorelei Chevroulet
+**Interface :** Lorelei Chevroulet 
 
-Conception et développement des niveaux : Mila Frey
+**Mécaniques de jeu :** Lorelei Chevroulet
+
+**Conception et développement des niveaux :** Mila Frey
 
 
 ### Sources extérieures
-Asset Pack : Premium Pack Sprout Lands – Cup Nooble https://cupnooble.itch.io/sprout-lands-asset-pack
 
-UI : UI Pack Pixel Adventure – Kenney https://kenney.nl/assets/ui-pack-pixel-adventure 
+**Asset Pack :** Premium Pack Sprout Lands – Cup Nooble https://cupnooble.itch.io/sprout-lands-asset-pack
 
-Sons : GameAudioGDC – Sonniss https://sonniss.com/gameaudiogdc/ 
+**UI :** UI Pack Pixel Adventure – Kenney https://kenney.nl/assets/ui-pack-pixel-adventure 
 
-Plugin : Tileset Collision Generator – Sanjo, Godot Asset Library https://godotengine.org/asset-library/asset/3121 
+**Font :** 
+
+**Sons :** GameAudioGDC – Sonniss https://sonniss.com/gameaudiogdc/ 
+
+**Plugin :** Tileset Collision Generator – Sanjo, Godot Asset Library https://godotengine.org/asset-library/asset/3121 
 
 
 ## LLM et IA 
