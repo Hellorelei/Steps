@@ -17,19 +17,19 @@ Pour jouer en ligne : URL
 
 ## Crédits
 
-Une idée originale de hellorelei et milaprz 
+Une idée originale de Lorelei Chevroulet et Mila Frey 
 
-Code : hellorelei
+Code : Lorelei Chevroulet
 
-Concept : milaprz
+Concept : Mila Frey
 
-Univers graphique sur Asprite : milaprz 
+Univers graphique sur Asprite : Mila Frey 
 
-Interface : hellorelei 
+Interface : Lorelei Chevroulet 
 
-Mécaniques de jeu : hellorelei
+Mécaniques de jeu : Lorelei Chevroulet
 
-Conception et développement des niveaux : milaprz
+Conception et développement des niveaux : Mila Frey
 
 
 ### Sources extérieures
