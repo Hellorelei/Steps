@@ -378,7 +378,7 @@ position = Vector2(6, 14)
 polygon = PackedVector2Array(-37, -38, 19, -16, 25, 38, -27, 67)
 
 [node name="Tutorial" parent="." unique_id=211060962 instance=ExtResource("9_jq78i")]
-TutoText = "Il reste encore des déchets invisibles à l'oeil nu: des composés organiques, comme des graisses et des sucres. On les élimine avec des bactéries qui ont besoins d'OXYGÈNE. "
+TutoText = "Il reste encore des déchets invisibles à l'oeil nu: des composés organiques, comme des graisses et des sucres. On les élimine avec des bactéries qui ont besoin d'[u]oxygène[/u]. "
 TutoMobAnimation = "Lipide"
 TutoTurretAnimation = "Oxygene"
 

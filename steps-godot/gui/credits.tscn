@@ -9,6 +9,7 @@
 [ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="5_p5mnd"]
 [ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="6_f3nrh"]
 [ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="7_0lymr"]
+[ext_resource type="Theme" uid="uid://de4ufpkuo4heg" path="res://gui/themes/gui_font_theme.tres" id="10_0lymr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hkmvh"]
 texture = ExtResource("2_6og75")
@@ -172,7 +173,7 @@ sources/0 = SubResource("TileSetAtlasSource_s3561")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0lymr"]
 shader = ExtResource("5_f3nrh")
-shader_parameter/blur_amount = 2.0
+shader_parameter/blur_amount = 2.000000095
 
 [node name="Credits" type="CanvasLayer" unique_id=1019927468]
 script = ExtResource("1_nm7lk")
@@ -200,6 +201,7 @@ offset_left = 32.0
 offset_top = 448.0
 offset_right = 152.0
 offset_bottom = 480.0
+theme = ExtResource("10_0lymr")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_styles/normal = ExtResource("5_p5mnd")
@@ -221,7 +223,11 @@ offset_left = 32.0
 offset_top = 35.0
 offset_right = 480.0
 offset_bottom = 58.0
+theme = ExtResource("10_0lymr")
 theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
 bbcode_enabled = true
 text = "[b]DÉVELOPPEMENT[/b]"
 fit_content = true
@@ -232,7 +238,11 @@ offset_left = 32.0
 offset_top = 62.0
 offset_right = 480.0
 offset_bottom = 200.0
+theme = ExtResource("10_0lymr")
 theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
 text = "CODE
 CONCEPT
 INTERFACE
@@ -245,7 +255,11 @@ fit_content = true
 layout_mode = 0
 offset_right = 448.0
 offset_bottom = 152.0
+theme = ExtResource("10_0lymr")
 theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
 text = "L. Chevroulet
 M. Frey
 L. Chevroulet
@@ -268,7 +282,11 @@ offset_left = 32.0
 offset_top = 256.0
 offset_right = 480.0
 offset_bottom = 296.0
+theme = ExtResource("10_0lymr")
 theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
 bbcode_enabled = true
 text = "[b]RESSOURCES TIÈRCES[/b]"
 vertical_alignment = 1
@@ -278,7 +296,11 @@ offset_left = 32.0
 offset_top = 288.0
 offset_right = 480.0
 offset_bottom = 408.0
+theme = ExtResource("10_0lymr")
 theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
 text = "FONTE
 PLUGINS
 SONS
@@ -290,8 +312,12 @@ UI
 layout_mode = 0
 offset_right = 448.0
 offset_bottom = 120.0
+theme = ExtResource("10_0lymr")
 theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
-text = "Shantell Sans
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+text = "Craig Kroeger: Uni05 54
 Tileset Collision Generator
 Sonniss GameAudio-GDC
 Cup Nooble: Sprout Lands

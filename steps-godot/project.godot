@@ -42,10 +42,6 @@ turret_base_group="Contains all turret bases throughout the levels to autopopula
 enemy_group=""
 enemy_spawner=""
 
-[gui]
-
-theme/custom_font="uid://ce3h47fqe3q7d"
-
 [layer_names]
 
 2d_physics/layer_2="WaterLayer"

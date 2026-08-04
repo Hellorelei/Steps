@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://dh2tfm0vbem4c" path="res://Tilesheet/deco_tileset.tres" id="2_lvtd8"]
 [ext_resource type="TileSet" uid="uid://bom58sxpv6mxi" path="res://Tilesheet/tileset.tres" id="4_j1kgh"]
 [ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="5_lnt0k"]
+[ext_resource type="Theme" uid="uid://de4ufpkuo4heg" path="res://gui/themes/gui_font_theme.tres" id="6_4wvs2"]
 [ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="6_604bw"]
 [ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="7_0343s"]
 [ext_resource type="StyleBox" uid="uid://d0wb8sy704g7c" path="res://gui/sprites/credits_styleboxtexture.tres" id="8_eh8ii"]
@@ -93,6 +94,7 @@ offset_left = 32.0
 offset_top = 448.0
 offset_right = 152.0
 offset_bottom = 480.0
+theme = ExtResource("6_4wvs2")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_styles/normal = ExtResource("5_lnt0k")
@@ -107,6 +109,7 @@ offset_left = 192.0
 offset_top = 296.0
 offset_right = 320.0
 offset_bottom = 331.0
+theme = ExtResource("6_4wvs2")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_styles/normal = ExtResource("5_lnt0k")
@@ -130,7 +133,11 @@ offset_left = 32.0
 offset_top = 91.0
 offset_right = 480.0
 offset_bottom = 114.0
+theme = ExtResource("6_4wvs2")
 theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
 bbcode_enabled = true
 text = "[center][b]FÉLICITATIONS ![/b][/center]"
 fit_content = true
@@ -142,7 +149,11 @@ offset_left = 32.0
 offset_top = 118.0
 offset_right = 480.0
 offset_bottom = 270.0
+theme = ExtResource("6_4wvs2")
 theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
 text = "Vous avez fait passer l'eau par les bonnes étapes pour la nettoyer. Elle peut désormais être relâchée, et rejoindre son cycle naturel.
 
 Bravo!"

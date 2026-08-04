@@ -22,6 +22,7 @@ offset_left = 8.0
 offset_top = 432.0
 offset_right = 128.0
 offset_bottom = 464.0
+theme = ExtResource("2_6gwv0")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_styles/normal = ExtResource("2_8lmc1")
@@ -36,6 +37,7 @@ offset_left = 8.0
 offset_top = 472.0
 offset_right = 200.0
 offset_bottom = 504.0
+theme = ExtResource("2_6gwv0")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_styles/normal = ExtResource("2_8lmc1")
@@ -64,6 +66,7 @@ offset_left = 8.0
 offset_top = 392.0
 offset_right = 128.0
 offset_bottom = 424.0
+theme = ExtResource("2_6gwv0")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_styles/normal = ExtResource("2_8lmc1")
@@ -129,6 +132,7 @@ offset_bottom = 25.0
 text = "Debug"
 
 [node name="VictoryRichTextLabel" type="RichTextLabel" parent="." unique_id=1171050106]
+visible = false
 z_index = 120
 anchors_preset = 8
 anchor_left = 0.5
@@ -165,7 +169,7 @@ grow_vertical = 2
 theme = ExtResource("2_6gwv0")
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
-text = "[b][color=black]★ ★ ★[/color][/b]"
+text = "[b][color=black]⭐️[/color][/b]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -186,7 +190,7 @@ grow_vertical = 2
 theme = ExtResource("2_6gwv0")
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
-text = "[b]★[/b]"
+text = "[b][color=black]⭐️[/color][/b]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -207,7 +211,7 @@ grow_vertical = 2
 theme = ExtResource("2_6gwv0")
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
-text = "[b]★[/b]"
+text = "[b][color=black]⭐️[/color][/b]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -228,7 +232,7 @@ grow_vertical = 2
 theme = ExtResource("2_6gwv0")
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
-text = "[b]★[/b]"
+text = "[b][color=black]⭐️[/color][/b]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -240,6 +244,7 @@ offset_left = 192.0
 offset_top = 304.0
 offset_right = 320.0
 offset_bottom = 339.0
+theme = ExtResource("2_6gwv0")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_styles/normal = ExtResource("2_8lmc1")
@@ -248,6 +253,7 @@ theme_override_styles/hover = ExtResource("4_407sa")
 text = "SUIVANT"
 
 [node name="DefeatRichTextLabel" type="RichTextLabel" parent="." unique_id=468855208]
+visible = false
 z_index = 120
 anchors_preset = 8
 anchor_left = 0.5
@@ -272,6 +278,7 @@ offset_left = 396.0
 offset_top = 471.0
 offset_right = 482.0
 offset_bottom = 502.0
+theme = ExtResource("2_6gwv0")
 text = "Actions"
 switch_on_hover = true
 item_count = 2

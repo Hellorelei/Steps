@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bckjhrycfnbp3" path="res://sprites/DCharbon1.svg" id="5_jnxc4"]
 [ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="6_hy7rm"]
 [ext_resource type="Texture2D" uid="uid://cdwup2rv6p8e6" path="res://sprites/COxygene1.svg" id="6_pfpmx"]
+[ext_resource type="Theme" uid="uid://de4ufpkuo4heg" path="res://gui/themes/gui_font_theme.tres" id="10_xwfgp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m84is"]
 animations = [{
@@ -70,7 +71,11 @@ offset_left = 36.0
 offset_top = -4.0
 offset_right = 120.0
 offset_bottom = 28.0
+theme = ExtResource("10_xwfgp")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
 text = "GRILLE"
 vertical_alignment = 1
 
@@ -97,7 +102,11 @@ offset_left = 36.0
 offset_top = -4.0
 offset_right = 140.0
 offset_bottom = 28.0
+theme = ExtResource("10_xwfgp")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
 text = "DÉCANTEUR"
 vertical_alignment = 1
 
@@ -124,7 +133,11 @@ offset_left = 36.0
 offset_top = -4.0
 offset_right = 140.0
 offset_bottom = 28.0
+theme = ExtResource("10_xwfgp")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
 text = "OXYGÈNE"
 vertical_alignment = 1
 
@@ -150,7 +163,11 @@ offset_left = 36.0
 offset_top = -4.0
 offset_right = 180.0
 offset_bottom = 28.0
+theme = ExtResource("10_xwfgp")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
 text = "CHARBON"
 vertical_alignment = 1
 
@@ -176,7 +193,11 @@ offset_left = -1.0
 offset_top = -1.0
 offset_right = 23.0
 offset_bottom = 23.0
+theme = ExtResource("10_xwfgp")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
 text = " X"
 
 [connection signal="button_down" from="BaseButton" to="." method="_on_base_button_button_down"]

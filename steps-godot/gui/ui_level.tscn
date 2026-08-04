@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://csiri7lt1wwew" path="res://gui/blur.gdshader" id="5_d0uvk"]
 [ext_resource type="StyleBox" uid="uid://cgsgp0a6hlrwe" path="res://gui/sprites/button_styleboxtexture.tres" id="5_jhe3i"]
 [ext_resource type="StyleBox" uid="uid://jkcv4pjdqqni" path="res://gui/sprites/button_pressed_styleboxtexture.tres" id="6_d0uvk"]
+[ext_resource type="Theme" uid="uid://de4ufpkuo4heg" path="res://gui/themes/gui_font_theme.tres" id="6_pfcda"]
 [ext_resource type="StyleBox" uid="uid://dsofkn7marc7p" path="res://gui/sprites/button_hover_styleboxtexture.tres" id="7_pfcda"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhe3i"]
@@ -203,6 +204,7 @@ offset_left = -64.128
 offset_top = -64.128
 offset_right = 63.872
 offset_bottom = 63.872
+theme = ExtResource("6_pfcda")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_styles/normal = ExtResource("5_jhe3i")
@@ -220,13 +222,13 @@ offset_left = -63.872
 offset_top = -64.128
 offset_right = 64.128
 offset_bottom = 63.872
+theme = ExtResource("6_pfcda")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_styles/normal = ExtResource("5_jhe3i")
 theme_override_styles/pressed = ExtResource("6_d0uvk")
 theme_override_styles/hover = ExtResource("7_pfcda")
 text = "NIVEAU 2"
-metadata/_edit_use_anchors_ = true
 
 [node name="Level3Button" type="Button" parent="." unique_id=1020281667]
 anchors_preset = -1
@@ -238,13 +240,13 @@ offset_left = -64.128
 offset_top = -63.872
 offset_right = 63.872
 offset_bottom = 64.128
+theme = ExtResource("6_pfcda")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_styles/normal = ExtResource("5_jhe3i")
 theme_override_styles/pressed = ExtResource("6_d0uvk")
 theme_override_styles/hover = ExtResource("7_pfcda")
 text = "NIVEAU 3"
-metadata/_edit_use_anchors_ = true
 
 [node name="Level4Button" type="Button" parent="." unique_id=1993049109]
 anchors_preset = -1
@@ -256,13 +258,13 @@ offset_left = -63.872
 offset_top = -63.872
 offset_right = 64.128
 offset_bottom = 64.128
+theme = ExtResource("6_pfcda")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_styles/normal = ExtResource("5_jhe3i")
 theme_override_styles/pressed = ExtResource("6_d0uvk")
 theme_override_styles/hover = ExtResource("7_pfcda")
 text = "NIVEAU 4"
-metadata/_edit_use_anchors_ = true
 
 [node name="BackButton" type="Button" parent="." unique_id=363619281]
 anchors_preset = -1
@@ -270,13 +272,13 @@ offset_left = 32.0
 offset_top = 448.0
 offset_right = 152.0
 offset_bottom = 480.0
+theme = ExtResource("6_pfcda")
 theme_override_colors/font_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_colors/font_hover_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_styles/normal = ExtResource("5_jhe3i")
 theme_override_styles/pressed = ExtResource("6_d0uvk")
 theme_override_styles/hover = ExtResource("7_pfcda")
 text = "< RETOUR"
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Level1Button" to="." method="_on_level_1_button_pressed"]
 [connection signal="pressed" from="Level2Button" to="." method="_on_level_2_button_pressed"]
