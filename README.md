@@ -19,7 +19,7 @@ Pour jouer en ligne : URL
 
 ## Crédits
 
-Une idée originale de Lorelei Chevroulet et Mila Frey\
+Une idée originale de Lorelei Chevroulet et Mila Frey  
 
 
 **Code :** Lorelei Chevroulet
@@ -32,7 +32,7 @@ Une idée originale de Lorelei Chevroulet et Mila Frey\
 
 **Mécaniques de jeu :** Lorelei Chevroulet
 
-**Conception et développement des niveaux :** Mila Frey<br/>
+**Conception et développement des niveaux :** Mila Frey  
 
 
 ### Sources extérieures
