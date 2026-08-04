@@ -3,6 +3,7 @@
 
 <img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/0b41b875-fb44-49d6-9ce1-4d456af8b837" />
 
+
 STEPS est un jeu à propos de la terre. Or, la terre est en majorité recouverte d’eau ; le jeu est donc surtout à propos de l'eau !
 
 Au contraire d'un Tower Defense meurtrier et sanguinolent, il est ici question de défendre autre chose : quelque chose de mieux, de plus important, de plus proche… l’eau ! Un Water Defense, si vous voulez. Sans châteaux d'eau, par contre — ça, c'est une autre histoire.
@@ -13,9 +14,11 @@ Poser une tour demande simplement un clic sur l'une des bases prévues. Et comme
 
 Saurez-vous nettoyer votre ruisseau avant qu'il ne rejoigne le grand large ?
 
+
 ## Lancement 
 
 Pour jouer en ligne : URL
+
 
 ## Crédits
 
@@ -35,6 +38,7 @@ Une idée originale de Lorelei Chevroulet et Mila Frey
 **Conception et développement des niveaux :** Mila Frey
 
 
+
 ### Sources extérieures
 
 **Asset Pack :** Premium Pack Sprout Lands – Cup Nooble https://cupnooble.itch.io/sprout-lands-asset-pack
@@ -51,6 +55,7 @@ Une idée originale de Lorelei Chevroulet et Mila Frey
 ## LLM et IA 
 
 Aucune IA n'a été mobilisée pour le développement de ce projet. 
+
 
 ## Contexte de développement
 
