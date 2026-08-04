@@ -17,12 +17,11 @@ Saurez-vous nettoyer votre ruisseau avant qu'il ne rejoigne le grand large ?<br/
 ## Lancement 
 
 Pour jouer en ligne : URL
-
+<br/>
 
 ## Crédits
 
-Une idée originale de Lorelei Chevroulet et Mila Frey 
-
+Une idée originale de Lorelei Chevroulet et Mila Frey<br/> 
 
 **Code :** Lorelei Chevroulet
 
