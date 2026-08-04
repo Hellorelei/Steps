@@ -295,13 +295,14 @@ vertical_alignment = 1
 offset_left = 32.0
 offset_top = 288.0
 offset_right = 480.0
-offset_bottom = 408.0
+offset_bottom = 432.0
 theme = ExtResource("10_0lymr")
 theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_constants/shadow_outline_size = 0
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 0
-text = "FONTE
+text = "FONTES
+
 PLUGINS
 SONS
 TILEMAP
@@ -311,13 +312,14 @@ UI
 [node name="ContenuTextLabel3" type="RichTextLabel" parent="Développement2/TitreRichTextLabel" unique_id=2060731251]
 layout_mode = 0
 offset_right = 448.0
-offset_bottom = 120.0
+offset_bottom = 144.0
 theme = ExtResource("10_0lymr")
 theme_override_colors/default_color = Color(0.48235294, 0.3137255, 0.2, 0.49803922)
 theme_override_constants/shadow_outline_size = 0
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 0
 text = "Craig Kroeger: Uni05 54
+Google: Noto Color Emoji
 Tileset Collision Generator
 Sonniss GameAudio-GDC
 Cup Nooble: Sprout Lands
