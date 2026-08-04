@@ -19,7 +19,7 @@ Pour jouer en ligne : URL
 
 ## Crédits
 
-Une idée originale de Lorelei Chevroulet et Mila Frey<br/>
+Une idée originale de Lorelei Chevroulet et Mila Frey\
 
 
 **Code :** Lorelei Chevroulet
