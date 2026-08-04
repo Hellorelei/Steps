@@ -20,17 +20,27 @@ Pour jouer en ligne : URL
 Une idée originale de hellorelei et milaprz 
 
 Code : hellorelei
+
 Concept : milaprz
+
 Univers graphique sur Asprite : milaprz 
+
 Interface : hellorelei 
+
 Mécaniques de jeu : hellorelei
+
 Conception et développement des niveaux : milaprz
+
 
 ### Sources extérieures
 Asset Pack : Premium Pack Sprout Lands – Cup Nooble https://cupnooble.itch.io/sprout-lands-asset-pack
+
 UI : UI Pack Pixel Adventure – Kenney https://kenney.nl/assets/ui-pack-pixel-adventure 
+
 Sons : GameAudioGDC – Sonniss https://sonniss.com/gameaudiogdc/ 
+
 Plugin : Tileset Collision Generator – Sanjo, Godot Asset Library https://godotengine.org/asset-library/asset/3121 
+
 
 ## LLM et IA 
 
