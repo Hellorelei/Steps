@@ -27,7 +27,7 @@ Mécaniques de jeu : hellorelei
 Conception et développement des niveaux : milaprz
 
 ### Sources extérieures
-Asset Pack : Premium Pack Sprout Lands – Cup Nooble https://cupnooble.itch.io/sprout-lands-asset-pack 
+Asset Pack : Premium Pack Sprout Lands – Cup Nooble https://cupnooble.itch.io/sprout-lands-asset-pack
 UI : UI Pack Pixel Adventure – Kenney https://kenney.nl/assets/ui-pack-pixel-adventure 
 Sons : GameAudioGDC – Sonniss https://sonniss.com/gameaudiogdc/ 
 Plugin : Tileset Collision Generator – Sanjo, Godot Asset Library https://godotengine.org/asset-library/asset/3121 
@@ -39,7 +39,3 @@ Aucune IA n'a été mobilisée pour le développement de ce projet.
 ## Contexte de développement
 
 Ce jeu a été développé dans le cadre du cours « Développement de jeux vidéo 2D » (SLI, Faculté des Lettres, UNIL), encadré par Isaac Pante et Johan Cuda. 
-
-    
-    ...
-```
