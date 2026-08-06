@@ -41,7 +41,7 @@ Une idée originale de Lorelei Chevroulet et Mila Frey
 
 **UI :** UI Pack Pixel Adventure – Kenney https://kenney.nl/assets/ui-pack-pixel-adventure 
 
-**Font :** 
+**Font :** Uni05 54 – Craig Kroeger; Noto Color Emojis – Google
 
 **Sons :** GameAudioGDC – Sonniss https://sonniss.com/gameaudiogdc/ 
 
