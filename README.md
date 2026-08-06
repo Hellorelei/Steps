@@ -17,6 +17,18 @@ Saurez-vous nettoyer votre ruisseau avant qu'il ne rejoigne le grand large ?
 
 Pour jouer en ligne : https://simcardlocked.itch.io/steps
 
+### Développement
+
+Pour modifier le jeu via l'éditeur Godot:
+1. Télécharger le contenu de ce Github;
+2. Ouvrir `/steps-godot` dans l'éditeur Godot (v. 4.7 ou plus récent).
+
+#### Export web
+
+Le contenu de l'export web par Godot se trouve dans `/steps-web`. 
+Ce contenu est généré automatiquement par Godot, et est fait pour être compatible avec la distribution sur des sites
+comme itch.io. 
+
 ## Crédits
 
 Une idée originale de Lorelei Chevroulet et Mila Frey  
